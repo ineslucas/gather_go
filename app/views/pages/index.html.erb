@@ -1,0 +1,19 @@
+
+<h1 style="text-align:center">Choose your Party</h1>
+
+<ul class="cards">
+<% @parties.each do |e| %>
+
+  <%= link_to eventspace_path(e) do %>
+    <div class="card-trip">
+        <img src="https://media.istockphoto.com/id/1266620945/vector/home-party-happy-people-dancing-taking-rest-and-having-fun-vector-flat-illustration.jpg?s=612x612&w=0&k=20&c=V0BBFAbcgapOPvupFAV8KDi6tkdWf19ARHARALgwA5w=">
+      <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= e.name %></h2>
+            <p><%= e.description %></p>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</ul>
