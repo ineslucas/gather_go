@@ -13,6 +13,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card{
+  background-color: transparent;
+}
+
 
 .cards {
   display: grid !important;
@@ -21,6 +25,7 @@
   position: relative;
   padding: 5px;
   margin-top: 10px;
+
 }
 
 a{
