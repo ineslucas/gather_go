@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  # ----------- FOR QUESTIONNAIRE TO DISPLAY -------------
-  get '/parties', to: 'parties#index'
+  #----------- FOR QUESTIONNAIRE DISPLAYS ON TOP OF INDEX AND FILTERS --------
+  resources :parties, only: [:index]
 end
