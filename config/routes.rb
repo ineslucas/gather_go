@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # ----------- FOR QUESTIONNAIRE TO DISPLAY -------------
+  get '/parties', to: 'parties#index'
 end
