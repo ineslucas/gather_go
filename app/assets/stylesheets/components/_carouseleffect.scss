@@ -1,0 +1,22 @@
+.carousel {
+  display: flex;
+  overflow-x: hidden;
+  height: 100px; /* adjust the height to fit your content */
+  justify-content: center;
+}
+
+.carousel-in {
+  flex: 0 0 100%; /* make each item take up the full width */
+  padding: 0 10px; /* add some padding to the sides */
+  animation: scroll 10s linear infinite;
+  text-align: center;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
