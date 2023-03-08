@@ -1,73 +1,38 @@
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-  // gap: 10px;
-  // row-gap: 10px;
-  column-gap: 5px;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-gap: 16px !important;
+  position: relative;
+  padding: 5px;
   margin-top: 10px;
 }
 
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  height: 270px;
-  width: 350px;
-  border-radius: 15px;
-}
-
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+a{
+  color: white;
   text-decoration: none;
 }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+a:hover{
+  color: salmon;
 }
 
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
-a {
-  color: rgb(8, 8, 8);
-  text-decoration: none;
-}
-
-.card-trip-pricing {
-  height: 40px;
-}
-
-.events-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
-  padding-left: 5px;
-}
-
-.event-image {
-  object-fit: cover;
+h2{
+  margin-top: 30%;
+  text-align: center;
 }
