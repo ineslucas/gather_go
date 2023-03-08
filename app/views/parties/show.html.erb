@@ -1,21 +1,82 @@
-<div class="card" style="width: 375px;">
-  <div class="card-body">
-    <h2 class="card-title"><%= @party.name %></h2>
 
-      <div class="content">
-      <h3><%= @party.name %>
-      <h3><%= @party.playlist %></h3>
-      <h3><%= @party.recipe %></h3>
-      <h3><%= @party.pinterest %></h3>
-      <h3><%= @party.game %></h3>
+<div class="container-main mx-auto" style="height: 812px; width: 375px;">
+    <div class="text-center" style="padding-top:40px">
+        <h2 class="Title"> Party Name</h2>
+    </div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
 
-      <p><%= @party.description %></p>
-
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top" alt="card-img">
+    <div class="carousel-item active">
+          <div class="container rounded-5">
+      <div class="card mx-auto rounded-4 border-0 shadow-lg mt-5 mb-5" style="width: 327px;">
+          <div class="card-body" style="height:685px">
+            <div class="card-body-info">
+              <h4 class="card-title mt-3 mb-4">Playlist 🥳 </h4>
+              <p class="card-subtitle mb-4 text-muted">The 80s! Maybe you weren’t born yet, but we certainly remember this era! Big hair, parachute pants, and some of the best dance songs for parties!
+              The 80s were a boom time for many individuals, and excess and materialism ruled the day.</p>
+            </div>
+             <div id="embed-iframe" style="mt-3; height:352px; background-color:rgb(24,56,112)">
+            </div>
+          </div>
       </div>
+    </div>
+    </div>
 
-      <a href="#" class="main-button ">Select Party</a>
-      <a href="#" class="second-button">Back</a>
-   </div>
+    <div class="carousel-item">
+         <div class="container rounded-5">
+      <div class="card mx-auto rounded-4 border-0 shadow-lg mt-5 mb-5" style="width: 327px;">
+          <div class="card-body" style="height:685px">
+            <div class="card-body-info">
+              <h2 class="card-title mt-2 mb-4">Recipe 🌮 🌯 </h2>
+              <ul style="list-style-type: none; color:#6C757D ">
+                <li style="mb-2"><span> - ¼ white onion, very finely chopped</span></li>
+                <li style="mb-2"><span> - 1 tbsp white wine vinegar</span></li>
+                <li style="mb-2"><span> - 2 garlic cloves, crushed</span></li>
+                <li style="mb-2"><span> - 1-2 jalapeno chillies,finely chopped</span></li>
+                <li style="mb-2"><span> - small pack coriander,finely chopped</span></li>
+                <li style="mb-2"><span> - 2 large, ripe avocados</span></li>
+                <li style="mb-2"><span> - 1 lime, juiced</span></li>
+                <li style="mb-2"><span> - 2-3 tbsp olive oil</span></li>
+              </ul>
+            </div>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;">
+          </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="carousel-item">
+         <div class="container rounded-5">
+      <div class="card mx-auto rounded-4 border-0 shadow-lg mt-5 mb-5" style="width: 327px;">
+          <div class="card-body" style="height:685px">
+            <h4 class="card-title mt-2 mb-4">Beer Pong 🍺 </h4>
+            <div class="card-body-info">
+              <p class="card-subtitle text-muted">Beer Pong is generally played by teams of two in which each team takes turn throwing a table tennis ball into the other team’s cups. Once a ball lands in a cup, the cup is taken away and the opponent then drinks the contents of the cup. If both teammates hit cups, the balls are rolled back and they get to shoot again.</p>
+            </div>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;">
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
 
+  <div class="button" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <a href="#" class="main-button" style="position-fixed">Select Party</a>
+    <a href="#" class="second-button" style="position-fixed">Back</a>
+  </div>
+</div>
+
+
+
+<script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+<script>
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
+  let element = document.getElementById('embed-iframe');
+  let options = {
+      uri: 'spotify:episode:7makk4oTQel546B0PZlDM5'
+    };
+  let callback = (EmbedController) => {};
+  IFrameAPI.createController(element, options, callback);
+};
+</script>
