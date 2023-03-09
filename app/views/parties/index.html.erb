@@ -4,13 +4,11 @@
 <div class="container" style="rounded-4">
 <ul class="cards">
     <% @parties.each do |e| %>
-    <%# <%= link_to parties_path(e) do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/id/1266620945/vector/home-party-happy-people-dancing-taking-rest-and-having-fun-vector-flat-illustration.jpg?s=612x612&w=0&k=20&c=V0BBFAbcgapOPvupFAV8KDi6tkdWf19ARHARALgwA5w=)">
-        <a> <%= link_to parties_path(e) do %>
+      <%= link_to party_path(e) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/id/1266620945/vector/home-party-happy-people-dancing-taking-rest-and-having-fun-vector-flat-illustration.jpg?s=612x612&w=0&k=20&c=V0BBFAbcgapOPvupFAV8KDi6tkdWf19ARHARALgwA5w=)">
           <h2><%= e.name %></h2>
-           </a>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </ul>
 </div>
