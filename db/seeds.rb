@@ -14,7 +14,7 @@ Party.create(
   name: '80s Party',
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4UtSsGT1Sbe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   recipe: 'Negroni',
-  pinterest: 'https://www.pinterest.com/search/pins/?q=80%27s%20party&rs=typed&term_meta[]=80%27s%7Ctyped&term_meta[]=party%7Ctyped',
+  pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/kateschott/disco-dance-party/"></a>',
   game: 'Rubik\'s Cube Contest',
   description: 'Get ready to rock out to some of the best music from the 1980s at this totally rad party!'
 )
