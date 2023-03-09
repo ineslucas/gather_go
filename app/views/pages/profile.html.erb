@@ -1,0 +1,23 @@
+
+<div class="main-content" style="width:375px;">
+  <div style="width:100; justify-content:center;">
+    <h2 style="text-align:center;">Hi Inês 👋</h2>
+    <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus mattis.</p>
+  </div>
+    <h4 style="text-align:center; margin-top:40px;"><strong>My upcoming parties 🥳 </strong></h4>
+    <div class="upcoming_parties" style="rounded-4">
+      <ul class="cards">
+        <% current_user.bookings.each do |booking| %>
+        <p><%= booking.party.starts_at.strftime('%B %d, %Y') %>.</p>
+        <% end %>
+    </div>
+
+    <h5 style="text-align:center; margin-top:40px;">My past parties 😮‍💨 </h5>
+    <div class="past_parties" style="rounded-4">
+      <ul class="cards">
+        <% current_user.bookings.each do |booking| %>
+        <p><%= booking.ends_at.strftime('%B %d, %Y') %>.</p>
+        <% end %>
+    </div>
+  </div>
+</div>
