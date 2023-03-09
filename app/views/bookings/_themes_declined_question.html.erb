@@ -1,0 +1,14 @@
+<%# for later, maybe solution is to AddCategoryToBookings %>
+
+<%# First Question to be displayed%>
+
+<div data-create-booking-target="themes_declined_question">
+  <p> Which theme is an immediate no for you? </p>
+  <p>Don't worry, you can always see these party themes later. </p>
+  <%= f.association :party %>
+  # <%# needs to be done as a calendar later %>
+
+  # <%# button for navigation %>
+  <button type="button">Previous Question</button>
+  <button type="button">Next Question</button>
+</div>

@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user
-  belongs_to :parties
+  belongs_to :party
 
   validates :starts_at, presence: true
   validates :ends_at, presence: true

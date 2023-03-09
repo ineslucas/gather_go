@@ -1,12 +1,46 @@
-<h1>This is the survey page</h1>
-<p>simple form, rendering each question inside of it</p>
+<div data-controller="create-booking">
+  <h1 >This is the survey page</h1>
+  <p>simple form, rendering each question inside of it</p>
 
-<%= simple_form_for @booking do |f| %>
-  <%= render 'first_question' %>
-<% end %>
+  <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
+  <%= simple_form_for @booking do |f| %>
 
+    <div data-create-booking-target="start" >
+      <p> When will your party start and finish? </p>
+      <%= f.input :starts_at, as: :date, html5: true %>
+      <%= f.input :ends_at, as: :date, html5: true %>
+      <%# needs to be done as a calendar later %>
 
+      <%# button for navigation %>
+      <button type="button" data-action="click->create-booking#displayMocktail">Next Question</button>
+    </div>
 
+    <div data-create-booking-target="mocktail" class="d-none">
+      <p>Does your group have anyone who doesn't drink alcohol?</p>
+      <%= f.input :has_mocktails %>
+      <%# button for navigation %>
+      <button type="button">Previous Question</button>
+      <button type="button" data-action="click->create-booking#displayThemes">Next Question</button>
+    </div>
+
+    <div data-create-booking-target="themes" class="d-none">
+      <p> Which theme is an immediate no for you? </p>
+      <p>Don't worry, you can always see these party themes later. </p>
+      <%= f.association :party %>
+      # <%# needs to be done as a calendar later %>
+
+      # <%# button for navigation %>
+      <button type="button">Previous Question</button>
+      <button type="button" data-action="click->create-booking#displayAddress">Next Question</button>
+    </div>
+
+    <div data-create-booking-target="address" class="d-none">
+      <p>Where will the party be hosted?</p>
+      <%= f.input :address %>
+      <%= f.button :submit, 'I want to have this party!', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
 
 
 <%# <div>first question</div> (display: none)
