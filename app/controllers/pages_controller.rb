@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    @parties = Party.all
+  end
 end

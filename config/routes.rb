@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   resources :parties, only: [:index]
 
+  get '/profile', to: 'pages#profile'
 end
