@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_124531) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_150354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,15 +32,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_124531) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "edibles", force: :cascade do |t|
+    t.string "type"
+    t.boolean "has_alcohol"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.string "playlist"
-    t.string "recipe"
     t.string "pinterest"
     t.text "game"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "party_edibles", force: :cascade do |t|
+    t.bigint "party_id", null: false
+    t.bigint "edible_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["edible_id"], name: "index_party_edibles_on_edible_id"
+    t.index ["party_id"], name: "index_party_edibles_on_party_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,10 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_124531) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bookings", "parties", column: "parties_id"
   add_foreign_key "bookings", "users"
+  add_foreign_key "party_edibles", "edibles"
+  add_foreign_key "party_edibles", "parties"
 end

@@ -1,0 +1,2 @@
+class Edible < ApplicationRecord
+end

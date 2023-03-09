@@ -1,0 +1,35 @@
+.main-button {
+  margin-bottom: 8px;
+}
+
+// .carousel-item{
+//   background-color: #F9F9F9;
+//   border-radius: 40px;
+// }
+
+.main-button{
+  width: 90%;
+}
+
+.second-button{
+  width: 90%;
+  margin-bottom: 10vh;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.card-body img {
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body-info {
+  flex-grow: 1;
+}
