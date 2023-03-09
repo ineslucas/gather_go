@@ -1,29 +1,29 @@
 <h1>This is the survey page</h1>
 
+
 <h3>What themes would you immediately oppose to?</h3>
 <h4>Choose the ones you know you won't like.</h4>
 <input type="checkbox" id="subscription" ...>
 <label for="subscription" > Subscribe</label>
 
-<%= simple_form_for :search, url: survey_path, method: :get do |f| %>
-  <%= f.input :location, label: 'Where are you hosting your party?', placeholder: 'Enter location', input_html: { value: params[:location] } %>
-  <%= f.input :guests, label: 'How many people will your party have?', placeholder: 'Enter number of guests', input_html: { value: params[:guests] } %>
-  <%= f.button :submit, 'Search', class: 'btn btn-primary' %>
-<% end %>
+<div>first question</div> (display: none)
+<div>second question</div> (display: block)
+<div>choose your party</div> (display: none)
 
 <%# Assuming that the user is already logged in and the current_user variable is set, here's an example of how you could modify the form to create a new booking: %>
 
-<%= simple_form_for [@party, @booking], url: party_bookings_path(@party), method: :post do |f|
-  <%= f.input :parties_id, as: :hidden, input_html: { value: @party.id } %>
-  <%= f.input :starts_at, label: 'Start date and time', as: :datetime_local %>
-  <%= f.input :ends_at, label: 'End date and time', as: :datetime_local %>
-  <%= f.input :address, label: 'Party address' %>
-  <%= f.input :guest_list, label: 'Guest list' %>
-  <%= f.input :playlist_check, label: 'Do you want to use the recommended playlist?', as: :boolean %>
-  <%= f.input :recipe_check, label: 'Do you want to use the recommended recipe?', as: :boolean %>
-  <%= f.input :game_check, label: 'Do you want to use the recommended game?', as: :boolean %>
-  <%= f.button :submit, 'Book now', class: 'btn btn-primary' %>
-<% end %>
+<%# Option from convo w ChatGPT %>
+<%# <%= simple_form_for [@party, @booking], url: party_bookings_path(@party), method: :post do |f| %>
+  <%# # <%= f.input :parties_id, as: :hidden, input_html: { value: @party.id } %>
+  <%# # <%= f.input :starts_at, label: 'Start date and time', as: :datetime_local %>
+  <%# # <%= f.input :ends_at, label: 'End date and time', as: :datetime_local %>
+  <%# # <%= f.input :address, label: 'Party address' %>
+  <%# # <%= f.input :guest_list, label: 'Guest list' %>
+  <%# # <%= f.input :playlist_check, label: 'Do you want to use the recommended playlist?', as: :boolean %>
+  <%# # <%= f.input :recipe_check, label: 'Do you want to use the recommended recipe?', as: :boolean %>
+  <%# # <%= f.input :game_check, label: 'Do you want to use the recommended game?', as: :boolean %>
+  <%# # <%= f.button :submit, 'Book now', class: 'btn btn-primary' %>
+<%# <% end %>
 
 <%# Note that we're using a hidden field to store the party ID, which is passed to the form from the controller via the @party variable. We're also using the bookings_path helper to specify the URL where the form data should be submitted. %>
 
