@@ -6,11 +6,18 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :parties, only: [:show]
-  # get 'parties/:id', to: 'parties#show'
+  #----------- TO HELP WITH CREATING A BOOKING --------
+  # SUGGESTED ROUTE IS ACTUALLY: /parties/:id/bookings	POST	bookings	create // might need to be altered.
+  # post '/bookings', to: 'bookings#create', as: 'bookings' - CURRENTLY COMMENTED
 
-  resources :parties, only: [:index]
+  resources :bookings, only: [ :new, :create ]
 
+  resources :parties, only: [ :index, :show ]  # already has all 7 routes of parties
+  # This is for the survey that will eventually lead to the creation of a new booking associated with a certain party id
+
+  #----------- DASHBOARD AKA PROFILE --------
   get '/profile', to: 'pages#profile'
+
+  #----------- CONFIRMATION PAGE -----------
   get 'bookings/:id/confirmation', to: "bookings#confirmation", as: :booking_confirmation
 end

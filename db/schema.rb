@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_141837) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_103125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
+<<<<<<< HEAD
+=======
     t.bigint "party_id", null: false
+>>>>>>> master
     t.boolean "playlist_check"
     t.boolean "recipe_check"
     t.boolean "game_check"
@@ -28,19 +31,41 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_141837) do
     t.string "guest_list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+    t.boolean "has_mocktails"
+    t.bigint "party_id", null: false
+=======
+>>>>>>> master
     t.index ["party_id"], name: "index_bookings_on_party_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "edibles", force: :cascade do |t|
+    t.integer "category"
+    t.boolean "has_alcohol"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.string "playlist"
-    t.string "recipe"
     t.string "pinterest"
     t.text "game"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category"
+  end
+
+  create_table "party_edibles", force: :cascade do |t|
+    t.bigint "party_id", null: false
+    t.bigint "edible_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["edible_id"], name: "index_party_edibles_on_edible_id"
+    t.index ["party_id"], name: "index_party_edibles_on_party_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_141837) do
 
   add_foreign_key "bookings", "parties"
   add_foreign_key "bookings", "users"
+  add_foreign_key "party_edibles", "edibles"
+  add_foreign_key "party_edibles", "parties"
 end

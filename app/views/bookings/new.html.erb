@@ -1,0 +1,109 @@
+<div data-controller="create-booking">
+  <h1 >This is the survey page</h1>
+  <p>simple form, rendering each question inside of it</p>
+
+  <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
+  <%= simple_form_for @booking do |f| %>
+
+    <%# ------------- QUESTION PARTY TIMINGS --------------  %>
+    <div data-create-booking-target="start" >
+      <p> When will your party start and finish? </p>
+      <%= f.input :starts_at, as: :date, html5: true %>
+      <%= f.input :ends_at, as: :date, html5: true %>
+      <%# needs to be done as a calendar later %>
+      <%# button for navigation %>
+      <button type="button" data-action="click->create-booking#displayMocktail">Next Question</button>
+    </div>
+
+    <%# ------------- QUESTION MOCKTAILS --------------  %>
+    <div data-create-booking-target="mocktail" class="d-none">
+      <p>Does your group have anyone who doesn't drink alcohol?</p>
+      <%= f.input :has_mocktails %>
+      <%# button for navigation %>
+      <button type="button">Previous Question</button>
+      <button type="button" data-action="click->create-booking#displayThemes">Next Question</button>
+    </div>
+
+    <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
+
+    <div data-create-booking-target="themes" class="d-none">
+      <p> Alleged question: which theme is an immediate no for you?  </p>
+      <p> Which theme do you want to have?  </p>
+      <p>Don't worry, you can always see these party themes later. </p>
+      <%= f.association :party %>
+
+      <%# button for navigation %>
+      <button type="button">Previous Question</button>
+      <button type="button" data-action="click->create-booking#displayAddress">Next Question</button>
+    </div>
+
+    <%# ---------------- QUESTION ADDRESS -----------------  %>
+    <div data-create-booking-target="address" class="d-none">
+      <p>Where will the party be hosted?</p>
+      <%= f.input :address %>
+      <%= f.button :submit, 'I want to have this party!', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+
+<%# <div>first question</div> (display: none)
+<div>second question</div> (display: block)
+<div>choose your party</div> (display: none) %>
+
+<%# Assuming that the user is already logged in and the current_user variable is set, here's an example of how you could modify the form to create a new booking: %>
+
+<%# Option from convo w ChatGPT %>
+<%# <%= simple_form_for [@party, @booking], url: party_bookings_path(@party), method: :post do |f| %>
+  <%# # <%= f.input :parties_id, as: :hidden, input_html: { value: @party.id } %>
+  <%# # <%= f.input :starts_at, label: 'Start date and time', as: :datetime_local %>
+  <%# # <%= f.input :ends_at, label: 'End date and time', as: :datetime_local %>
+  <%# # <%= f.input :address, label: 'Party address' %>
+  <%# # <%= f.input :guest_list, label: 'Guest list' %>
+  <%# # <%= f.input :playlist_check, label: 'Do you want to use the recommended playlist?', as: :boolean %>
+  <%# # <%= f.input :recipe_check, label: 'Do you want to use the recommended recipe?', as: :boolean %>
+  <%# # <%= f.input :game_check, label: 'Do you want to use the recommended game?', as: :boolean %>
+  <%# # <%= f.button :submit, 'Book now', class: 'btn btn-primary' %>
+<%# <% end %>
+
+<%# Note that we're using a hidden field to store the party ID, which is passed to the form from the controller via the @party variable. We're also using the bookings_path helper to specify the URL where the form data should be submitted. %>
+
+
+
+
+
+
+<%# FORM WITH SLIDERS 👇%>
+
+<%# <%= simple_form_for @booking do |f| %>
+<%# <div class="splide" data-controller="preferences">
+  <div class="my-slider-progress">
+    <div class="my-slider-progress-bar" data-preferences-target="bar"></div>
+  </div> %>
+
+  <%# <div class="splide__track">
+    <ul class="splide__list"> %>
+      <%# ------------------- Question #1 ------------------ %>
+      <%# <li class="splide__slide">
+        <div class="questions-container" id="question-event">
+          <div class="question">
+            <p>What themes are an immediate no?</p>
+            <hr>
+            <input type="checkbox" id="subscription" ...>
+            <label for="subscription" > Subscribe</label>
+      </li> %>
+      <%# ------------------- Question #2 ------------------ %>
+      <%# <li class="splide__slide">
+        <div class="questions-container" id="question-type">
+          <div class="question">
+            <p>What kind of cocktail would you like?</p>
+            <hr>
+          </div>
+          <p>answers would go here!</p>
+        </div>
+      </li> %>
+
+    <%# </ul>
+  </div>
+</div>
+<% end %>

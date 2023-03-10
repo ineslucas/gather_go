@@ -26,7 +26,8 @@
                             <div class="card-body-info">
                                 <h2 class="card-title mt-2 mb-4">Recipe 🌮 🌯 </h2>
                                 <ul style="list-style-type: none; color:#6C757D ">
-                                    <li style="mb-2"><span> <%= @party.recipe %></span></li>
+                                    <%# sample retrieves 1 edible only, needs to be edited later to show 3 categories %>
+                                    <li style="mb-2"><span> <%= @party.edibles.sample %></span></li>
                                 </ul>
                             </div>
                             <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;"> %>
