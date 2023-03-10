@@ -15,7 +15,6 @@ class BookingsController < ApplicationController
 
   def confirmation
     @booking = Booking.find(params[:id])
-    # so that the view can use it
   end
 
   private
