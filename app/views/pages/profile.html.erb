@@ -1,23 +1,41 @@
 
-<div class="main-content" style="width:375px;">
-  <div style="width:100; justify-content:center;">
-    <h2 style="text-align:center;">Hi Inês 👋</h2>
-    <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus mattis.</p>
+<div class="main-content mb-5">
+  <div class="m-4" style="d-flex justify-content:center;">
+    <h3 style="text-align:left;">Hi Inês 👋</h3>
+    <p style="text-align:left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus mattis.</p>
   </div>
-    <h4 style="text-align:center; margin-top:40px;"><strong>My upcoming parties 🥳 </strong></h4>
-    <div class="upcoming_parties" style="rounded-4">
-      <ul class="cards">
-        <% current_user.bookings.each do |booking| %>
-        <p><%= booking.party.starts_at.strftime('%B %d, %Y') %>.</p>
-        <% end %>
-    </div>
 
-    <h5 style="text-align:center; margin-top:40px;">My past parties 😮‍💨 </h5>
-    <div class="past_parties" style="rounded-4">
-      <ul class="cards">
+ <div class="row justify-content-center">
+    <h3 class="m-4" style="text-align:center;">My upcoming parties 😮‍💨</h3>
+      <ul class="bookings-cards col-11">
         <% current_user.bookings.each do |booking| %>
-        <p><%= booking.ends_at.strftime('%B %d, %Y') %>.</p>
+          <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
+            <div>
+              <li><h2 class="d-flex justify-content-center"><%= booking.party.name%></h2></li>
+              <li><p class="d-flex justify-content-center" style="margin-bottom:0">The date is xp</p></li>
+            </div>
+          </div>
+        <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
         <% end %>
+      </ul>
     </div>
   </div>
+
+
+  <div class="row justify-content-center mt-4">
+    <h5 class="mb-4" style="text-align:center;">My past parties 😮‍💨</h5>
+      <ul class="bookings-cards col-11">
+        <% current_user.bookings.each do |booking| %>
+          <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
+            <div>
+              <li><h3 class="d-flex justify-content-center"><%= booking.party.name%></h3></li>
+              <li><p class="d-flex justify-content-center" style="margin-bottom:0">The date is xp</p></li>
+            </div>
+          </div>
+        <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </div>

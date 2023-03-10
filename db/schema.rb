@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_141837) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "parties_id", null: false
+    t.bigint "party_id", null: false
     t.boolean "playlist_check"
     t.boolean "recipe_check"
     t.boolean "game_check"
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_141837) do
     t.string "guest_list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parties_id"], name: "index_bookings_on_parties_id"
+    t.index ["party_id"], name: "index_bookings_on_party_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -56,6 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_141837) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "parties", column: "parties_id"
+  add_foreign_key "bookings", "parties"
   add_foreign_key "bookings", "users"
 end
