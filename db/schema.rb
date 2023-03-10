@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_103125) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "party_id", null: false
     t.boolean "playlist_check"
     t.boolean "recipe_check"
     t.boolean "game_check"
@@ -28,7 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_103125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "has_mocktails"
-    t.bigint "party_id", null: false
     t.index ["party_id"], name: "index_bookings_on_party_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
