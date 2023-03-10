@@ -7,13 +7,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to root_path, notice: 'Booking created successfully' # future confirmation page
+      redirect_to booking_confirmation_path(@booking), notice: 'Booking created successfully' # future confirmation page
     else
       render :new
     end
   end
 
   def confirmation
+    @booking = Booking.find(params[:id])
+    # so that the view can use it
   end
 
   private
