@@ -3,7 +3,7 @@
     <div class="text-center" style="padding-top:10px">
         <h2 class="Title"><strong> <%= @party.name %></strong></h2>
     </div>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container rounded-5">
@@ -15,7 +15,7 @@
                             </div>
                             <div style="mt-3; height:500px"> <%= @party.playlist.html_safe %> </div>
                             <%# <div id="embed-iframe" style="mt-3; height:352px; background-color:rgb(24,56,112)"> %>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
