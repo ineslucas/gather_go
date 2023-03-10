@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [ :new, :create ]
 
+<<<<<<< HEAD
   resources :parties, only: [ :index, :show ]  # already has all 7 routes of parties
   # This is for the survey that will eventually lead to the creation of a new booking associated with a certain party id
+=======
+  get '/profile', to: 'pages#profile'
+  get 'bookings/:id/confirmation', to: "bookings#confirmation", as: :booking_confirmation
+>>>>>>> master
 end
