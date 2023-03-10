@@ -10,10 +10,10 @@
       <ul class="bookings-cards col-11">
         <% current_user.bookings.each do |booking| %>
           <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
-            <div>
+            <%= link_to party_path(booking.party), class: "profile_card" do %>
               <li><h2 class="d-flex justify-content-center"><%= booking.party.name%></h2></li>
-              <li><p class="d-flex justify-content-center" style="margin-bottom:0">The date is xp</p></li>
-            </div>
+              <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party starts on <%= booking.starts_at.strftime('%B %d, %Y') %></p></li>
+            <% end %>
           </div>
         <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
         <% end %>
@@ -29,7 +29,7 @@
           <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
             <div>
               <li><h3 class="d-flex justify-content-center"><%= booking.party.name%></h3></li>
-              <li><p class="d-flex justify-content-center" style="margin-bottom:0">The date is xp</p></li>
+              <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party finished on <%= booking.ends_at.strftime('%B %d, %Y') %></p></li>
             </div>
           </div>
         <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
@@ -37,5 +37,4 @@
       </ul>
     </div>
   </div>
-
 </div>
