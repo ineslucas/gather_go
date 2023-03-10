@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :parties, only: [:index]
 
   get '/profile', to: 'pages#profile'
+  get 'bookings/:id/confirmation', to: "bookings#confirmation", as: :booking_confirmation
 end
