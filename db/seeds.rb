@@ -41,7 +41,8 @@ party1 = Party.create(
   # mocktails: 'Virgin Mary Iced Tea' # only displays if mocktails: true
   pinterest: 'https://www.pinterest.com/search/pins/?q=80%27s%20party&rs=typed&term_meta[]=80%27s%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Rubik\'s Cube Contest',
-  description: 'Get ready to rock out to some of the best music from the 1980s at this totally rad party!'
+  description: 'Get ready to rock out to some of the best music from the 1980s at this totally rad party!',
+  category: :dance
 )
 
 party2 = Party.create(
@@ -50,7 +51,8 @@ party2 = Party.create(
   # recipe: 'Pumpkin Soup',
   pinterest: 'https://www.pinterest.com/search/pins/?q=halloween%20party&rs=typed&term_meta[]=halloween%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Costume Contest',
-  description: 'Get ready for a spooky and fun-filled Halloween party with your friends!'
+  description: 'Get ready for a spooky and fun-filled Halloween party with your friends!',
+  category: :other
 )
 
 party3 = Party.create(
@@ -59,7 +61,8 @@ party3 = Party.create(
   # recipe: 'Bellini Cocktail',
   pinterest: 'https://www.pinterest.com/search/pins/?q=70%27s%20disco%20party&rs=typed&term_meta[]=70%27s%7Ctyped&term_meta[]=disco%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Disco Dance-off',
-  description: 'Step back in time and groove to the disco beats at this 70s-themed party!'
+  description: 'Step back in time and groove to the disco beats at this 70s-themed party!',
+  category: :dance
 )
 
 party4 = Party.create(
@@ -68,7 +71,8 @@ party4 = Party.create(
   # recipe: 'Vesper Martini',
   pinterest: 'https://www.pinterest.com/search/pins/?q=james%20bond%20party&rs=typed&term_meta[]=james%7Ctyped&term_meta[]=bond%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Spy Games',
-  description: 'Dress up as your favorite Bond character and enjoy some shaken (not stirred) cocktails at this party!'
+  description: 'Dress up as your favorite Bond character and enjoy some shaken (not stirred) cocktails at this party!',
+  category: :crime
 )
 
 party5 = Party.create(
@@ -77,7 +81,8 @@ party5 = Party.create(
   # recipe: 'Old-Fashioned',
   pinterest: 'https://www.pinterest.com/search/pins/?q=great%20gatsby%20party&rs=typed&term_meta[]=great%7Ctyped&term_meta[]=gatsby%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Charleston Dance-off',
-  description: 'Put on your flapper dress and sip some cocktails at this elegant Great Gatsby-themed party!'
+  description: 'Put on your flapper dress and sip some cocktails at this elegant Great Gatsby-themed party!',
+  category: :crime
 )
 
 party6 = Party.create(
@@ -86,7 +91,8 @@ party6 = Party.create(
   # recipe: 'Margarita',
   pinterest: 'https://www.pinterest.com/search/pins/?q=carnival%20party&rs=typed&term_meta[]=carnival%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Pinata Bash',
-  description: 'Get ready to party with colorful masks, tasty snacks, and fun games at this carnival-themed party!'
+  description: 'Get ready to party with colorful masks, tasty snacks, and fun games at this carnival-themed party!',
+  category: :dance
 )
 
 party7 = Party.create(
@@ -95,7 +101,8 @@ party7 = Party.create(
   # recipe: 'Mai Tai',
   pinterest: 'https://www.pinterest.com/search/pins/?q=tropical%20luau%20party&rs=typed&term_meta[]=tropical%7Ctyped&term_meta[]=luau%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Limbo Contest',
-  description: 'Escape to a tropical paradise with this fun and festive luau party!'
+  description: 'Escape to a tropical paradise with this fun and festive luau party!',
+  category: :dance
 )
 
 party8 = Party.create(
@@ -104,7 +111,8 @@ party8 = Party.create(
   # recipe: 'Roast Chicken and Vegetables',
   pinterest: 'https://www.pinterest.com/search/pins/?q=medieval%20feast&rs=typed&term_meta[]=medieval%7Ctyped&term_meta[]=feast%7Ctyped',
   game: 'Jousting Tournament',
-  description: 'Travel back in time to the Middle Ages with this medieval feast party!'
+  description: 'Travel back in time to the Middle Ages with this medieval feast party!',
+  category: :dance
 )
 
 party9 = Party.create(
@@ -113,7 +121,8 @@ party9 = Party.create(
   # recipe: 'Margaritas',
   pinterest: 'https://www.pinterest.com/search/pins/?q=fiesta%20party&rs=typed&term_meta[]=fiesta%7Ctyped&term_meta[]=party%7Ctyped',
   game: 'Piñata Smash',
-  description: 'Get ready to fiesta with this fun and colorful party theme!'
+  description: 'Get ready to fiesta with this fun and colorful party theme!',
+  category: :other
 )
 
 # Add more parties as needed...

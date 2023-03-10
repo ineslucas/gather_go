@@ -5,16 +5,17 @@
   <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
   <%= simple_form_for @booking do |f| %>
 
+    <%# ------------- QUESTION PARTY TIMINGS --------------  %>
     <div data-create-booking-target="start" >
       <p> When will your party start and finish? </p>
       <%= f.input :starts_at, as: :date, html5: true %>
       <%= f.input :ends_at, as: :date, html5: true %>
       <%# needs to be done as a calendar later %>
-
       <%# button for navigation %>
       <button type="button" data-action="click->create-booking#displayMocktail">Next Question</button>
     </div>
 
+    <%# ------------- QUESTION MOCKTAILS --------------  %>
     <div data-create-booking-target="mocktail" class="d-none">
       <p>Does your group have anyone who doesn't drink alcohol?</p>
       <%= f.input :has_mocktails %>
@@ -23,17 +24,20 @@
       <button type="button" data-action="click->create-booking#displayThemes">Next Question</button>
     </div>
 
+    <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
+
     <div data-create-booking-target="themes" class="d-none">
-      <p> Which theme is an immediate no for you? </p>
+      <p> Alleged question: which theme is an immediate no for you?  </p>
+      <p> Which theme do you want to have?  </p>
       <p>Don't worry, you can always see these party themes later. </p>
       <%= f.association :party %>
-      # <%# needs to be done as a calendar later %>
 
       # <%# button for navigation %>
       <button type="button">Previous Question</button>
       <button type="button" data-action="click->create-booking#displayAddress">Next Question</button>
     </div>
 
+    <%# ---------------- QUESTION ADDRESS -----------------  %>
     <div data-create-booking-target="address" class="d-none">
       <p>Where will the party be hosted?</p>
       <%= f.input :address %>
