@@ -22,7 +22,7 @@ eighties_party = Party.create(
   # cocktails: 'Negroni', #always displays
   # mocktails: 'Virgin Mary Iced Tea' # only displays if mocktails: true
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/katiebharrell/80s-party/"></a>',
-  game: 'Rubik\'s Cube Contest',
+  # game: 'Rubik\'s Cube Contest',
   description: 'Get ready to rock out to some of the best music from the 1980s at this totally rad party!',
   category: :dance
 )
@@ -32,7 +32,7 @@ halloween_bash = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5he6FVGWbXQ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Pumpkin Soup',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/kellieleclair/halloween-bash/"></a>',
-  game: 'Costume Contest',
+  # game: 'Costume Contest',
   description: 'Get ready for a spooky and fun-filled Halloween party with your friends!',
   category: :other
 )
@@ -42,7 +42,7 @@ seventies_disco_party = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWYJ5kmTbkZiz" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Bellini Cocktail',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/mjdickey87/psychedelic-70s-party/"></a>',
-  game: 'Disco Dance-off',
+  # game: 'Disco Dance-off',
   description: 'Step back in time and groove to the disco beats at this 70s-themed party!',
   category: :dance
 )
@@ -52,7 +52,7 @@ bond_007_party = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeGAZcEiZT2" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Vesper Martini',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/ckenny210/james-bond-party/"></a>',
-  game: 'Spy Games',
+  # game: 'Spy Games',
   description: 'Dress up as your favorite Bond character and enjoy some shaken (not stirred) cocktails at this party!',
   category: :crime
 )
@@ -62,7 +62,7 @@ great_gatsby_party = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/7dymTwj4uVdzYsUsyu2ctV" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Old-Fashioned',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/fromh2hdesign/great-gatsby-party/"></a>',
-  game: 'Charleston Dance-off',
+  # game: 'Charleston Dance-off',
   description: 'Put on your flapper dress and sip some cocktails at this elegant Great Gatsby-themed party!',
   category: :crime
 )
@@ -72,7 +72,7 @@ carnival_party = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/3g0fjKpYrXZ6Bhw0oJ2bu6" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Margarita',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/Glannce/brazilian-carnival-party/"></a>',
-  game: 'Pinata Bash',
+  # game: 'Pinata Bash',
   description: 'Get ready to party with colorful masks, tasty snacks, and fun games at this carnival-themed party!',
   category: :dance
 )
@@ -82,7 +82,7 @@ tropical_luau = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Mai Tai',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/catchmyparty/hawaiian-luau-party/"></a>',
-  game: 'Limbo Contest',
+  # game: 'Limbo Contest',
   description: 'Escape to a tropical paradise with this fun and festive luau party!',
   category: :dance
 )
@@ -92,7 +92,7 @@ medieval_feast = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVnCMeOKJry5" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Roast Chicken and Vegetables',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/retrogirl2/medieval-party/"></a>',
-  game: 'Jousting Tournament',
+  # game: 'Jousting Tournament',
   description: 'Travel back in time to the Middle Ages with this medieval feast party!',
   category: :dance
 )
@@ -102,7 +102,7 @@ fiesta = Party.create(
   playlist: '<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXupFIUw7TOC" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
   # recipe: 'Margaritas',
   pinterest: '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/dailyelegance/fiesta/"></a>',
-  game: 'Piñata Smash',
+  # game: 'Piñata Smash',
   description: 'Get ready to fiesta with this fun and colorful party theme!',
   category: :other
 )
@@ -162,8 +162,7 @@ virgin_margarita = Edible.create(
   instructions: "Rub a lime wedge around the rim of a margarita glass, and dip the rim into salt to coat it. Fill a shaker with ice, and add the lime juice, orange juice, and simple syrup. Shake well, and strain into the salt-rimmed glass over ice. Garnish with a lime wedge. Enjoy!"
 )
 
-
-puts 'Creating Party Edibles...'
+puts 'Creating Party Edibles - aka edibles which are associated with parties...'
 
 # Potato Skins are now available as an "Edible" associated with the 80s party - will show up when 80's party mains are called
 PartyEdible.create(
@@ -186,6 +185,35 @@ PartyEdible.create(
 PartyEdible.create(
   party: carnival_party,
   edible: virgin_margarita,
+)
+
+puts 'Creating Games...'
+
+piñata_smash = Game.create(
+  name: "Piñata Smash",
+  description: "In this game, a piñata is hung from a tree or a ceiling and players take turns trying to smash it open with a stick while blindfolded. Once the piñata is broken, candy or small toys fall out and everyone rushes to collect them.",
+  materials: "Piñata, Blindfold, Stick, Candy or small toys",
+  instructions: "Hang the piñata from a sturdy tree branch or ceiling hook. Blindfold the player, spin them around three times, and give them the stick. Let them swing at the piñata until it breaks open. Once the piñata is broken, the player takes off their blindfold and everyone rushes to collect the candy or small toys that fell out.",
+)
+
+# for Great Gatsby Party
+charleston_dance_off = Game.create(
+  name: "Charleston Dance-off",
+  materials: "Music player, speakers, timer, scorecards",
+  description: "The Charleston dance-off is a fun and lively game that is perfect for a Great Gatsby themed party. Players compete against each other to see who can perform the best Charleston dance routine. The dance style originated in the 1920s and is known for its energetic, swinging movements and syncopated rhythms. This game will require some space, good music, and lots of enthusiasm!",
+  instructions: "Divide players into pairs or small groups. Each group will take turns performing a Charleston dance routine while the others score them based on their energy, creativity, and overall performance. Set a timer for each performance and award points based on how well each group performs. The group with the highest score at the end of the game wins!"
+)
+
+puts 'Connecting Games with a party theme...'
+
+PartyGame.create(
+  party: fiesta,
+  game: piñata_smash
+)
+
+PartyGame.create(
+  party: great_gatsby_party,
+  game: charleston_dance_off
 )
 
 puts 'Finished!'
