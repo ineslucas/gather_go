@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_11_142929) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_11_170919) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,11 +44,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_142929) do
     t.text "description"
   end
 
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.text "materials"
+    t.text "description"
+    t.text "instructions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.string "playlist"
     t.string "pinterest"
-    t.text "game"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,6 +70,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_142929) do
     t.datetime "updated_at", null: false
     t.index ["edible_id"], name: "index_party_edibles_on_edible_id"
     t.index ["party_id"], name: "index_party_edibles_on_party_id"
+  end
+
+  create_table "party_games", force: :cascade do |t|
+    t.bigint "party_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_party_games_on_game_id"
+    t.index ["party_id"], name: "index_party_games_on_party_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,4 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_142929) do
   add_foreign_key "bookings", "users"
   add_foreign_key "party_edibles", "edibles"
   add_foreign_key "party_edibles", "parties"
+  add_foreign_key "party_games", "games"
+  add_foreign_key "party_games", "parties"
 end
