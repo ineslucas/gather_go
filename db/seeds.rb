@@ -9,6 +9,7 @@
 puts 'Cleaning database...'
 Booking.delete_all
 PartyEdible.delete_all # needs to be first
+PartyGame.delete_all
 Party.delete_all
 Edible.delete_all
 
@@ -151,6 +152,19 @@ margarita = Edible.create(
   instructions: "Rub a lime wedge around the rim of a margarita glass, and dip the rim into salt to coat it. Fill a shaker with ice, and add the tequila, lime juice, and triple sec. Shake well, and strain into the salt-rimmed glass over ice. Garnish with a lime wedge. Enjoy!"
 )
 
+old_fashioned = Edible.create(
+  name: "Old-Fashioned",
+  category: :cocktail,
+  has_alcohol: true,
+  description: "A classic cocktail made with bourbon, sugar, bitters, and a twist of citrus.",
+  ingredients: "2 oz bourbon, 1 tsp sugar, 2 dashes Angostura bitters, 1 twist of orange or lemon peel",
+  instructions: "1. In an Old-Fashioned glass, muddle the sugar with a few drops of water until it dissolves.
+  2. Add the bitters and a large ice cube.
+  3. Pour in the bourbon and stir gently.
+  4. Garnish with a twist of citrus peel and enjoy!"
+)
+
+
 puts 'Finally creating some mocktails...'
 
 virgin_margarita = Edible.create(
@@ -187,7 +201,26 @@ PartyEdible.create(
   edible: virgin_margarita,
 )
 
+PartyEdible.create(
+  party: great_gatsby_party,
+  edible: old_fashioned,
+)
+
 puts 'Creating Games...'
+
+rubiks_cube_contest = Game.create(
+  name: "Rubik's Cube Contest",
+  description: "A timed competition where participants race to solve Rubik's Cubes as quickly as possible.",
+  materials: "Rubik's Cubes",
+  instructions: "Each participant is given a scrambled Rubik's Cube and has a set amount of time to solve it. The participant with the fastest solve time wins the competition."
+)
+
+moon_walking_contest = Game.create(
+  name: "Moon Walking Contest",
+  description: "A moon walking contest is a dance competition where the participants try to imitate Michael Jackson's famous moonwalk. The participants are judged on how well they can perform the moonwalk and other dance moves from Michael Jackson's performances.",
+  materials: "Smooth floor, speakers, Michael Jackson music.",
+  instructions: "Participants must wear comfortable shoes and clothing that allows for free movement. The contest will begin with participants dancing to Michael Jackson's music. The judges will then choose the top contestants based on their moonwalking skills and overall dance performance. The top contestants will then compete against each other to determine the winner of the moon walking contest."
+)
 
 piñata_smash = Game.create(
   name: "Piñata Smash",
@@ -205,6 +238,16 @@ charleston_dance_off = Game.create(
 )
 
 puts 'Connecting Games with a party theme...'
+
+PartyGame.create(
+  party: eighties_party,
+  game: rubiks_cube_contest
+)
+
+PartyGame.create(
+  party: eighties_party,
+  game: moon_walking_contest
+)
 
 PartyGame.create(
   party: fiesta,
