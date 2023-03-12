@@ -26,11 +26,10 @@
                   hint: "we need your current password to confirm your changes",
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
-      <%= f.input :profile_picture,
-                    as: :file,
-                    required: false,
-                    autofocus: false,
-                    input_html: { autocomplete: "photo" }%>
+      <%= f.input :profile_picture, as: :file,
+                  required: false,
+                  autofocus: false,
+                  input_html: { autocomplete: "profile_picture" }%>
     </div>
 
     <div class="form-actions">
@@ -43,4 +42,17 @@
   <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
   <%= link_to "Back", :back %>
+  <br>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "main-button" %>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>this is not margin, just breaks so that the log out button is visible.</p>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>

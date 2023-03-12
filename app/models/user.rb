@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_one_attached :profile_picture
-  mount_uploader :profile_picture, ProfilePictureUploader
+  # mount_uploader :profile_picture, User::ProfilePictureUploader
+
+  attr_accessor :profile_picture
 end

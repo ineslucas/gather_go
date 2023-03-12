@@ -1,35 +1,25 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="margin-bottom:40px">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="margin-bottom: 40px; margin-top: 20px;">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-auto" href="/">
+      <img src="/assets/logo.png" width="40" height="40" alt="Logo" />
+    </a>
+  </div>
+</nav>
+
+
+<%# ---------------OLD NAVBAR CODE - WITHOUT ITEMS----------- %>
+<%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="margin-bottom:40px">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
+      <%# <%= image_tag "logo.png" %>
+    <%# <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <%# <li class="nav-item"> %>
-            <%# <%= link_to "Messages", "#", class: "nav-link" %>
-          <%# </li> %>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> %>
+      <%# <span class="navbar-toggler-icon"></span> %>
+    <%# </button> %>
+    <%# <div class="collapse navbar-collapse" id="navbarSupportedContent"> %>
+      <%# <ul class="navbar-nav me-auto"> %>
+      <%# </ul> %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
