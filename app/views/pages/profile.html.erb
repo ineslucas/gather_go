@@ -1,40 +1,38 @@
-
 <div class="main-content mb-5">
   <div class="m-4" style="d-flex justify-content:center;">
-    <h3 style="text-align:left;">Hi Inês 👋</h3>
-    <p style="text-align:left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus mattis.</p>
+    <h3 style="text-align:left;">Hi Inês 👋</h3> <%# <%= @booking.user.name%>
+    <p style="text-align:left;">These are your parties made epic with GatherGo.</p>
   </div>
 
- <div class="row justify-content-center">
-    <h3 class="m-4" style="text-align:center;">My upcoming parties 😮‍💨</h3>
-      <ul class="bookings-cards col-11">
-        <% current_user.bookings.each do |booking| %>
-          <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
-            <%= link_to party_path(booking.party), class: "profile_card" do %>
-              <li><h2 class="d-flex justify-content-center"><%= booking.party.name%></h2></li>
-              <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party starts on <%= booking.starts_at.strftime('%B %d, %Y') %></p></li>
-            <% end %>
-          </div>
-        <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
-        <% end %>
-      </ul>
-    </div>
+  <%#---------------------- My upcoming parties 😮‍💨 ---------------------------%>
+  <div class="row justify-content-center">
+    <h5 class="m-4" style="text-align:center;">My upcoming parties 😮‍💨</h5>
+    <ul class="bookings-cards col-11">
+      <% current_user.bookings.where("starts_at > ?", Time.now).each do |booking| %>
+        <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
+          <%= link_to booking_path(booking), class: "profile_card" do %>
+            <li><h2 class="d-flex justify-content-center"><%= booking.party.name%></h2></li>
+            <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party starts on <%= booking.starts_at.strftime('%B %d, %Y') %></p></li>
+          <% end %>
+        </div>
+      <% end %>
+    </ul>
   </div>
 
-
+  <%#---------------------- My past parties 😮‍💨 ---------------------------%>
   <div class="row justify-content-center mt-4">
-    <h5 class="mb-4" style="text-align:center;">My past parties 😮‍💨</h5>
+      <h5 class="mb-4" style="text-align:center;">My past parties 😮‍💨</h5>
       <ul class="bookings-cards col-11">
-        <% current_user.bookings.each do |booking| %>
+        <% current_user.bookings.where("ends_at < ?", Time.now).each do |booking| %>
           <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
-            <div>
+            <%= link_to booking_path(booking), class: "profile_card" do %>
               <li><h3 class="d-flex justify-content-center"><%= booking.party.name%></h3></li>
               <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party finished on <%= booking.ends_at.strftime('%B %d, %Y') %></p></li>
-            </div>
+            <% end %>
           </div>
-        <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
         <% end %>
       </ul>
-    </div>
   </div>
 </div>
+
+<%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>

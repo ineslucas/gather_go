@@ -1,13 +1,13 @@
-<div data-controller="create-booking">
-  <h1 >This is the survey page</h1>
-  <p>simple form, rendering each question inside of it</p>
+<div data-controller="create-booking" class="container">
+  <h1 >Start your new party</h1>
+  <p>Answer a few questions and we'll generate your themed party!</p>
 
   <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
   <%= simple_form_for @booking do |f| %>
 
     <%# ------------- QUESTION PARTY TIMINGS --------------  %>
     <div data-create-booking-target="start" >
-      <p> When will your party start and finish? </p>
+      <h3> When will your party start and finish? </h3>
       <%= f.input :starts_at, as: :date, html5: true %>
       <%= f.input :ends_at, as: :date, html5: true %>
       <%# needs to be done as a calendar later %>
@@ -17,7 +17,7 @@
 
     <%# ------------- QUESTION MOCKTAILS --------------  %>
     <div data-create-booking-target="mocktail" class="d-none">
-      <p>Does your group have anyone who doesn't drink alcohol?</p>
+      <h3>Does your group have anyone who doesn't drink alcohol?</h3>
       <%= f.input :has_mocktails %>
       <%# button for navigation %>
       <button type="button">Previous Question</button>
@@ -27,9 +27,8 @@
     <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
 
     <div data-create-booking-target="themes" class="d-none">
-      <p> Alleged question: which theme is an immediate no for you?  </p>
-      <p> Which theme do you want to have?  </p>
-      <p>Don't worry, you can always see these party themes later. </p>
+      <h3> Choose your party theme  </h3>
+      <p>Don't worry, you'll be able to review and change your party theme later. </p>
       <%= f.association :party %>
 
       <%# button for navigation %>
@@ -39,7 +38,7 @@
 
     <%# ---------------- QUESTION ADDRESS -----------------  %>
     <div data-create-booking-target="address" class="d-none">
-      <p>Where will the party be hosted?</p>
+      <h3>Where will the party be hosted?</h3>
       <%= f.input :address %>
       <%= f.button :submit, 'I want to have this party!', class: 'btn btn-primary' %>
     </div>
