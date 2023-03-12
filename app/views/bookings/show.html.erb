@@ -7,11 +7,13 @@
     <li>view more details</li>
     <li>details about the party theme itself</li>
   </ol>
-  <br> 
+  <br>
   <h1>Your <%= @booking.party.name%></h1>
   <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
 
   <%# it would need logic for st, th, rd 😱 %>
   <p> Your party will start on the <strong><%= @booking.starts_at.strftime("%B")%> <%= @booking.starts_at.day %>th, <%= @booking.starts_at.year %></strong> and finish on the <strong><%= @booking.ends_at.strftime("%B")%> <%= @booking.ends_at.day %>th, <%= @booking.ends_at.year %></strong>.</p>
+  <br>
+  <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
 
 </div>
