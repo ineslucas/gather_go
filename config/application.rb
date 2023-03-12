@@ -25,3 +25,11 @@ module GatherGo
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+# Cloudinary.config do |config|
+#   config.cloud_name = 'dyl7sewjl'
+#   config.api_key = '682559416698639'
+#   config.api_secret = 'OwYR2nTzRhbIZgY6ehkq5Ht8ckE'
+#   config.secure = true
+#   config.cdn_subdomain = true
+# end
