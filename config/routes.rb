@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # SUGGESTED ROUTE IS ACTUALLY: /parties/:id/bookings	POST	bookings	create // might need to be altered.
   # post '/bookings', to: 'bookings#create', as: 'bookings' - CURRENTLY COMMENTED
 
-  resources :bookings, only: [ :new, :create ]
+  resources :bookings, only: [ :new, :create, :show ]
 
   resources :parties, only: [ :index, :show ]  # already has all 7 routes of parties
   # This is for the survey that will eventually lead to the creation of a new booking associated with a certain party id

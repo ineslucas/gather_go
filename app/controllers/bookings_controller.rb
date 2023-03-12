@@ -17,6 +17,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def show
+    # this line is not working
+    @booking = Booking.find(params[:id])
+    @party = @booking.party
+  end
+
   private
   # This controller action creates a new booking record associated with the current user and the party ID passed in the form. It uses the booking_params method to whitelist the parameters submitted in the form. If the booking is successfully saved to the database, it redirects the user to the show page for the booking, with a flash notice indicating that the booking was created successfully.
   def booking_params
