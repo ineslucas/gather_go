@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_03_13_094144) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_094144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category"
+    t.string "emoji"
   end
 
   create_table "party_edibles", force: :cascade do |t|
