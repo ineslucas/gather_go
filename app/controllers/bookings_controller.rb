@@ -20,7 +20,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # this line is not working
     @booking = Booking.find(params[:id])
     @party = @booking.party
     # Necessary for calendar invites:
@@ -40,6 +39,14 @@ class BookingsController < ApplicationController
         cal.publish
         render plain: cal.to_ical
       end
+    end
+
+    # to show mapbox on a showpage for the booking
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+      }
     end
   end
 

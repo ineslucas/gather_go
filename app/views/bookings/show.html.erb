@@ -1,20 +1,48 @@
-<div class="container">
-  <h1>Your <%= @booking.party.name%></h1>
-  <%= @booking.party.description %>
 
-  <div class="container">
-    <div class="row">
-      <div class="date_card">
-        <div class="date_details">
-          <%# it would need logic for st, th, rd 😱 %>
-          <p> Your party will start on the <strong><%= @booking.starts_at.strftime("%B")%> <%= @booking.starts_at.day %>th, <%= @booking.starts_at.year %></strong> and finish on the <strong><%= @booking.ends_at.strftime("%B")%> <%= @booking.ends_at.day %>th, <%= @booking.ends_at.year %></strong>.</p>
+<div class="container">
+  <%# -----------------------TITLE + DESCRIPTION--------------------------- %>
+  <div class="row text-center mx-2">
+    <h1>Your <%= @booking.party.name%></h1>
+    <p><%= @booking.party.description %></p>
+  </div>
+  <%# ---------------------------LOCATION, DATES, EDIT ---------------------- %>
+  <div class="row date_card my-5 mx-2">
+    <div class="col-10 date_details">
+      <%# -------------------------PURPLE CARD---------------------------- %>
+      <div class="row">
+        <%# -----------------BOOKING START and END DAY------------------------ %>
+        <div class="col-3">
+          <div>
+            <h5><%= @booking.starts_at.strftime("%b")%></h5>
+            <h1 style="color: #F9BA36"><%= @booking.starts_at.day %></h1>
+          </div>
+          <div>
+            <h4><%= @booking.ends_at.strftime("%b")%></h4>
+            <h5 style="color: #FF8675"><%= @booking.ends_at.day %></h5>
+          </div>
+        </div>
+        <%# -----------------BOOKING START AND END TIME--------------- %>
+        <div class="col-9 d-flex flex-column">
+          <p><%= @booking.starts_at.strftime("%-l %P") %> // <%= @booking.ends_at.strftime("%-l %P") %></p>
+          <%# -----------------PLACEHOLDER FOR MAP--------------- %>
+          <%# <%= image_tag "house_party.jpg", class: "flex-grow-1 w-100", style: "object-fit: cover" %>
+          <div style="width: 100%; height: 600px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
+
+    </div>
+    <%# ------------------- COLUMN WITH EDIT ICON ------------------------------- %>
+    <div class="col-2 text-center">
+      <%= image_tag("pencil-square.svg") %>
     </div>
   </div>
-
-
-  <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
-  <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
-
+  <%# ------------- PLACEHOLDER ROW ----------------------------- %>
+  <div class="row mx-2">
+    <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
+    <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
+  </div>
 </div>

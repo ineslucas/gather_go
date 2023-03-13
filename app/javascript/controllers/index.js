@@ -10,5 +10,8 @@ application.register("create-booking", CreateBookingController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import PreferencesController from "./preferences_controller"
 application.register("preferences", PreferencesController)
