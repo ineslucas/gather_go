@@ -16,4 +16,11 @@
   <br>
   <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
 
+  <%# ---------------- WHATSAPP SHARE BUTTON ---------------- %>
+  <div class="main-button">
+    <%= link_to "whatsapp://send?text=I'm hosting a #{@booking.party.name} 🥳 Join me: gathergo.party/bookings/#{@booking.id}", {} do %>
+      <i class="fa-solid fa-arrow-up-from-bracket" style="color: white;"></i>
+    <% end %>
+  </div>
 </div>
+<%# <i class="fa-solid fa-arrow-up-from-bracket"></i> %>
