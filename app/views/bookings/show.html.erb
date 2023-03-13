@@ -25,12 +25,12 @@
         <div class="col-9 d-flex flex-column">
           <p><%= @booking.starts_at.strftime("%-l %P") %> // <%= @booking.ends_at.strftime("%-l %P") %></p>
           <%# -----------------PLACEHOLDER FOR MAP--------------- %>
-          <%# <%= image_tag "house_party.jpg", class: "flex-grow-1 w-100", style: "object-fit: cover" %>
-          <div style="width: 100%; height: 600px;"
+          <%= image_tag "house_party.jpg", class: "flex-grow-1 w-100", style: "object-fit: cover" %>
+          <%# <div style="width: 100%; height: 600px;"
             data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+            data-map-markers-value="<%= @markers.to_json %>
+            <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
+          <%# </div> %>
         </div>
       </div>
 
