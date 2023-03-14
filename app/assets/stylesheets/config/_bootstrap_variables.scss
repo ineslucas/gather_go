@@ -24,3 +24,8 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+body {
+  background: linear-gradient(0deg, rgba(112,65,238,0.47384891456582634) 0%, rgba(255,255,255,1) 100%);
+  min-height: 100vh;
+}
