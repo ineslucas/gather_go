@@ -29,9 +29,13 @@
     display: none;
   }
 
-  .suggestions-wrapper {
+  .suggestions {
     // border: 1px solid black;
-    // border-bottom: 1px solid #7041EE;
+    li {
+      border-bottom: 1px solid #7041EE;
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
     margin-top: 20px;
   }
 }
