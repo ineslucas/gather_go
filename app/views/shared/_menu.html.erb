@@ -1,12 +1,12 @@
 
 <div class="menu fixed-bottom" style="border-radius: 24px 24px 0px 0px;">
   <%= link_to root_path do %>
-    <i class="fa-solid fa-house"></i>
+    <%= image_tag("house", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(root_url) }") %>
   <% end %>
   <%= link_to parties_path do %>
-    <i class="fa-solid fa-martini-glass"></i>
+    <%= image_tag("cocktail", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(parties_url) }") %>
   <% end %>
   <%= link_to profile_path do %>
-    <i class="fa-solid fa-regular fa-user"></i>
+    <%= image_tag("person", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(profile_url) }") %>
   <% end %>
 </div>
