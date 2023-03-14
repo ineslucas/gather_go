@@ -1,15 +1,14 @@
 <div class="container-body mx-3" data-controller="sections">
-  <div class="text-center">
-    <h2 class="Title" style="color:#7041EE; margin-top:32px; margin-bottom:32px;">Our Party Themes</h2>
-  </div>
+    <div class="text-center">
+      <h2 class="Title" style="color:#7041EE; margin-top:32px; margin-bottom:32px;">Our Party Themes</h2>
+    </div>
 
-<div class="container">
-<ul class="cards">
+  <ul class="cards">
     <% @parties.each do |e| %>
       <%= link_to party_path(e) do %>
         <div class="card-category d-flex justify-content-center rounded-4 flex-column shadow p-3" style="background-color:white;">
-          <h1 class="m-3" style="color:#333333"><%= e.emoji %></h1>
-          <h6 class="mb-5" style="color:#333333"><%= e.name %></h6>
+          <h1 style="font-size: 40px" style="color:#333333"><%= e.emoji %></h1>
+          <h4 style="color:#333333"><%= e.name %></h4>
         </div>
       <% end %>
     <% end %>
