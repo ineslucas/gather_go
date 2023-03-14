@@ -17,7 +17,6 @@
   // top: unset;
 }
 
-
 .cards {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
@@ -44,4 +43,40 @@ h2{
 
 .profile_card {
   color: black;
+}
+
+// ------------------- CARDS FOR BOOKINGS#SHOW PAGE ---------------------
+
+.date_card {
+  // position: relative;
+  left: 29.5px;
+  top: 226px;
+  background-color: #ABA5FF;
+  padding: 15px;
+  border-radius: 20px;
+  padding-right: 0px;
+
+  /* Main Shadow */
+  filter: drop-shadow(0px 16px 60px rgba(78, 79, 114, 0.08));
+}
+
+.date_details {
+  // position: absolute;
+  padding: 20px;
+  height: auto;
+  left: 39.76px;
+  top: 235.5px;
+  background-color:#6C60FF;
+  color: white;
+  border-radius: 20px;
+
+  /* Main Shadow */
+  filter: drop-shadow(0px 16px 60px rgba(78, 79, 114, 0.08));
+}
+
+// to make the edit icon centered
+.col-2.text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
