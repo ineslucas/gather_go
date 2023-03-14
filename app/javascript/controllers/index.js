@@ -16,5 +16,11 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import PartiesController from "./parties_controller"
+application.register("parties", PartiesController)
+
 import PreferencesController from "./preferences_controller"
 application.register("preferences", PreferencesController)
+
+import SectionsController from "./sections_controller"
+application.register("sections", SectionsController)

@@ -173,7 +173,7 @@ pumpkin_soup = Edible.create(
   description: "This creamy pumpkin soup is perfect for a cozy autumn evening.",
   ingredients: "1 small pumpkin, peeled and chopped, 1 onion, chopped, 2 cloves of garlic, minced, 2 cups of vegetable broth, 1 cup of heavy cream, salt, pepper, olive oil",
   instructions: "In a large pot, sauté the onion and garlic in olive oil until they are soft. Add the chopped pumpkin and cook for 5 minutes. Pour in the vegetable broth and bring to a boil. Reduce heat and let simmer until the pumpkin is tender, about 20 minutes. Use an immersion blender or transfer the soup to a blender to puree until smooth. Stir in the heavy cream and heat through. Season with salt and pepper to taste. Serve hot and enjoy!"
-  )
+)
 
 deviled_eggs = Edible.create(
   name: "Deviled Eggs",
@@ -182,7 +182,9 @@ deviled_eggs = Edible.create(
   description: "Deviled eggs are a classic and tasty appetizer that are perfect for any occasion.",
   ingredients: "6 eggs, 1/4 cup mayonnaise, 1 teaspoon yellow mustard, 1/2 teaspoon white vinegar, 1/8 teaspoon salt, 1/8 teaspoon black pepper, paprika",
   instructions: "Place the eggs in a pot of cold water and bring to a boil. Let the eggs sit in the hot water for 12 minutes. Scoop out the yolks and place them in a mixing bowl. Add the mayonnaise, mustard, vinegar, salt, and black pepper to the yolks and mix until smooth. Spoon the yolk mixture back into the egg whites. Sprinkle paprika over the top of each egg. Chill the eggs in the refrigerator for at least 30 minutes. Serve cold and enjoy!"
-  )
+)
+
+
 
 pigs_in_a_blanket = Edible.create(
   name: "Pigs in a Blanket",
@@ -193,14 +195,14 @@ pigs_in_a_blanket = Edible.create(
   instructions: "1. Preheat oven to 400°F. 2. Roll out puff pastry on a lightly floured surface. Cut the pastry into strips that are about 1 inch wide and 3 inches long. 3. Wrap each mini hot dog with a pastry strip, pressing the ends together to seal. 4. Place the wrapped hot dogs on a baking sheet lined with parchment paper. 5. Brush the tops of the pastry with the egg wash. 6. Bake for 15-20 minutes, or until the pastry is golden brown and puffed up. 7. Remove from oven and let cool for a few minutes before serving. 8. Serve with your favorite dipping sauce and enjoy!"
 )
 
-roast_chicken = Edible.create(
-  name: "Roast Chicken",
+roasted_chicken = Edible.create(
+  name: "Roasted Chicken",
   category: :main,
   has_alcohol: false,
   description: "A classic roast chicken recipe that is juicy and tender on the inside with crispy skin on the outside. Perfect for a medieval Feast!",
   ingredients: "1 whole chicken (4-5 pounds), 2 tablespoons of olive oil, 2 teaspoons of salt, 1 teaspoon of black pepper, 1 lemon, 1 head of garlic, 4 sprigs of fresh rosemary",
   instructions: "1. Preheat oven to 425°F. 2. Place the chicken in a roasting pan and drizzle with olive oil. 3. Season the chicken with salt and pepper, inside and out. 5. Cut the lemon in half and squeeze the juice over the chicken. 6. Cut the garlic head in half horizontally and place it inside the chicken cavity along with the lemon halves and rosemary sprigs. 7. Tie the legs of the chicken together with kitchen twine. 8. Roast the chicken for 1 hour and 15 minutes, or until the internal temperature of the chicken reaches 165°F. 9. Remove the chicken from the oven and let it rest for 10-15 minutes before carving. 10. Serve hot and enjoy!"
-  )
+)
 
 filo_pastry_spinach_rolls = Edible.create(
   name: "Filo Pastry Spinach Rolls",
@@ -402,7 +404,7 @@ PartyEdible.create(
 )
 
 PartyEdible.create(
-  party: carnival,
+  party: carnival_party,
   edible: loaded_nachos
 )
 
@@ -413,7 +415,7 @@ PartyEdible.create(
 
 PartyEdible.create(
   party: fiesta,
-  edble: margarita
+  edible: margarita
 )
 
 PartyEdible.create(
@@ -441,7 +443,7 @@ PartyEdible.create(
   edible: old_fashioned
 )
 
-PartEdible.create(
+PartyEdible.create(
   party: great_gatsby_party,
   edible: deviled_eggs
 )
@@ -481,24 +483,24 @@ PartyEdible.create(
   edible: filo_pastry_spinach_rolls
 )
 
-PartEdible.create(
+PartyEdible.create(
   party: bond_007_party,
   edible: whiskey_sour
 )
 
-PartEdible.create(
+PartyEdible.create(
   party: bond_007_party,
   edible: pigs_in_a_blanket
 )
 
-PartEdible.create(
+PartyEdible.create(
   party: bond_007_party,
   edible: virgin_old_fashioned
 )
 
 PartyEdible.create(
   party: medieval_feast,
-  edible: roast_chicken
+  edible: roasted_chicken
 )
 
 PartyEdible.create(
@@ -638,7 +640,7 @@ PartyGame.create(
 )
 
 PartyGame.create(
-  party: carnival,
+  party: carnival_party,
   game: limbo_contest
 )
 

@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @party = Party.find(params[:booking][:party_id])
     @booking.user_id = current_user.id
     if @booking.save
       redirect_to booking_confirmation_path(@booking), notice: 'Booking created successfully' # future confirmation page

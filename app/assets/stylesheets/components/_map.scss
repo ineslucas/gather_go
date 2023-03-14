@@ -8,3 +8,30 @@
   // #change fonts
   font-family: "Inter", sans-serif;
 }
+
+.mapboxgl-ctrl-geocoder {
+  .mapboxgl-ctrl-geocoder--icon {
+    display: none;
+  }
+
+  input {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #ABA5FF;
+    border: 1px solid gray;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  .mapboxgl-ctrl-geocoder--pin-right {
+    display: none;
+  }
+
+  .suggestions-wrapper {
+    // border: 1px solid black;
+    // border-bottom: 1px solid #7041EE;
+    margin-top: 20px;
+  }
+}
