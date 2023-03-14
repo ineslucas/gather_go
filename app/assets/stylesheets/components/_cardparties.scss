@@ -2,17 +2,8 @@
   margin-bottom: 8px;
 }
 
-// .carousel-item{
-//   background-color: #F9F9F9;
-//   border-radius: 40px;
-// }
-
-.main-button{
-  width: 90%;
-}
-
 .second-button{
-  width: 90%;
+  // width: 56px;
   margin-bottom: 10vh;
 }
 
@@ -28,6 +19,7 @@ ul {
 .card-body {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .card-body-info {

@@ -6,6 +6,9 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# related to cloudinary
+Dotenv::Railtie.load
+
 module GatherGo
   class Application < Rails::Application
     config.generators do |generate|

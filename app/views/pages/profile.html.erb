@@ -1,7 +1,21 @@
 <div class="main-content mb-5">
-  <div class="m-4" style="d-flex justify-content:center;">
-    <h3 style="text-align:left;">Hi Inês 👋</h3> <%# <%= @booking.user.name%>
-    <p style="text-align:left;">These are your parties made epic with GatherGo.</p>
+ <div class="container">
+    <!-- ROW CONTAINS BOTH AVATAR AND HI (NAME) -->
+    <div class="row m-2">
+      <!-- container for welcome text -->
+      <div class="col-9">
+        <%# <%= @booking.user.name%>
+        <h3 style="text-align:left;">Hi Inês 👋 </h3>
+        <p style="text-align:left;">These are your parties made epic with GatherGo.</p>
+      </div>
+      <!-- TRYING TO PULL IMAGE OF CURRENT USER FROM CLOUDINARY -->
+      <div class="col-3">
+        <%# ---------------ALLOWS AVATAR TO LINK_TO THE EDIT PAGE------------- %>
+        <%= link_to edit_user_registration_path do %>
+          <%= cl_image_tag(current_user.profile_picture.key, class: "avatar", alt: "avatar", style: "width: 100%;") %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <%#---------------------- My upcoming parties 😮‍💨 ---------------------------%>
@@ -21,18 +35,22 @@
 
   <%#---------------------- My past parties 😮‍💨 ---------------------------%>
   <div class="row justify-content-center mt-4">
-      <h5 class="mb-4" style="text-align:center;">My past parties 😮‍💨</h5>
-      <ul class="bookings-cards col-11">
-        <% current_user.bookings.where("ends_at < ?", Time.now).each do |booking| %>
-          <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
-            <%= link_to booking_path(booking), class: "profile_card" do %>
-              <li><h3 class="d-flex justify-content-center"><%= booking.party.name%></h3></li>
-              <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party finished on <%= booking.ends_at.strftime('%B %d, %Y') %></p></li>
-            <% end %>
-          </div>
-        <% end %>
-      </ul>
+    <h5 class="mb-4" style="text-align:center;">My past parties 😮‍💨</h5>
+    <ul class="bookings-cards col-11">
+      <% current_user.bookings.where("ends_at < ?", Time.now).each do |booking| %>
+        <div class="booking-card d-flex justify-content-center shadow mb-3 p-5 rounded-4" style="background-color:white;">
+          <%= link_to booking_path(booking), class: "profile_card" do %>
+            <li><h3 class="d-flex justify-content-center"><%= booking.party.name%></h3></li>
+            <li><p class="d-flex justify-content-center" style="margin-bottom:0">Your party finished on <%= booking.ends_at.strftime('%B %d, %Y') %></p></li>
+          <% end %>
+        </div>
+      <% end %>
+    </ul>
   </div>
 </div>
 
 <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
+
+<%# Possibilities for cloudinary image %>
+<%# <%= cl_image_tag current_user.profile_picture.url, class: "avatar", alt: "avatar" %>
+<%# <%= cl_image_tag @user.profile_picture_path, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
