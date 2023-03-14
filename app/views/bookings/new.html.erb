@@ -1,15 +1,16 @@
-<div data-controller="create-booking" style="text-align:center; background-color:#9670F2; padding: 10px;">
-  <h1 >Start your new party</h1>
-  <p>Answer a few questions and we'll generate your themed party!</p>
+<div data-controller="create-booking" class="container-body" style="text-align:center;">
+  <h1 class="Title" style="color:#7041EE; margin-top:32px; padding:20px; font-size: 24px;">Start a New Party</h1>
+  <%# <p>Answer a few questions and we'll generate your themed party!</p> %>
 
-  <div style="background-color:#FFFFFF; padding:30px; height:100%; border-radius:5%;">
+  <div style="background-color:#FFFFFF; border-radius:5%; padding:20px; margin:20px;" class="shadow-lg">
     <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
     <%= simple_form_for @booking, data: { controller: "parties" } do |f| %>
 
       <%# ------------- QUESTION PARTY TIMINGS --------------  %>
-      <div data-create-booking-target="start">
-        <h3> When will your party start and finish? </h3>
-        <%= f.input :starts_at, as: :datetime, html5: true, input_html: { class: "round-input" } %>
+      <div data-create-booking-target="start" class="round-input">
+          <h6 style="color:#D8DADA; padding-bottom:10px;">Question 1 of 4</h6>
+        <h4 style="color:black"> When will your party start and finish? </h4>
+        <%= f.input :starts_at, as: :datetime, html5: true, input_html: { class: "round-input"  } %>
         <%= f.input :ends_at, as: :datetime, html5: true, input_html: { class: "round-input" } %>
         <%# needs to be done as a calendar later %>
         <%# button for navigation %>
@@ -21,8 +22,10 @@
 
       <%# ------------- QUESTION MOCKTAILS --------------  %>
       <div data-create-booking-target="mocktail" class="d-none">
-        <h3>Does your group have anyone who doesn't drink alcohol?</h3>
-        <%= f.input :has_mocktails %>
+          <h6 style="color:#D8DADA; padding-bottom:10px;">Question 2 of 4</h6>
+        <h4 style="padding: 30px">Would you also like to see Mocktail suggestions?</h4>
+        <%= f.input :has_mocktails,  input_html: { class: "tag-selector", style: "text-size:24px"} %>
+
         <%# button for navigation %>
         <button type="button" class="back-round-button" data-action="click->create-booking#displayStart" style="margin-bottom:10px">
         <i class="fa-solid fa-chevron-left back-round-icon"></i>
@@ -35,7 +38,8 @@
 
       <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
       <div data-create-booking-target="themes" class="d-none">
-        <h3> Choose your party theme  </h3>
+          <h6 style="color:#D8DADA; padding-bottom:10px;">Question 3 of 4</h6>
+        <h4> Choose your party theme  </h4>
         <p>Don't worry, you'll be able to review and change your party theme later. </p>
         <%= f.association :party , as: :radio_buttons, id: "category",
                     input_html: { class: "tag-selector", data: { action: "change->parties#showInfo" }},
@@ -54,21 +58,14 @@
 
       <%# ---------------- QUESTION ADDRESS -----------------  %>
       <div data-create-booking-target="address" class="d-none">
+        <h6 style="color:#D8DADA; padding-bottom:10px;">Question 4 of 4</h6>
         <h3>Where will the party be hosted?</h3>
         <%= f.input :address,
                     input_html: { class: "round-input d-none", data: {address_autocomplete_target: "address"}},
                     wrapper_html: { data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-        <%= f.button :submit, 'I want to have this party!', class: "main-button" %>
+        <%= f.button :submit, 'Start Party!', class: "main-button" %>
       </div>
-
-      <%# ---------------- QUESTION ADDRESS -----------------
-      <div data-create-booking-target="address" class="d-none">
-        <h3>Where will the party be hosted?</h3>
-        <%= f.input :address,
-                    input_html: {data: {address_autocomplete_target: "address"}},
-                    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-        <%# <%= f.button :submit, 'I want to have this party!', class: 'btn btn-primary' %>
-      <%# </div> %>
     <% end %>
   </div>
 </div>
+
