@@ -42,13 +42,12 @@ class BookingsController < ApplicationController
     end
 
     # to show mapbox on a showpage for the booking
-    @markers = @booking.geocoded.map do |booking|
-      {
-        lat: booking.latitude,
-        lng: booking.longitude,
-        marker_html: render_to_string(partial: "marker")
-      }
-    end
+    @markers = {
+      lat: @booking.latitude,
+      lng: @booking.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {booking: @booking}),
+      marker_html: render_to_string(partial: "marker")
+    }
   end
 
   def icalendar

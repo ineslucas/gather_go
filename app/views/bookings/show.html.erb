@@ -6,7 +6,7 @@
     <p><%= @booking.party.description %></p>
   </div>
   <%# ---------------------------LOCATION, DATES, EDIT ---------------------- %>
-  <div class="row date_card my-5 mx-2">
+  <div class="row date_card my-2 mx-2">
     <div class="col-10 date_details">
       <%# -------------------------PURPLE CARD---------------------------- %>
       <div class="row">
@@ -14,29 +14,30 @@
         <div class="col-3">
           <div>
             <h5><%= @booking.starts_at.strftime("%b")%></h5>
-            <h1 style="color: #F9BA36"><%= @booking.starts_at.day %></h1>
+            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
           </div>
           <div>
             <h4><%= @booking.ends_at.strftime("%b")%></h4>
-            <h5 style="color: #FF8675"><%= @booking.ends_at.day %></h5>
+            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
           </div>
         </div>
         <%# -----------------BOOKING START AND END TIME + MAP --------------- %>
         <div class="col-9 d-flex flex-column">
           <p><%= @booking.starts_at.strftime("%-l %P") %> // <%= @booking.ends_at.strftime("%-l %P") %></p>
-          <%# -----------------PLACEHOLDER FOR MAP--------------- %>
-          <%= image_tag "house_party.jpg", class: "flex-grow-1 w-100", style: "object-fit: cover" %>
-          <%# <div style="width: 100%; height: 600px;"
+          <%# -----------------MAP--------------- %>
+          <div style="width: 100%; height: 150px; border-radius: 20px;"
             data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>
-            <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
-          <%# </div> %>
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
     </div>
     <%# ------------------- COLUMN WITH EDIT ICON ------------------------------- %>
     <div class="col-2 text-center">
-      <%= image_tag("pencil-square.svg") %>
+      <%= link_to edit_booking_path do %>
+        <%= image_tag("pencil-square.svg") %>
+      <% end %>
     </div>
   </div>
   <%# -------------ROW with WRITTEN ADDRESS + SHARE BUTTONS----------------------------- %>
@@ -50,6 +51,14 @@
       <% end %>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
 
 <%# <i class="fa-solid fa-arrow-up-from-bracket"></i> %>
