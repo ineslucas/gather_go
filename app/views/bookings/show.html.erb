@@ -1,26 +1,64 @@
+
 <div class="container">
-  <h1>Booking#show</h1>
-  <p>This page will have:</p>
-  <ol>
-    <li>booking details specific to that booking, incl. dates, map with location</li>
-    <li>possibility to edit (update), delete </li>
-    <li>view more details</li>
-    <li>details about the party theme itself</li>
-  </ol>
-  <br>
-  <h1>Your <%= @booking.party.name%></h1>
-  <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
-
-  <%# it would need logic for st, th, rd 😱 %>
-  <p> Your party will start on the <strong><%= @booking.starts_at.strftime("%B")%> <%= @booking.starts_at.day %>th, <%= @booking.starts_at.year %></strong> and finish on the <strong><%= @booking.ends_at.strftime("%B")%> <%= @booking.ends_at.day %>th, <%= @booking.ends_at.year %></strong>.</p>
-  <br>
-  <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
-
-  <%# ---------------- WHATSAPP SHARE BUTTON ---------------- %>
-  <div class="main-button">
-    <%= link_to "whatsapp://send?text=I'm hosting a #{@booking.party.name} 🥳 Join me: gathergo.party/bookings/#{@booking.id}", {} do %>
-      <i class="fa-solid fa-arrow-up-from-bracket" style="color: white;"></i>
-    <% end %>
+  <%# -----------------------TITLE + DESCRIPTION--------------------------- %>
+  <div class="row text-center mx-2">
+    <h2 class="Title" style="color:#7041EE; margin-top:20px; margin-bottom:20px;">Your <%= @booking.party.name%></h2>
+    <p><%= @booking.party.description %></p>
   </div>
+  <%# ---------------------------LOCATION, DATES, EDIT ---------------------- %>
+  <div class="row date_card my-2 mx-2">
+    <div class="col-10 date_details">
+      <%# -------------------------PURPLE CARD---------------------------- %>
+      <div class="row">
+        <%# -----------------BOOKING START and END DAY------------------------ %>
+        <div class="col-3">
+          <div>
+            <h5><%= @booking.starts_at.strftime("%b")%></h5>
+            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
+          </div>
+          <div>
+            <h4><%= @booking.ends_at.strftime("%b")%></h4>
+            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
+          </div>
+        </div>
+        <%# -----------------BOOKING START AND END TIME + MAP --------------- %>
+        <div class="col-9 d-flex flex-column">
+          <p><%= @booking.starts_at.strftime("%-l %P") %> // <%= @booking.ends_at.strftime("%-l %P") %></p>
+          <%# -----------------MAP--------------- %>
+          <div style="width: 100%; height: 150px; border-radius: 20px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# ------------------- COLUMN WITH EDIT ICON ------------------------------- %>
+    <div class="col-2 text-center">
+      <%= link_to edit_booking_path do %>
+        <%= image_tag("pencil-square.svg") %>
+      <% end %>
+    </div>
+  </div>
+  <%# -------------ROW with WRITTEN ADDRESS + SHARE BUTTONS----------------------------- %>
+  <div class="row mx-2">
+    <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
+    <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
+    <%# ---------------- WHATSAPP SHARE BUTTON ---------------- %>
+    <div class="main-button">
+      <%= link_to "whatsapp://send?text=I'm hosting a #{@booking.party.name} 🥳 Join me: gathergo.party/bookings/#{@booking.id}", {} do %>
+        <i class="fa-solid fa-arrow-up-from-bracket" style="color: white;"></i>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
+
 <%# <i class="fa-solid fa-arrow-up-from-bracket"></i> %>
