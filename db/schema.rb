@@ -89,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_094144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category"
+    t.string "emoji"
   end
 
   create_table "party_edibles", force: :cascade do |t|

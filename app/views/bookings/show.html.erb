@@ -21,7 +21,7 @@
             <h5 style="color: #FF8675"><%= @booking.ends_at.day %></h5>
           </div>
         </div>
-        <%# -----------------BOOKING START AND END TIME--------------- %>
+        <%# -----------------BOOKING START AND END TIME + MAP --------------- %>
         <div class="col-9 d-flex flex-column">
           <p><%= @booking.starts_at.strftime("%-l %P") %> // <%= @booking.ends_at.strftime("%-l %P") %></p>
           <%# -----------------PLACEHOLDER FOR MAP--------------- %>
@@ -33,16 +33,23 @@
           <%# </div> %>
         </div>
       </div>
-
     </div>
     <%# ------------------- COLUMN WITH EDIT ICON ------------------------------- %>
     <div class="col-2 text-center">
       <%= image_tag("pencil-square.svg") %>
     </div>
   </div>
-  <%# ------------- PLACEHOLDER ROW ----------------------------- %>
+  <%# -------------ROW with WRITTEN ADDRESS + SHARE BUTTONS----------------------------- %>
   <div class="row mx-2">
     <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
     <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
+    <%# ---------------- WHATSAPP SHARE BUTTON ---------------- %>
+    <div class="main-button">
+      <%= link_to "whatsapp://send?text=I'm hosting a #{@booking.party.name} 🥳 Join me: gathergo.party/bookings/#{@booking.id}", {} do %>
+        <i class="fa-solid fa-arrow-up-from-bracket" style="color: white;"></i>
+      <% end %>
+    </div>
   </div>
 </div>
+
+<%# <i class="fa-solid fa-arrow-up-from-bracket"></i> %>
