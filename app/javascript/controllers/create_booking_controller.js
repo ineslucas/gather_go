@@ -4,8 +4,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "start", "address", "mocktail", "themes" ]
 
+  displayStart() {
+    this.startTarget.classList.remove("d-none")
+    this.mocktailTarget.classList.add("d-none")
+  }
+
   displayMocktail() {
     this.startTarget.classList.add("d-none")
+    this.themesTarget.classList.add("d-none")
     this.mocktailTarget.classList.remove("d-none")
   }
 
