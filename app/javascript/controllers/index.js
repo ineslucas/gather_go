@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import PreferencesController from "./preferences_controller"
 application.register("preferences", PreferencesController)
+
+import SectionsController from "./sections_controller"
+application.register("sections", SectionsController)
