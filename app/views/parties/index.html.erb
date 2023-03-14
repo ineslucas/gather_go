@@ -3,15 +3,13 @@
     <h2 class="Title" style="color:#7041EE; margin-top:32px; margin-bottom:32px;">Our Party Themes</h2>
   </div>
 
-<div class="container">
 <ul class="cards">
-    <% @parties.each do |e| %>
-      <%= link_to party_path(e) do %>
-        <div class="card-category d-flex justify-content-center rounded-4 flex-column shadow p-3" style="background-color:white;">
-          <h1 class="m-3" style="color:#333333"><%= e.emoji %></h1>
-          <h6 class="mb-5" style="color:#333333"><%= e.name %></h6>
-        </div>
-      <% end %>
+  <% @parties.each do |e| %>
+    <%= link_to party_path(e) do %>
+      <div class="card-category d-flex justify-content-center rounded-4 flex-column shadow p-3" style="background-color:white;">
+        <h1 class="fs-50 m-3" style="color:#333333"><%= e.emoji %></h1>
+        <h6 class="fs-5" style="color:#333333"><%= e.name %></h6>
+      </div>
     <% end %>
-  </ul>
-</div>
+  <% end %>
+</ul>
