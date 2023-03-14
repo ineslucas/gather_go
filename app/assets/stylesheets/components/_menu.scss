@@ -16,25 +16,15 @@
   font-size: 14px;
 }
 
-/* Navbar links on mouse-over */
 // .menu a:hover {
 //   background-color: #333333;
 // }
 
 .fa-solid {
-  font-size: 20px;
-  margin-left: 8px;
-  color: #333333;
+  font-size: 24px;
 }
-/* Current/active navbar link */
-// .active {
-//   background-color: #04AA6D;
-// }
 
-/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
-// @media screen and (max-width: 500px) {
-//   .menu a {
-//     float: none;
-//     display: block;
-//   }
-// }
+
+.fa-solid:active::after {
+  color: #6356DC;
+}
