@@ -9,7 +9,7 @@
 }
 
 .purple-round-button {
-  background-color: #8743FF;
+  background-color: #6C60FF;
   border: none;
   border-radius: 50%;
   color: white;
@@ -26,7 +26,7 @@
 
 
 .back-round-button {
-  background-color: #c5a6fb;
+  background-color: #bbb6fc;
   border: none;
   border-radius: 50%;
   color: white;
@@ -54,17 +54,65 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 16px;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
   background-color: #ECEAFF;
-  color: #7E73FF;
-  border: 1px solid #7E73FF;
+  color: #ABA5FF;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
 }
 
 .tag-selector:checked + label {
-  background-color: #7E73FF;
+  background-color: #6C60FF;
   color: white;
 }
+
+.container-body {
+  text-align: center;
+  // background-color: #ABA5FF;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.round-input {
+  border-radius: 25px;
+  // border: 2px solid #ABA5FF;
+  padding: 10px;
+  // background-color: #F6F5FF;
+  color: #6C60FF;
+  width: 100%;
+}
+
+// .round-input:focus {
+//   // border-color: #8C84E1;
+//   outline: none;
+//   width: 300px;
+// }
+
+// /* Style the iCalendar labels */
+// label.datetime_label {
+//   color: #464159;
+// }
+
+// /* Style the iCalendar date and time inputs */
+// input.datetime.optional {
+//   width: 48%;
+//   margin-right: 4%;
+// }
+
+// /* Style the iCalendar date and time select dropdowns */
+// select.datetime.optional {
+//   width: 48%;
+//   margin-left: 4%;
+//   border-radius: 25px;
+//   border: 2px solid #ABA5FF;
+//   padding: 10px;
+//   background-color: #F6F5FF;
+//   color: #464159;
+// }
+
+// select.datetime.optional:focus {
+//   // border-color: #8C84E1;
+//   outline: none;
+// }
