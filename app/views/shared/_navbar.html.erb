@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="margin-bottom: 40px; margin-top: 20px;">
   <div class="container-fluid">
-    <a class="navbar-brand mx-auto" href="/">
-      <img src="/assets/logo.png" width="40" height="40" alt="Logo" />
-    </a>
+    <%= link_to root_path, class: "navbar-brand mx-auto" do %>
+      <%= image_tag "logo_main.svg", width: 72 %>
+    <% end %>
   </div>
 </nav>
 
-
+ 
 <%# ---------------OLD NAVBAR CODE - WITHOUT ITEMS----------- %>
 <%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="margin-bottom:40px">
   <div class="container-fluid">
