@@ -20,11 +20,15 @@
 //   background-color: #333333;
 // }
 
-.fa-solid {
-  font-size: 24px;
-}
+// .fa-solid {
+//   font-size: 24px;
+// }
 
 
-.fa-solid:active::after {
-  color: #6356DC;
+// .fa-solid:active::after {
+//   color: #6C60FF;
+// }
+
+.menu-icon-inactive {
+  opacity: 0.2;
 }

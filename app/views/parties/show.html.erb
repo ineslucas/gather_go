@@ -1,9 +1,9 @@
-<div class="container-body mx-3" data-controller="sections">
+<div class="container-body" data-controller="sections">
   <div class="text-center">
-    <h1 class="Title" style="color:#7041EE; margin-top:32px; margin-bottom:32px;"><%= @party.name %></h1>
+    <h1 class="Title" style="color:#6C60FF; margin-top:32px; margin-bottom:32px;"><%= @party.name %></h1>
   </div>
 
-    <div class="d-flex justify-content-between pb-4 gap-2" style="overflow: scroll; white-space: nowrap">
+    <div class="d-flex justify-content-between pb-4 gap-3 px-3" style="overflow: scroll; white-space: nowrap;">
       <button data-action="click->sections#showPlaylist" class="btn-tab">Playlist</button>
       <button data-action="click->sections#showMainDishes" class="btn-tab">Main Dishes</button>
       <button data-action="click->sections#showGames" class="btn-tab">Games</button>
@@ -13,10 +13,10 @@
     </div>
 
       <%# -------------------------- PLAYLIST SECTION -------------------------- %>
-  <div class="card mx-auto border-0 shadow-lg bg-white rounded-4 my-3" data-sections-target="playlist">
+  <div class="card border-0 shadow-lg bg-white rounded-4 my-3 mx-3" data-sections-target="playlist">
     <div class="card-body">
       <div class="card-body-info text-center">
-        <h4 class="card-title mt-2 mb-4 " style="color:#7041EE;">Playlist 🥳</h4>
+        <h4 class="card-title mt-2 mb-4 " style="color:#6C60FF;">Playlist 🥳</h4>
         <p class="card-subtitle text-muted"></p>
         <div>
           <%= @party.playlist.html_safe %>
@@ -27,10 +27,10 @@
   </div>
 
   <%# -------------------------- MAIN (DISH) SECTION -------------------------- %>
-  <div class="card mx-auto border-0 shadow-lg bg-white rounded-4 my-3 d-none" data-sections-target="mainDishes">
+  <div class="card border-0 shadow-lg bg-white rounded-4 my-3 mx-3 d-none" data-sections-target="mainDishes">
     <div class="card-body">
       <div class="card-body-info text-left">
-        <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;">Main Dishes 🌮 🌯</h4>
+        <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Main Dishes 🌮 🌯</h4>
         <div>
           <% if @party.edibles.any? %>
               <% @party.edibles.where(category: :main).each do |edible| %></h5>
@@ -50,9 +50,9 @@
   </div>
 
   <%# -------------------------- COCKTAIL SECTION -------------------------- %>
-  <div class="card mx-auto rounded-4 border-0 shadow-lg bg-white my-3 d-none" data-sections-target="cocktails">
+  <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="cocktails">
     <div class="card-body">
-      <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;">Cocktails 🍸</h4>
+      <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Cocktails 🍸</h4>
       <%# Maria added this code over the weekend, not sure if it works as intended%>
       <div class="card-body-info text-left">
         <% if @party.edibles.where(category: :cocktail).any? %>
@@ -73,9 +73,9 @@
   </div>
 
   <%# -------------------------- MOCKTAIL SECTION -------------------------- %>
-  <div class="card mx-auto rounded-4 border-0 shadow-lg bg-white my-3 d-none" data-sections-target="mocktails">
+  <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="mocktails">
     <div class="card-body">
-      <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;">Mocktails 🧃</h4>
+      <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Mocktails 🧃</h4>
       <%# Maria added this code over the weekend, not sure if it works as intended%>
       <div class="card-body-info text-left">
         <% if @party.edibles.where(category: :mocktail).any? %>
@@ -96,10 +96,10 @@
   </div>
 
   <%# -------------------------- GAMES SECTION -------------------------- %>
-  <div class="card mx-auto rounded-4 border-0 shadow-lg bg-white my-3 d-none" data-sections-target="games">
+  <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="games">
     <div class="card-body">
       <div class="card-body-info text-left">
-        <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;"> Games 🃏 </h4>
+        <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;"> Games 🃏 </h4>
         <%# Maria added this code over the weekend, not sure if it works as intended%>
         <div class="card-body-info">
           <% @party.games.each do |game| %>
@@ -117,10 +117,10 @@
   </div>
 
   <%# -------------------------- PINTEREST SECTION -------------------------- %>
-  <div class="card mx-auto rounded-4 border-0 shadow-lg bg-white my-3 d-none" data-sections-target="moodBoard">
+  <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="moodBoard">
     <div class="card-body">
       <div class="card-body-info text-center">
-        <h4 class="card-title mt-2 mb-4" style="color:#7041EE;">MoodBoard</h4>
+        <h4 class="card-title mt-2 mb-4" style="color:#6C60FF;">MoodBoard</h4>
         <ul style="list-style-type: none; color:#6C757D ">
           <%= @party.pinterest.html_safe %>
         </ul>
