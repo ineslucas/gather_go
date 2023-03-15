@@ -33,6 +33,11 @@
   color:#7041EE;
 }
 
+.category-button:checked + label {
+  color: white !important;
+  background: #7041EE;
+}
+
 //-----------------SHARING BUTTON--------------------
 
 .sharing-button{
