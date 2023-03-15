@@ -98,8 +98,12 @@
 }
 
 .form-check-input {
-  top: 42vh;
-  left: 18.2vh;
+  margin-top: 16px;
+  margin-left: -12px !important;
+}
+
+.no-min-height {
+  min-height: unset;
 }
 
 // .form-control {
