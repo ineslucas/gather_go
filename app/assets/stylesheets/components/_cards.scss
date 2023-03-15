@@ -23,7 +23,7 @@
   grid-gap: 16px !important;
   position: relative;
   padding: 5px;
-  margin-top: 10px;
+  // margin-top: 10px;
 
 }
 
@@ -81,3 +81,76 @@ h2{
   justify-content: center;
   align-items: center;
 }
+
+// ----------------------TO DO LIST, done with ACCORDION--------------------------
+.accordion {
+  background-color: #fff;
+  border-radius: 20px;
+
+  /* Main Shadow */
+  filter: drop-shadow(0px 16px 60px rgba(78, 79, 114, 0.08));
+}
+
+.accordion-item button.accordion-button:not(.collapsed) {
+  margin-top: 10px;
+  background-color: $dark-purple;
+  color: white;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#accordionTop.accordion-item button.accordion-button:not(.collapsed) {
+  margin-top: 0;
+}
+
+/* when headingOne is collapsed */
+#headingOne.collapsed {
+  /* your styles here */
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+// style for accordion button when not clicked
+.accordion-item button.accordion-button.collapsed {
+  background-color: #d5c8f7;
+  color: black;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.accordion-item button.accordion-button:not(.collapsed)::after {
+  color: purple;
+}
+
+.accordion-item button.accordion-button.collapsed::after {
+  color: orange;
+}
+
+.accordion-body {
+  background-color: white;
+}
+
+// Sets a 2px white border and 5px border-radius for each accordion item.
+.accordion-item {
+  border: 2px solid #fff;
+}
+
+#accordionTop {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+// Removes the default border of the accordion button.
+.accordion-button {
+  border: none;
+}
+
+// Hides the default arrow icon that appears before the accordion button text.
+// .accordion-header button::before {
+//   display: none;
+// }
+
+// Hides the default arrow icon that appears after the accordion button text.
+// .accordion-header button::after {
+//   display: none;
+// }
