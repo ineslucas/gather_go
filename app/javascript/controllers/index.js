@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import CreateBookingController from "./create_booking_controller"
 application.register("create-booking", CreateBookingController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
