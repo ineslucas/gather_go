@@ -1,26 +1,167 @@
-<div class="container">
-  <h1>Booking#show</h1>
-  <p>This page will have:</p>
-  <ol>
-    <li>booking details specific to that booking, incl. dates, map with location</li>
-    <li>possibility to edit (update), delete </li>
-    <li>view more details</li>
-    <li>details about the party theme itself</li>
-  </ol>
-  <br>
-  <h1>Your <%= @booking.party.name%></h1>
-  <p>Your <%= @booking.party.name%> will be at <%= @booking.address%>.</p>
 
-  <%# it would need logic for st, th, rd 😱 %>
-  <p> Your party will start on the <strong><%= @booking.starts_at.strftime("%B")%> <%= @booking.starts_at.day %>th, <%= @booking.starts_at.year %></strong> and finish on the <strong><%= @booking.ends_at.strftime("%B")%> <%= @booking.ends_at.day %>th, <%= @booking.ends_at.year %></strong>.</p>
-  <br>
-  <%= link_to 'Add to Calendar', icalendar_booking_path(@booking, format: :ics), class: 'main-button' %>
+<div class="container" data-controller="sections">
+  <%# -----------------------TITLE + DESCRIPTION--------------------------- %>
+  <div class="row text-center mx-2">
+    <h2 class="Title" style="color:#7041EE; margin-top:20px; margin-bottom:0px;">Your <%= @booking.party.name%></h2>
+    <p style="margin-bottom: 20px;"><%= @booking.party.description %></p>
+  </div>
+  <%# ---------------------------LOCATION, DATES, EDIT ---------------------- %>
+  <div class="row date_card my-2 mx-2">
+    <div class="col-10 date_details">
+      <%# -------------------------DARK PURPLE CARD---------------------------- %>
+      <div class="row">
+        <%# -----------------BOOKING START and END DAY------------------------ %>
+        <div class="col-3">
+          <div>
+            <h5><%= @booking.starts_at.strftime("%b")%></h5>
+            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
+          </div>
+          <div>
+            <h4><%= @booking.ends_at.strftime("%b")%></h4>
+            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
+          </div>
+        </div>
+        <%# -----------------BOOKING START AND END TIME + MAP --------------- %>
+        <div class="col-9 d-flex flex-column">
+          <p><%= @booking.starts_at.strftime("%-l %P") %> // <%= @booking.ends_at.strftime("%-l %P") %></p>
+          <%# -----------------MAP--------------- %>
+          <div style="width: 100%; height: 150px; border-radius: 20px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# ------------------- COLUMN WITH EDIT ICON ------------------------------- %>
+    <div class="col-2 text-center">
+      <%= link_to edit_booking_path do %>
+        <%= image_tag("pencil-square.svg") %>
+      <% end %>
+    </div>
+  </div>
 
-  <%# ---------------- WHATSAPP SHARE BUTTON ---------------- %>
-  <div class="main-button">
-    <%= link_to "whatsapp://send?text=I'm hosting a #{@booking.party.name} 🥳 Join me: gathergo.party/bookings/#{@booking.id}", {} do %>
-      <i class="fa-solid fa-arrow-up-from-bracket" style="color: white;"></i>
+
+  <%# -------------ROW with WRITTEN ADDRESS + SHARE BUTTONS----------------------------- %>
+  <div class="row mx-2 d-flex">
+    <%= link_to icalendar_booking_path(@booking, format: :ics), class: 'sharing-button' do %>
+      <%= image_tag("arrow-down-square.svg", height: '25') %>
+      <span>iCal</span>
     <% end %>
+
+    <%# ---------------- WHATSAPP SHARE BUTTON ---------------- %>
+    <div class="sharing-button">
+      <%= link_to "whatsapp://send?text=I'm hosting a #{@booking.
+        party.name} 🥳 Join me: gathergo.party/bookings/#{@booking.id}", {} do %>
+        <%= image_tag("envelope.svg", height: '25') %>
+        <span>WhatsApp</span>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <%# ----------------------------THEME DETAILS---------------------------------------- %>
+  <h3 class="subtitle" style="color:#7041EE; margin-top:20px; margin-bottom:20px; text-align: center;">The party deets</h2>
+  <%= render "shared/party_theme_details" %>
+  <%# <div style="border-bottom: 1px solid #7041EE; padding-bottom: 30px;"></div> %>
+  <br>
+  <br>
+  <%# -------------------------------------✅ TO DO LIST SECTION--------------------------------------------------- %>
+  <h3 class="subtitle" style="color:#7041EE; margin-top:20px; margin-bottom:20px; text-align: center;">Get the party going</h2>
+  <div class="accordion" id="accordionExample">
+    <%# -------------------------------- ITEM FOR MUSIC ----------------------------------------------- %>
+    <div class="accordion-item" id="accordionTop">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          🎧 Music
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <label>
+            <input type="checkbox" name="task1" value="Task 1">
+            Speakers
+          </label>
+          <label>
+            <input type="checkbox" name="task1" value="Task 1">
+            Connection from Spotify device to speakers
+          </label>
+        </div>
+      </div>
+    </div>
+    <%# -------------------------------- ITEM FOR FOOD (MAINS, COCKTAILS AND MOCKTAILS) ----------------------------------------------- %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          🍳 Food
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+
+          <%# loops through all the @edibles and generate a title with the edible's name and a checkbox with the edible's ingredients as the input for each edible. %>
+          <% @edibles.each do |edible| %>
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #7041EE;"><%= edible.name %></h3>
+              <label>
+                <input type="checkbox" name="<%= edible.name %>" value="<%= edible.id %>">
+                <%= edible.ingredients %>
+              </label>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <%# -------------------------------- ITEM FOR GAMES ----------------------------------------------- %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          🎱 Games
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+           <% @games.each do |game| %>
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #7041EE;"><%= game.name %></h3>
+              <label>
+                <input type="checkbox" name="<%= game.name %>" value="<%= game.id %>">
+                <%= game.materials %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%# -------------------------------- ITEM FOR DECORATIONS ----------------------------------------------- %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          🪞 Decorations
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Have a look at our mood board above.</strong> Add what you think you may need here in this section of the to-do list.
+        </div>
+      </div>
+    </div>
+     <%# -------------------------------- ITEM FOR OUTFITS ----------------------------------------------- %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          💃🏻 Dress Code
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Have a look at our mood board above.</strong> Which outfit will you pick? Your friend group can coordinate. Add what you need to make it happen in this section of the to-do list.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 <%# <i class="fa-solid fa-arrow-up-from-bracket"></i> %>
+<!-- <p>Your <%# @booking.party.name%> will be at <%# @booking.address%>.</p> -->

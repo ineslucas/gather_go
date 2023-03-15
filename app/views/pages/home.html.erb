@@ -1,8 +1,7 @@
-<div class="container-main mx-auto" style="border-radius:50%;">
+<div class="container-main mx-auto" style="border-radius:50%">
   <div class="text-center"></div>
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; min-height: 440px;">
     <div class="carousel-inner">
-
       <div class="carousel-item active">
         <div class="container rounded-5">
           <div class="card mx-auto rounded-4 border-0 mb-5 d-flex justify-content-center">
@@ -71,10 +70,10 @@
          <img src="/assets/big_shadow.svg" width="200px" style="margin-bottom: 200px;" alt="graphics"/>
          <img src="/assets/graphics_03_hp.svg" style="margin-top: 80px; margin-left: 200px;" width="320px" alt="graphics"/>
       </div> %>
+    </div>
+  </div>
 
-</div>
-
-<div class="button" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div class="button" style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: absolute; bottom: 18%; left: 50%; transform: translate(-50%, -18%); width: 100%;">
     <%= link_to "Start your party!", new_booking_path, class: "main-button", style: "position-fixed" %>
   </div>
 </div>

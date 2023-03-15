@@ -1,13 +1,13 @@
-<div data-controller="create-booking" class="container-body" style="text-align:center;">
+<div data-controller="create-booking" class="container-body no-min-height" style="text-align:center;">
   <h1 class="Title" style="color:#7041EE; margin-top:32px; padding:20px; font-size: 24px;">Start a New Party</h1>
   <%# <p>Answer a few questions and we'll generate your themed party!</p> %>
 
-  <div style="background-color:#FFFFFF; border-radius:5%; padding:20px; margin:20px;" class="shadow-lg">
+  <div style="background-color:#FFFFFF; border-radius:40px; padding:20px; margin:20px;" class="shadow-lg">
     <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
     <%= simple_form_for @booking, data: { controller: "parties" } do |f| %>
 
       <%# ------------- QUESTION PARTY TIMINGS --------------  %>
-      <div data-create-booking-target="start" class="round-input">
+      <div data-create-booking-target="start">
           <h6 style="color:#D8DADA; padding-bottom:10px;">Question 1 of 4</h6>
         <h4 style="color:black"> When will your party start and finish? </h4>
         <%= f.input :starts_at, as: :datetime, html5: true, input_html: { class: "round-input"  } %>
@@ -23,8 +23,11 @@
       <%# ------------- QUESTION MOCKTAILS --------------  %>
       <div data-create-booking-target="mocktail" class="d-none">
           <h6 style="color:#D8DADA; padding-bottom:10px;">Question 2 of 4</h6>
-        <h4 style="padding: 30px">Would you also like to see Mocktail suggestions?</h4>
-        <%= f.input :has_mocktails,  input_html: { class: "tag-selector", style: "text-size:24px"} %>
+        <h4 style="">Would you also like to see Mocktail suggestions?</h4>
+
+        <%= f.input :has_mocktails,
+                    input_html: { class: "tag-selector checkbox-input", style: "text-size:24px"},
+                    label_html: { class: "bg-transparent" } %>
 
         <%# button for navigation %>
         <button type="button" class="back-round-button" data-action="click->create-booking#displayStart" style="margin-bottom:10px">
@@ -37,17 +40,22 @@
       </div>
 
       <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
-
       <div data-create-booking-target="themes" class="d-none">
           <h6 style="color:#D8DADA; padding-bottom:10px;">Question 3 of 4</h6>
-        <h4> Choose your party theme  </h4>
-        <p>Don't worry, you'll be able to review and change your party theme later. </p>
-        <%= f.association :party , as: :radio_buttons, id: "category",
-                    input_html: { class: "tag-selector", data: { action: "change->parties#showInfo" }},
-                    item_wrapper_class: 'tag-item' %>
+
+          <h4> Choose your party theme  </h4>
+          <p>Don't worry, you'll be able to review and change your party theme later. </p>
+        <%= f.association :party ,
+                          as: :radio_buttons,
+                          id: "category",
+                          input_html: {
+                            class: "tag-selector category-button",
+                            data: { action: "change->parties#showInfo" }
+                          },
+                          item_wrapper_class: 'tag-item',
+                          legend_tag: false %>
 
           <%= render "shared/party_infos", party: Party.new %>
-
 
         <%# button for navigation %>
         <button type="button" class="back-round-button" data-action="click->create-booking#displayMocktail" style="margin-bottom:10px">
@@ -60,13 +68,13 @@
       </div>
 
       <%# ---------------- QUESTION ADDRESS -----------------  %>
-      <div data-create-booking-target="address" class="d-none">
-          <h6 style="color:#D8DADA; padding-bottom:10px;">Question 4 of 4</h6>
-        <h4>Where will the party be hosted?</h4>
-        <%= f.input :address , input_html: { class: "round-input" } %>
+      <div data-create-booking-target="address" class="d-none" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h6 style="color:#D8DADA; padding-bottom:10px;">Question 4 of 4</h6>
+        <h4 style="padding-bottom:8px;">Where will the party be hosted?</h4>
+        <%= f.input :address, label: false, wrapper_html: { class: "w-100" },input_html: { class: "round-input w-100", style: "padding: 22px" } %>
         <%= f.button :submit, 'Start Party!', class: "main-button" %>
-      </div>
+
+    </div>
     <% end %>
   </div>
 </div>
-
