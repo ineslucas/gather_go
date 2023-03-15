@@ -105,6 +105,7 @@
   min-height: unset;
 }
 
+
 // .form-control {
 //   padding: 22px 80px 22px 40px;
 // }
@@ -153,4 +154,18 @@
 // select.datetime.optional:focus {
 //   // border-color: #8C84E1;
 //   outline: none;
+// }
+
+
+//   /* Target the checkboxes within the accordion */
+// #accordionExample input[type="checkbox"] {
+//     /* Set the color to purple */
+//   color: #7041EE !important;
+//     /* Increase the size of the checkbox */
+//   transform: scale(1.5);
+// }
+
+//   /* Style the checkbox label */
+// #accordionExample label {
+//     display: block;
 // }
