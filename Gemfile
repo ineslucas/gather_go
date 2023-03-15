@@ -83,4 +83,4 @@ gem "icalendar"
 
 gem "cloudinary"
 
-gem 'simple_form_boolean_toggle'
+# gem 'simple_form_boolean_toggle'
