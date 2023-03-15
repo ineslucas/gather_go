@@ -518,35 +518,35 @@ puts 'Creating Games...'
 rubiks_cube_contest = Game.create(
   name: "Rubik's Cube Contest",
   description: "A timed competition where participants race to solve Rubik's Cubes as quickly as possible.",
-  materials: "Rubik's Cubes",
+  # materials: "Rubik's Cubes",
   instructions: "Each participant is given a scrambled Rubik's Cube and has a set amount of time to solve it. The participant with the fastest solve time wins the competition."
 )
 
 moon_walking_contest = Game.create(
   name: "Moon Walking Contest",
   description: "A moon walking contest is a dance competition where the participants try to imitate Michael Jackson's famous moonwalk. The participants are judged on how well they can perform the moonwalk and other dance moves from Michael Jackson's performances.",
-  materials: "Smooth floor, speakers, Michael Jackson music.",
+  # materials: "Smooth floor, speakers, Michael Jackson music.",
   instructions: "Participants must wear comfortable shoes and clothing that allows for free movement. The contest will begin with participants dancing to Michael Jackson's music. The judges will then choose the top contestants based on their moonwalking skills and overall dance performance. The top contestants will then compete against each other to determine the winner of the moon walking contest."
 )
 
 pinata_smash = Game.create(
   name: "Piñata Smash",
   description: "In this game, a piñata is hung from a tree or a ceiling and players take turns trying to smash it open with a stick while blindfolded. Once the piñata is broken, candy or small toys fall out and everyone rushes to collect them.",
-  materials: "Piñata, Blindfold, Stick, Candy or small toys",
+  # materials: "Piñata, Blindfold, Stick, Candy or small toys",
   instructions: "Hang the piñata from a sturdy tree branch or ceiling hook. Blindfold the player, spin them around three times, and give them the stick. Let them swing at the piñata until it breaks open. Once the piñata is broken, the player takes off their blindfold and everyone rushes to collect the candy or small toys that fell out.",
 )
 
 # for Great Gatsby Party
 charleston_dance_off = Game.create(
   name: "Charleston Dance-off",
-  materials: "Music player, speakers, timer, scorecards",
+  # materials: "Music player, speakers, timer, scorecards",
   description: "The Charleston dance-off is a fun and lively game that is perfect for a Great Gatsby themed party. Players compete against each other to see who can perform the best Charleston dance routine. The dance style originated in the 1920s and is known for its energetic, swinging movements and syncopated rhythms. This game will require some space, good music, and lots of enthusiasm!",
   instructions: "Divide players into pairs or small groups. Each group will take turns performing a Charleston dance routine while the others score them based on their energy, creativity, and overall performance. Set a timer for each performance and award points based on how well each group performs. The group with the highest score at the end of the game wins!"
 )
 
 murderer = Game.create(
   name: "Murderer",
-  materials: "Deck of cards, Pen and Paper",
+  # materials: "Deck of cards, Pen and Paper",
   description: "A party game of bluffing and deduction, where players take on roles of innocent civilians and a murderer who is secretly killing them off one by one.",
   instructions: "1. Write the roles of the game on separate cards, including one murderer and one detective. Shuffle the cards and deal them out to the players.
   The murderer chooses a victim secretly during the game and ‘kills’ them by winking at them. The victim should play along and ‘die’ dramatically.
@@ -558,21 +558,21 @@ murderer = Game.create(
 
 costume_contest = Game.create(
   name: "Costume Contest",
-  materials: "Costumes",
+  # materials: "Costumes",
   description: "The aim of the game is to have the best costume out of everyone.",
   instructions: "Each guest will recieve a paper where they vote on the best costume. The person with the most votes wins!"
 )
 
 disco_danceoff = Game.create(
   name: "Disco Dance Off",
-  materials: "Music player, speakers",
+  # materials: "Music player, speakers",
   description: "Who is the best dancer? Battle it out with your friends to 70s tunes!",
   instructions: "Everyone can show off their best moves. In the end you will vote on who has the best groove. The person with the most votes wins the battle!",
 )
 
 limbo_contest = Game.create(
   name: "Limbo Contest",
-  materials: "A long stick or broom handle",
+  # materials: "A long stick or broom handle",
   description: "A classic party game where players compete to see who can bend the furthest backwards and pass under a stick without touching it or falling over.",
   instructions: "1. Find a long stick or broom handle that is at least 6 feet long, and set it up so that it is held horizontally by two people, one on each end.
   2. Players should form a line behind the stick, and take turns attempting to pass under it.
@@ -586,7 +586,7 @@ limbo_contest = Game.create(
 
 jousting_contest = Game.create(
   name: "Jousting Tournament",
-  materials: "Two wooden horses, two wooden lances, helmets, and shields",
+  # materials: "Two wooden horses, two wooden lances, helmets, and shields",
   description: "In this game, two players compete in a medieval-style jousting tournament. Each player rides a wooden horse and uses a wooden lance to try to knock their opponent off their horse. The player who successfully knocks their opponent off their horse the most times within a set time period wins the game.",
   instructions: "Each player chooses a wooden horse, helmet, and shield. Players take turns attempting to knock their opponent off their horse using the wooden lance. The player who successfully knocks their opponent off their horse the most times within a set time period (e.g. 10 minutes) wins the game."
 )
@@ -801,3 +801,61 @@ vwine_array.each do |ing|
 end
 
 puts 'Finished!'
+
+
+puts "creating game materials"
+
+rubiks_list = "rubik's cube\ntimer"
+rubiks_array = rubiks_list.split("\n")
+rubiks_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: rubiks_cube_contest)
+end
+
+moon_list = "smooth floor\nspeapers\n Michael Jackson music"
+moon_array = moon_list.split("\n")
+moon_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: moon_walking_contest)
+end
+
+pinata_list = "piñata\nblind fold\nstick\nCandy\nSmall toys"
+pinata_array = pinata_list.split("\n")
+pinata_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: pinata_smash)
+end
+
+charleston_list = "music player\nspeakers\ntimer\nscorecard"
+charleston_array = charleston_list.split("\n")
+charleston_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: charleston_dance_off)
+end
+
+
+murderer_list = "deck of cards\npen\npaper"
+murderer_array = murderer_list.split("\n")
+murderer_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: murderer)
+end
+
+costume_list = "costumes\nscore card"
+costume_array = costume_list.split("\n")
+costume_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: costume_contest)
+end
+
+disco_list = "music player\nspeakers\timer\scorecard"
+disco_array = disco_list.split("\n")
+disco_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: disco_danceoff)
+end
+
+limbo_list = "long stick\nmusic"
+limbo_array = limbo_list.split("\n")
+limbo_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: limbo_contest)
+end
+
+joust_list = "two wooden horses\nlances\nhelmets\nshields"
+joust_array = joust_list.split("\n")
+joust_array.each do |ing|
+  Material.create(name: ing.strip.capitalize, game: jousting_contest)
+end

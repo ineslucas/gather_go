@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_152435) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_160546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_152435) do
     t.index ["edible_id"], name: "index_ingredients_on_edible_id"
   end
 
+  create_table "materials", force: :cascade do |t|
+    t.string "name"
+    t.boolean "bought", default: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_materials_on_game_id"
+  end
+
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.string "playlist"
@@ -137,6 +146,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_152435) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "parties"
   add_foreign_key "bookings", "users"
+  add_foreign_key "materials", "games"
   add_foreign_key "party_edibles", "edibles"
   add_foreign_key "party_edibles", "parties"
   add_foreign_key "party_games", "games"
