@@ -12,7 +12,7 @@
 }
 
 .purple-round-button {
-  background-color: #7041EE;;
+  background-color: #7041EE;
   border: none;
   border-radius: 50%;
   color: white;
@@ -61,17 +61,18 @@
   font-size: 16px;
   border-radius: 50rem;
   padding: 13px;
-  color: #AE8FFF;
+  color: #7041EE !important;
 }
 
+
 .form-check-label {
-  color: #7041EE;
+  color: #7041EE !important;
   background-color: #F4F0FF;
 }
 
 .tag-selector:checked + label {
-
-  color:#7041EE;
+  background-color: #7041EE;
+  color: white !important;
 }
 
 .container-body {
@@ -97,8 +98,8 @@
 }
 
 .form-check-input {
-  top: 42vh;
-  left: 18.2vh;
+  margin-top: 16px;
+  margin-left: -12px !important;
 }
 
 .no-min-height {
