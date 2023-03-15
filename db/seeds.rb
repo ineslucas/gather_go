@@ -12,6 +12,8 @@ PartyEdible.delete_all # needs to be first
 PartyGame.delete_all
 Party.delete_all
 Edible.delete_all
+Ingredient.delete_all
+
 
 puts 'Creating 9 party themes...'
 
@@ -144,8 +146,8 @@ potato_skins = Edible.create(
   category: :main,
   has_alcohol: false,
   description: "Crispy potato skins loaded with cheese, bacon, and green onions. Perfect for sharing with friends or as an appetizer for game day!",
-  ingredients: "6 medium potatoes, 2 tablespoons olive oil, 1 teaspoon salt, 1/2 teaspoon garlic powder, 1/2 teaspoon paprika, 1/4 teaspoon black pepper, 6 strips bacon, cooked and crumbled, 1 cup shredded cheddar cheese, 1/4 cup chopped green onions",
-  instructions: "1. Preheat oven to 400°F. 2. Wash potatoes and pat dry. Cut each potato into 6 wedges. 3. In a large bowl, toss potato wedges with olive oil, salt, garlic powder, paprika, and black pepper until well coated. 4. Arrange potato wedges in a single layer on a baking sheet lined with parchment paper. 5. Bake for 25-30 minutes, or until potatoes are golden brown and crispy. 6. Remove from oven and sprinkle with cooked bacon, cheddar cheese, and green onions. 7. Return to oven and bake for an additional 5-10 minutes, or until cheese is melted and bubbly. 8. Serve hot and enjoy!"
+  # ingredients: "6 medium potatoes, 2 tablespoons olive oil, 1 teaspoon salt, 1/2 teaspoon garlic powder, 1/2 teaspoon paprika, 1/4 teaspoon black pepper, 6 strips bacon, cooked and crumbled, 1 cup shredded cheddar cheese, 1/4 cup chopped green onions",
+  instructions: "1. Preheat oven to 400°F. 2. Wash potatoes and pat dry. Cut potato into 6 wedges. 3. In a large bowl, toss potato wedges with olive oil, salt, garlic powder, paprika, and black pepper until well coated. 4. Arrange potato wedges in a single layer on a baking sheet lined with parchment paper. 5. Bake for 25-30 minutes, or until potatoes are golden brown and crispy. 6. Remove from oven and sprinkle with cooked bacon, cheddar cheese, and green onions. 7. Return to oven and bake for an additional 5-10 minutes, or until cheese is melted and bubbly. 8. Serve hot and enjoy!"
 )
 
 loaded_nachos = Edible.create(
@@ -153,7 +155,7 @@ loaded_nachos = Edible.create(
   category: :main,
   has_alcohol: false,
   description: "A delicious plate of loaded nachos, topped with melted cheese, guacamole, sour cream, and jalapeños.",
-  ingredients: "1 bag of tortilla chips\n1 can of black beans\n1 cup of shredded cheddar cheese\n1 diced tomato\n1/2 diced red onion\n1/2 cup of sliced jalapeños\n1/2 cup of guacamole\n1/2 cup of sour cream",
+  # ingredients: "1 bag of tortilla chips\n1 can of black beans\n1 cup of shredded cheddar cheese\n1 diced tomato\n1/2 diced red onion\n1/2 cup of sliced jalapeños\n1/2 cup of guacamole\n1/2 cup of sour cream",
   instructions: "1. Preheat your oven to 350°F.\n2. Spread the tortilla chips evenly on a large baking sheet.\n3. Pour the black beans over the tortilla chips.\n4. Sprinkle the shredded cheese on top of the beans.\n5. Add the diced tomato and red onion.\n6. Sprinkle the sliced jalapeños over everything.\n7. Bake in the oven for 10-15 minutes, or until the cheese is melted and bubbly.\n8. Remove from the oven and top with dollops of guacamole and sour cream.\n9. Serve and enjoy!"
 )
 
@@ -162,7 +164,7 @@ hummus_plate = Edible.create(
  category: :main,
  has_alcohol: false,
  description: "A tasty plate of hummus served with fresh vegetables and pita bread.",
- ingredients: "1 can of chickpeas\n1/4 cup of tahini\n1/4 cup of lemon juice\n2 garlic cloves, minced\n1/4 teaspoon of cumin\n2 tablespoons of olive oil\nSalt and pepper, to taste\nAssorted vegetables (carrots, cucumbers, cherry tomatoes, etc.)\nPita bread",
+#  ingredients: "1 can of chickpeas\n1/4 cup of tahini\n1/4 cup of lemon juice\n2 garlic cloves, minced\n1/4 teaspoon of cumin\n2 tablespoons of olive oil\nSalt and pepper, to taste\nAssorted vegetables (carrots, cucumbers, cherry tomatoes, etc.)\nPita bread",
  instructions: "1. Drain and rinse the chickpeas.\n2. In a food processor, combine the chickpeas, tahini, lemon juice, garlic, cumin, olive oil, salt, and pepper.\n3. Process the mixture until it is smooth and creamy.\n4. Taste and adjust the seasoning as needed.\n5. To serve, place the hummus in a bowl and garnish with a drizzle of olive oil and a sprinkle of paprika (optional).\n6. Arrange the vegetables and pita bread on a platter alongside the hummus.\n7. Enjoy!"
 )
 
@@ -171,7 +173,7 @@ pumpkin_soup = Edible.create(
   category: :main,
   has_alcohol: false,
   description: "This creamy pumpkin soup is perfect for a cozy autumn evening.",
-  ingredients: "1 small pumpkin, peeled and chopped, 1 onion, chopped, 2 cloves of garlic, minced, 2 cups of vegetable broth, 1 cup of heavy cream, salt, pepper, olive oil",
+  # ingredients: "1 small pumpkin, peeled and chopped, 1 onion, chopped, 2 cloves of garlic, minced, 2 cups of vegetable broth, 1 cup of heavy cream, salt, pepper, olive oil",
   instructions: "In a large pot, sauté the onion and garlic in olive oil until they are soft. Add the chopped pumpkin and cook for 5 minutes. Pour in the vegetable broth and bring to a boil. Reduce heat and let simmer until the pumpkin is tender, about 20 minutes. Use an immersion blender or transfer the soup to a blender to puree until smooth. Stir in the heavy cream and heat through. Season with salt and pepper to taste. Serve hot and enjoy!"
 )
 
@@ -180,18 +182,16 @@ deviled_eggs = Edible.create(
   category: :main,
   has_alcohol: false,
   description: "Deviled eggs are a classic and tasty appetizer that are perfect for any occasion.",
-  ingredients: "6 eggs, 1/4 cup mayonnaise, 1 teaspoon yellow mustard, 1/2 teaspoon white vinegar, 1/8 teaspoon salt, 1/8 teaspoon black pepper, paprika",
+  # ingredients: "6 eggs, 1/4 cup mayonnaise, 1 teaspoon yellow mustard, 1/2 teaspoon white vinegar, 1/8 teaspoon salt, 1/8 teaspoon black pepper, paprika",
   instructions: "Place the eggs in a pot of cold water and bring to a boil. Let the eggs sit in the hot water for 12 minutes. Scoop out the yolks and place them in a mixing bowl. Add the mayonnaise, mustard, vinegar, salt, and black pepper to the yolks and mix until smooth. Spoon the yolk mixture back into the egg whites. Sprinkle paprika over the top of each egg. Chill the eggs in the refrigerator for at least 30 minutes. Serve cold and enjoy!"
 )
-
-
 
 pigs_in_a_blanket = Edible.create(
   name: "Pigs in a Blanket",
   category: :main,
   has_alcohol: false,
   description: "Classic pigs in a blanket appetizer made with mini hot dogs and flaky puff pastry. Perfect for any party or gathering!",
-  ingredients: "1 package mini hot dogs (or cocktail wieners), 1 package puff pastry, 1 egg beaten with 1 tablespoon of water",
+  # ingredients: "1 package mini hot dogs (or cocktail wieners), 1 package puff pastry, 1 egg beaten with 1 tablespoon of water",
   instructions: "1. Preheat oven to 400°F. 2. Roll out puff pastry on a lightly floured surface. Cut the pastry into strips that are about 1 inch wide and 3 inches long. 3. Wrap each mini hot dog with a pastry strip, pressing the ends together to seal. 4. Place the wrapped hot dogs on a baking sheet lined with parchment paper. 5. Brush the tops of the pastry with the egg wash. 6. Bake for 15-20 minutes, or until the pastry is golden brown and puffed up. 7. Remove from oven and let cool for a few minutes before serving. 8. Serve with your favorite dipping sauce and enjoy!"
 )
 
@@ -200,7 +200,7 @@ roasted_chicken = Edible.create(
   category: :main,
   has_alcohol: false,
   description: "A classic roast chicken recipe that is juicy and tender on the inside with crispy skin on the outside. Perfect for a medieval Feast!",
-  ingredients: "1 whole chicken (4-5 pounds), 2 tablespoons of olive oil, 2 teaspoons of salt, 1 teaspoon of black pepper, 1 lemon, 1 head of garlic, 4 sprigs of fresh rosemary",
+  # ingredients: "1 whole chicken (4-5 pounds), 2 tablespoons of olive oil, 2 teaspoons of salt, 1 teaspoon of black pepper, 1 lemon, 1 head of garlic, 4 sprigs of fresh rosemary",
   instructions: "1. Preheat oven to 425°F. 2. Place the chicken in a roasting pan and drizzle with olive oil. 3. Season the chicken with salt and pepper, inside and out. 5. Cut the lemon in half and squeeze the juice over the chicken. 6. Cut the garlic head in half horizontally and place it inside the chicken cavity along with the lemon halves and rosemary sprigs. 7. Tie the legs of the chicken together with kitchen twine. 8. Roast the chicken for 1 hour and 15 minutes, or until the internal temperature of the chicken reaches 165°F. 9. Remove the chicken from the oven and let it rest for 10-15 minutes before carving. 10. Serve hot and enjoy!"
 )
 
@@ -209,7 +209,7 @@ filo_pastry_spinach_rolls = Edible.create(
   category: :main,
   has_alcohol: false,
   description: "Crispy filo pastry filled with spinach and feta cheese. These spinach rolls are perfect for any occasion and are sure to impress your guests!",
-  ingredients: "1 package frozen filo pastry, 2 cups fresh spinach, chopped, 1/2 cup crumbled feta cheese, 1/4 cup chopped fresh parsley, 1/4 cup chopped scallions, 1/4 cup olive oil, Salt and pepper to taste",
+  # ingredients: "1 package frozen filo pastry, 2 cups fresh spinach, chopped, 1/2 cup crumbled feta cheese, 1/4 cup chopped fresh parsley, 1/4 cup chopped scallions, 1/4 cup olive oil, Salt and pepper to taste",
   instructions: "1. Preheat oven to 375°F. 2. In a mixing bowl, combine the chopped spinach, feta cheese, parsley, scallions, olive oil, salt, and pepper. Mix well. 3. Unwrap the filo pastry and lay out one sheet. Brush it lightly with olive oil. 4. Lay another sheet of filo pastry on top and brush with olive oil. Repeat until you have 3 sheets of filo pastry. 5. Cut the filo pastry into 3 long strips. 6. Place a spoonful of the spinach mixture at the bottom of each strip. Roll up the filo pastry, tucking in the sides as you go. 7. Brush the rolls with olive oil and place on a baking sheet lined with parchment paper. 8. Bake for 15-20 minutes, or until the filo pastry is golden brown and crispy. 9. Remove from the oven and let cool for a few minutes before serving. 10. Serve hot and enjoy!"
 )
 
@@ -219,7 +219,7 @@ negroni = Edible.create(
   name: "Negroni",
   category: :cocktail,
   has_alcohol: true,
-  ingredients: "1 oz gin, 1 oz sweet vermouth, 1 oz Campari",
+  # ingredients: "1 oz gin, 1 oz sweet vermouth, 1 oz Campari",
   instructions: "Combine all ingredients in a mixing glass with ice. Stir until chilled. Strain into a rocks glass over a large ice cube. Garnish with an orange peel.",
   description: "The Negroni is a classic Italian cocktail that is made with gin, sweet vermouth, and Campari. It is a refreshing and slightly bitter drink that is perfect for sipping on a warm summer evening.",
 )
@@ -229,7 +229,7 @@ tequila_sunrise = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "The Tequila Sunrise is a classic cocktail that's perfect for summer sipping. It's a refreshing and fruity drink that's easy to make.",
-  ingredients: "2 oz tequila, 4 oz orange juice, 3/4 oz grenadine syrup, orange slice and cherry (for garnish), ice",
+  # ingredients: "2 oz tequila, 4 oz orange juice, 3/4 oz grenadine syrup, orange slice and cherry (for garnish), ice",
   instructions: "Fill a highball glass with ice. Add the tequila and orange juice, and stir gently to combine. Slowly pour the grenadine syrup over the back of a spoon so it sinks to the bottom of the glass. Do not stir. Garnish with an orange slice and a cherry. Enjoy!"
 )
 
@@ -238,7 +238,7 @@ margarita = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "The Margarita is a classic cocktail made with tequila, lime juice, and triple sec. It's a refreshing and tangy drink that's perfect for summer.",
-  ingredients: "2 oz tequila, 1 oz lime juice, 1 oz triple sec, salt (for rimming), lime wedge (for garnish), ice",
+  # ingredients: "2 oz tequila, 1 oz lime juice, 1 oz triple sec, salt (for rimming), lime wedge (for garnish), ice",
   instructions: "Rub a lime wedge around the rim of a margarita glass, and dip the rim into salt to coat it. Fill a shaker with ice, and add the tequila, lime juice, and triple sec. Shake well, and strain into the salt-rimmed glass over ice. Garnish with a lime wedge. Enjoy!"
 )
 
@@ -247,7 +247,7 @@ old_fashioned = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "A classic cocktail made with bourbon, sugar, bitters, and a twist of citrus.",
-  ingredients: "2 oz bourbon, 1 tsp sugar, 2 dashes Angostura bitters, 1 twist of orange or lemon peel",
+  # ingredients: "2 oz bourbon, 1 tsp sugar, 2 dashes Angostura bitters, 1 twist of orange or lemon peel",
   instructions: "1. In an Old-Fashioned glass, muddle the sugar with a few drops of water until it dissolves.
   2. Add the bitters and a large ice cube.
   3. Pour in the bourbon and stir gently.
@@ -260,7 +260,7 @@ sangria = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "This scary Sangria is a refreshing and fruity cocktail that's perfect for Halloween.",
-  ingredients: "1 bottle of red wine\n1/2 cup of brandy\n1/2 cup of orange juice\n1/4 cup of lemon juice\n1/4 cup of sugar\n1 sliced orange\n1 sliced lemon\n1 sliced lime\n1/2 cup of sliced strawberries\nClub soda, for serving\nIce\nScary Candy",
+  # ingredients: "1 bottle of red wine\n1/2 cup of brandy\n1/2 cup of orange juice\n1/4 cup of lemon juice\n1/4 cup of sugar\n1 sliced orange\n1 sliced lemon\n1 sliced lime\n1/2 cup of sliced strawberries\nClub soda, for serving\nIce\nScary Candy",
   instructions: "1. In a large pitcher, combine the red wine, brandy, orange juice, lemon juice, and sugar. Stir until the sugar dissolves.\n2. Add the Halloween Gummies, sliced orange, lemon, lime, and strawberries to the pitcher.\n3. Cover the pitcher and refrigerate for at least 2 hours (or up to 24 hours) to let the flavors meld together.\n4. To serve, fill glasses with ice and pour in the sangria, making sure to include some of the fruit in each glass.\n5. Top each glass with a splash of club soda and stir gently.\n6. Serve and enjoy!"
 )
 
@@ -269,7 +269,7 @@ whiskey_sour = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "The Whiskey Sour is a classic cocktail that combines the bold flavor of whiskey with the tangy taste of lemon and the sweetness of sugar.",
-  ingredients: "2 oz bourbon or rye whiskey\n1 oz fresh lemon juice\n1/2 oz simple syrup\n1 dash of Angostura bitters\nIce",
+  # ingredients: "2 oz bourbon or rye whiskey\n1 oz fresh lemon juice\n1/2 oz simple syrup\n1 dash of Angostura bitters\nIce",
   instructions: "1. Fill a cocktail shaker with ice.\n2. Add the whiskey, lemon juice, simple syrup, and bitters to the shaker.\n3. Shake the mixture well for about 10 seconds.\n4. Strain the mixture into a glass filled with ice.\n5. Garnish the cocktail with a cherry and an orange slice, if desired.\n6. Serve and enjoy!"
 )
 
@@ -278,7 +278,7 @@ long_island_iced_tea = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "The Long Island Iced Tea is a classic cocktail made with a combination of spirits, mixed with cola and lemon juice for a refreshing and slightly sweet taste.",
-  ingredients: "1/2 oz vodka\n1/2 oz rum\n1/2 oz gin\n1/2 oz tequila\n1/2 oz triple sec\n1 oz lemon juice\n1 oz simple syrup\nSplash of cola\nIce",
+  # ingredients: "1/2 oz vodka\n1/2 oz rum\n1/2 oz gin\n1/2 oz tequila\n1/2 oz triple sec\n1 oz lemon juice\n1 oz simple syrup\nSplash of cola\nIce",
   instructions: "1. Fill a shaker with ice.\n2. Add the vodka, rum, gin, tequila, triple sec, lemon juice, and simple syrup to the shaker.\n3. Shake the mixture well for about 10 seconds.\n4. Strain the mixture into a tall glass filled with ice.\n5. Top off the glass with a splash of cola.\n6. Garnish the cocktail with a lemon wedge or mint sprig, if desired.\n7. Serve and enjoy!"
 )
 mulled_wine = Edible.create(
@@ -286,7 +286,7 @@ mulled_wine = Edible.create(
   category: :cocktail,
   has_alcohol: true,
   description: "Mulled wine is a warm and cozy beverage made with red wine and spices, perfect for chilly nights or holiday gatherings.",
-  ingredients: "1 bottle of red wine\n1/2 cup brandy\n1/2 cup honey\n1 cinnamon stick\n2 star anise\n4 cloves\n1 orange, sliced\n1 lemon, sliced\n",
+  # ingredients: "1 bottle of red wine\n1/2 cup brandy\n1/2 cup honey\n1 cinnamon stick\n2 star anise\n4 cloves\n1 orange, sliced\n1 lemon, sliced\n",
   instructions: "1. Pour the red wine into a large saucepan over medium heat.\n2. Add the brandy, honey, cinnamon stick, star anise, cloves, orange slices, and lemon slices to the pan.\n3. Stir the mixture until the honey is dissolved.\n4. Bring the mixture to a simmer, then reduce the heat to low.\n5. Simmer the mixture for about 15-20 minutes, stirring occasionally.\n6. Remove the saucepan from heat and let it sit for about 5 minutes to allow the flavors to meld.\n7. Strain the mixture into a large bowl or pitcher, discarding the spices and fruit.\n8. Serve the mulled wine warm in mugs or heatproof glasses.\n9. Garnish each serving with a cinnamon stick or orange slice, if desired.\n10. Enjoy!"
 )
 
@@ -297,7 +297,7 @@ virgin_margarita = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Margarita is a non-alcoholic version of the classic Margarita cocktail. It's a refreshing and tangy drink that's perfect for those who want to enjoy the taste of a Margarita without the alcohol.",
-  ingredients: "3 oz lime juice\n2 oz orange juice\n1 oz simple syrup\nsalt (for rimming)\nlime wedge (for garnish)\nice",
+  # ingredients: "3 oz lime juice\n2 oz orange juice\n1 oz simple syrup\nsalt (for rimming)\nlime wedge (for garnish)\nice",
   instructions: "Rub a lime wedge around the rim of a margarita glass, and dip the rim into salt to coat it.\nFill a shaker with ice, and add the lime juice, orange juice, and simple syrup.\nShake well, and strain into the salt-rimmed glass over ice.\nGarnish with a lime wedge. Enjoy!"
 )
 
@@ -306,7 +306,7 @@ virgin_pinacolada = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Piña Colada is a refreshing and tropical twist.",
-  ingredients: "3 oz lime juice,\n1 pineapple,\n1 can of coconut cream,\nice",
+  # ingredients: "3 oz lime juice,\n1 pineapple,\n1 can of coconut cream,\nice",
   instructions: "Mix all of the ingredients and whiz them together. Pour over ice and enjoy!"
 )
 
@@ -315,7 +315,7 @@ virgin_mojito = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Mojito is a refreshing and minty mocktail.",
-  ingredients: "1 lime\n1 tbsp sugar\n8-10 mint leaves\n1 Cup soda water\nIce",
+  # ingredients: "1 lime\n1 tbsp sugar\n8-10 mint leaves\n1 Cup soda water\nIce",
   instructions: "Cut the lime into small pieces and muddle them with sugar and mint leaves in a glass.\nAdd ice and top up with soda water. Stir and enjoy!"
 )
 
@@ -324,7 +324,7 @@ virgin_mary_iced_tea = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Mary Iced Tea is a refreshing and spicy mocktail.",
-  ingredients: "1 black tea bag\n2 cups of tomato juice\n1 lemon\n1/2 teaspoon Worcestershire sauce\n1/4 teaspoon Tabasco sauce\nsalt, black pepper\nice",
+  # ingredients: "1 black tea bag\n2 cups of tomato juice\n1 lemon\n1/2 teaspoon Worcestershire sauce\n1/4 teaspoon Tabasco sauce\nsalt, black pepper\nice",
   instructions: "Steep the black tea bag in 2 cups of boiling water for 5 minutes.\nRemove the tea bag and let the tea cool down.\nIn a pitcher, combine the cooled tea, tomato juice, juice of half a lemon, Worcestershire sauce, and Tabasco sauce.\nStir well and season with salt and black pepper to taste.\nChill in the refrigerator for at least 30 minutes.\nServe over ice and garnish with a lemon wedge. Enjoy!"
 )
 
@@ -333,7 +333,7 @@ virgin_cosmo = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Cosmopolitan is a classic and sophisticated mocktail.",
-  ingredients: "2 oz cranberry juice,\n1 oz lime juice,\n1 oz orange juice,\n1 oz simple syrup, ice",
+  # ingredients: "2 oz cranberry juice,\n1 oz lime juice,\n1 oz orange juice,\n1 oz simple syrup, ice",
   instructions: "In a cocktail shaker, combine the cranberry juice, lime juice, orange juice, simple syrup, and ice.\nShake well until chilled.\nStrain the mixture into a chilled martini glass.\nG\narnish with a lime wheel or twist. Serve and enjoy!"
 )
 
@@ -342,7 +342,7 @@ virgin_sangria = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "This scary Virgin Sangria is a non-alcoholic version of the classic cocktail that's just as refreshing and flavorful and perfect for halloween.",
-  ingredients: "2 cups of grape juice\n1/2 cup of orange juice\n1/4 cup of lemon juice\n1/4 cup of lime juice\n2 tablespoons of honey\n1 sliced orange\n1 sliced lemon\n1 sliced lime\n1/2 cup of sliced strawberries\nClub soda, for serving\nIce\nHalloween Candy",
+  # ingredients: "2 cups of grape juice\n1/2 cup of orange juice\n1/4 cup of lemon juice\n1/4 cup of lime juice\n2 tablespoons of honey\n1 sliced orange\n1 sliced lemon\n1 sliced lime\n1/2 cup of sliced strawberries\nClub soda, for serving\nIce\nHalloween Candy",
   instructions: "1. In a large pitcher, combine the grape juice, orange juice, lemon juice, lime juice, and honey. Stir until the honey dissolves.\n2. Add the Halloween Candy, sliced orange, lemon, lime, and strawberries to the pitcher.\n3. Cover the pitcher and refrigerate for at least 2 hours (or up to 24 hours) to let the flavors meld together.\n4. To serve, fill glasses with ice and pour in the virgin sangria, making sure to include some of the fruit in each glass.\n5. Top each glass with a splash of club soda and stir gently.\n6. Serve and enjoy!"
 )
 
@@ -351,7 +351,7 @@ virgin_bellini = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Bellini is a refreshing and fruity mocktail that's perfect for brunch or any occasion.",
-  ingredients: "2 cups of peach nectar\n1 cup of sparkling water\n1 tablespoon of honey\n1/4 cup of frozen peach slices\nIce",
+  # ingredients: "2 cups of peach nectar\n1 cup of sparkling water\n1 tablespoon of honey\n1/4 cup of frozen peach slices\nIce",
   instructions: "1. In a blender, combine the peach nectar, sparkling water, honey, and frozen peach slices. Blend until the mixture is smooth and frothy.\n2. Fill glasses with ice and pour in the virgin Bellini mixture.\n3. Garnish each glass with a slice of fresh peach or a sprig of mint, if desired.\n4. Serve and enjoy!"
 )
 
@@ -360,7 +360,7 @@ virgin_old_fashioned = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "The Virgin Old Fashioned is a classic cocktail without the alcohol. It's perfect for those who want to enjoy the taste of an Old Fashioned without the buzz.",
-  ingredients: "1 tsp sugar\n1 tsp water\n2 dashes of Angostura bitters\n1 orange slice\n1 cherry\n1 cup ginger ale\nIce",
+  # ingredients: "1 tsp sugar\n1 tsp water\n2 dashes of Angostura bitters\n1 orange slice\n1 cherry\n1 cup ginger ale\nIce",
   instructions: "1. In a glass, muddle together the sugar, water, bitters, orange slice, and cherry until the sugar has dissolved and the fruit is slightly crushed.\n2. Fill the glass with ice and top with ginger ale.\n3. Stir well.\n4. Garnish with an orange twist or a cherry.\n5. Serve and enjoy!"
 )
 
@@ -369,7 +369,7 @@ mulled_wine_virgin = Edible.create(
   category: :mocktail,
   has_alcohol: false,
   description: "A warm and comforting spiced drink that's perfect for cold winter nights. This virgin version of mulled wine is made with a combination of fruit juices and warm spices.",
-  ingredients: "4 cups apple juice\n2 cups cranberry juice\n1/2 cup orange juice\n1/2 cup honey\n2 cinnamon sticks\n6 whole cloves\n2 star anise\n1 orange, sliced\n1 lemon, sliced",
+  # ingredients: "4 cups apple juice\n2 cups cranberry juice\n1/2 cup orange juice\n1/2 cup honey\n2 cinnamon sticks\n6 whole cloves\n2 star anise\n1 orange, sliced\n1 lemon, sliced",
   instructions: "1. In a large pot, combine the apple juice, cranberry juice, orange juice, honey, cinnamon sticks, cloves, and star anise.\n2. Heat the mixture over medium heat, stirring occasionally, until the honey is fully dissolved and the mixture is hot.\n3. Reduce the heat to low and let the mixture simmer for 15-20 minutes, until the spices have infused into the drink.\n4. Remove from heat and strain the mixture into a large bowl or pitcher.\n5. Add the sliced orange and lemon to the drink, and serve warm in mugs.\n6. Enjoy!"
 )
 
@@ -643,5 +643,161 @@ PartyGame.create(
   party: carnival_party,
   game: limbo_contest
 )
+
+
+puts "creating ingredients "
+
+potato_list = "potatoes\nbacon\nshredded cheddar cheese\ngreen onions\nsalt\npepper\nolive oil\npaprika"
+potato_array = potato_list.split("\n")
+potato_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: potato_skins)
+end
+
+
+
+nacho_list = "tortilla chips\nblack beans\nshredded cheddar cheese\n1 diced tomato\nred onion\nsliced jalapeños\nguacamole\n\sour cream"
+nacho_array = nacho_list.split("\n")
+nacho_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: loaded_nachos)
+end
+
+hummus_list ="chickpeas\ntahini\nlemon juice\ngarlic cloves\ncumin\nolive oil\nSalt and pepper\nAssorted vegetables (carrots, cucumbers, cherry tomatoes, etc.)\nPita bread"
+hummus_array = hummus_list.split("\n")
+hummus_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: hummus_plate)
+end
+
+pumpkin_list = "pumpkin\nonion\ngarlic\nvegetable broth\nheavy cream\nsalt\npepper\nolive oil"
+pumpkin_array = pumpkin_list.split("\n").split("\n")
+pumpkin_array.each do |ing|
+  Ingredient.create(name: ing, edible: pumpkin_soup)
+end
+
+devil_list = "eggs\nmayonnaise\nyellow mustard\nwhite vinegar\nsalt\nblack pepper\npaprika"
+devil_array = devil_list.split("\n")
+devil_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: deviled_eggs)
+end
+
+pig_list = "mini hot dogs\npuff pastry\neggs"
+pig_array = pig_list.split("\n")
+pig_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: pigs_in_a_blanket)
+end
+
+chicken_list = "Whole chicken\nolive oil\nsalt\nblack pepper\n1 lemon\ngarlic\nrosemary"
+chicken_array = chicken_list.split("\n")
+chicken_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: roasted_chicken)
+end
+
+feta_list = "Filo pastry\nSpinach\nFeta cheese\nFresh Parsley\nChopped Scallions\nOlive oil\nSalt\nPepper"
+feta_array = feta_list.split("\n")
+feta_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: filo_pastry_spinach_rolls)
+end
+
+negroni_list = "Gin\nSweet vermouth\nCampari"
+negroni_array = negroni_list.split("\n")
+negroni_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: negroni)
+end
+
+tequila_list = "tequila\norange juice\ngrenadine syrup\norange slice\ncherry\nice"
+tequila_array = tequila_list.split("\n")
+tequila_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: tequila_sunrise)
+end
+
+marg_list = "tequila\nlime juice\ntriple sec\nsalt\nlime wedge\nice"
+marg_array = marg_list.split("\n")
+marg_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: margarita)
+end
+
+old_list = "bourbon\nsugar\nAngostura bitters\norange"
+old_array = old_list.split("\n")
+old_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: old_fashioned)
+end
+
+sangria_list =  "red wine\nbrandy\norange juice\nlemon juice\nsugar\norange\nlemon\nlime\nstrawberries\nClub soda\nIce\nHalloween Candy"
+sangria_array = sangria_list.split("\n")
+sangria_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: sangria)
+end
+
+sour_list = "bourbon\nlemon juice\nsimple syrup\nAngostura bitters\nIce"
+sour_array = sour_list.split("\n")
+sour_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: whiskey_sour)
+end
+
+long_list = "vodka\nrum\ngin\ntequila\ntriple sec\nlemon juice\nsimple syrup\nCola\nIce"
+long_array = long_list.split("\n")
+long_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: long_island_iced_tea)
+end
+
+wine_list = "red wine\nbrandy\nhoney\ncinnamon stick\nstar anise\ncloves\norange\nlemon"
+wine_array = wine_list.split("\n")
+wine_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: mulled_wine)
+end
+
+
+vmarg_list = "lime juice\norange juice\nsimple syrup\nsalt\nlime\nice"
+vmarg_array = vmarg_list.split("\n")
+vmarg_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_margarita)
+end
+
+vpina_list = "lime juice,\npineapple,\ncoconut cream,\nbrown sugar\nice"
+vpina_array = vpina_list.split("\n")
+vpina_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_pinacolada)
+end
+
+vmojito_list = "1 lime\nsugar\nmint leaves\nsoda water\nIce"
+vmojito_array = vmojito_list.split("\n")
+vmojito_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_mojito)
+end
+
+vmary_list ="black tea\ntomato juice\nlemon\nWorcestershire sauce\nTabasco sauce\nsalt\nblack pepper\nice"
+vmary_array = vmary_list.split("\n")
+vmary_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_mary_iced_tea)
+end
+
+vcosmo_list = "cranberry juice,\nlime juice,\norange juice,\nsimple syrup\nice"
+vcosmo_array = vcosmo_list.split("\n")
+vcosmo_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_cosmo)
+end
+
+vsangria_list = "grape juice\norange juice\nlemon juice\nlime juice\nhoney\norange\nlemon\nlime\nstrawberries\nClub soda\nIce\nHalloween Candy"
+vsangria_array = vsangria_list.split("\n")
+vsangria_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_sangria)
+end
+
+vbellini_list =  "peach nectar\nsparkling water\nhoney\nfrozen peach slices\nIce"
+vbellini_array = vbellini_list.split("\n")
+vbellini_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_bellini)
+end
+
+vold_list = "sugar\nwater\nAngostura bitters\norange\ncherry\nginger ale\nIce"
+vold_array = vold_list.split("\n")
+vold_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: virgin_old_fashioned)
+end
+
+vwine_list = "apple juice\ncranberry juice\norange juice\nhoney\ncinnamon sticks\nwhole cloves\nstar anise\norange\nlemon"
+vwine_array = vwine_list.split("\n")
+vwine_array.each do |ing|
+  Ingredient.create(name: ing.strip.capitalize, edible: mulled_wine_virgin)
+end
 
 puts 'Finished!'
