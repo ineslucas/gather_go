@@ -206,7 +206,7 @@ roasted_chicken = Edible.create(
 
 filo_pastry_spinach_rolls = Edible.create(
   name: "Filo Pastry Spinach Rolls",
-  category: :appetizer,
+  category: :main,
   has_alcohol: false,
   description: "Crispy filo pastry filled with spinach and feta cheese. These spinach rolls are perfect for any occasion and are sure to impress your guests!",
   ingredients: "1 package frozen filo pastry, 2 cups fresh spinach, chopped, 1/2 cup crumbled feta cheese, 1/4 cup chopped fresh parsley, 1/4 cup chopped scallions, 1/4 cup olive oil, Salt and pepper to taste",

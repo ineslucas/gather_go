@@ -40,15 +40,14 @@
       </div>
 
       <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
-
       <div data-create-booking-target="themes" class="d-none">
           <h6 style="color:#D8DADA; padding-bottom:10px;">Question 3 of 4</h6>
+
           <h4> Choose your party theme  </h4>
           <p>Don't worry, you'll be able to review and change your party theme later. </p>
         <%= f.association :party , as: :radio_buttons, id: "category", input_html: { class: "tag-selector", data: { action: "change->parties#showInfo" }}, item_wrapper_class: 'tag-item', legend_tag: false %>
 
           <%= render "shared/party_infos", party: Party.new %>
-
 
         <%# button for navigation %>
         <button type="button" class="back-round-button" data-action="click->create-booking#displayMocktail" style="margin-bottom:10px">
