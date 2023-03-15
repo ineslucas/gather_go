@@ -1,11 +1,22 @@
 <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <%= link_to image_tag("chevron-left.svg", height: 20, style: "vertical-align: middle;"), :back, style: "margin-bottom: 10px;" %>
+      </div>
+      <div class="col-8 text-center">
+        <h2 class="Title" style="color:#7041EE; margin-top:0px; margin-bottom: 10px;">Edit Profile</h2> <%# <%= resource_name.to_s.humanize %>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-    <%= f.input :name,
+      <%= f.input :name,
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "name" }%>
@@ -32,27 +43,25 @@
                   input_html: { autocomplete: "profile_picture" }%>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Update", class: "main-button" %>
+    <div class="form-actions" style="border-bottom: 1px solid #7041EE; padding-bottom: 30px;">
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, label: "Save Changes", class: "main-button", button_html: { style: "padding-left: 0; padding-right: 0;" } %>
+      </div>
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
+  <%# new section %>
 
-  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+  <div class="d-flex justify-content-center align-items-center pb-3 pt-3">
+     <h2 style="color:#7041EE; margin-top:20px; margin-bottom: 10px; text-align: center;">Exit options</h2>
+  </div>
 
-  <%= link_to "Back", :back %>
-  <br>
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "main-button" %>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <p>this is not margin, just breaks so that the log out button is visible.</p>
-  <br>
-  <br>
-  <br>
-  <br>
+  <div class="d-flex justify-content-center pt-3 mx-6 pl-1" style="margin-bottom: 50px;">
+    <%= button_to "✌️ Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "main-button btn-block flex-fill mx-1 button-height", style: "border: none;" %>
+    <%= button_to "🚨 Cancel my account 🚨", registration_path(resource_name),
+          class: "main-button btn-block flex-fill mx-1 button-height",
+          style: "border: none;",
+          data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
+          method: :delete %>
+  </div>
 </div>

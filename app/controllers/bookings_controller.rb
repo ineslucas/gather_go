@@ -23,6 +23,8 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @party = @booking.party
+    @edibles = @party.edibles
+    @games = @party.games
     # Necessary for calendar invites:
     respond_to do |format|
       format.html
