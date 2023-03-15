@@ -12,7 +12,7 @@
       <div class="col-3">
         <%# ---------------ALLOWS AVATAR TO LINK_TO THE EDIT PAGE------------- %>
         <%= link_to edit_user_registration_path do %>
-          <%= cl_image_tag(current_user.profile_picture.key, class: "avatar", alt: "avatar", style: "width: 100%;") %>
+          <%= cl_image_tag(current_user.profile_picture.key, class: "avatar", alt: "avatar", style: "width: 100%;") if current_user.profile_picture.attached? %>
         <% end %>
       </div>
     </div>
