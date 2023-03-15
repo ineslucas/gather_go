@@ -1,0 +1,128 @@
+<%# ------------------------------------BUTTONS----------------------------------- %>
+<div class="d-flex justify-content-between pb-4 gap-3 px-3" style="overflow: scroll; white-space: nowrap;">
+  <button data-action="click->sections#showPlaylist" class="btn-tab">Playlist</button>
+  <button data-action="click->sections#showMainDishes" class="btn-tab">Main Dishes</button>
+  <button data-action="click->sections#showGames" class="btn-tab">Games</button>
+  <button data-action="click->sections#showMoodBoard" class="btn-tab">Moodboard</button>
+  <button data-action="click->sections#showMocktails" class="btn-tab">Mocktails</button>
+  <button data-action="click->sections#showCocktails" class="btn-tab">Cocktails</button>
+</div>
+
+    <%# -------------------------- PLAYLIST SECTION -------------------------- %>
+<div class="card border-0 shadow-lg bg-white rounded-4 my-3 mx-3" data-sections-target="playlist">
+  <div class="card-body">
+    <div class="card-body-info text-center">
+      <h4 class="card-title mt-2 mb-4 " style="color:#7041ee;">Playlist 🥳</h4>
+      <p class="card-subtitle text-muted"></p>
+      <div>
+        <%= @party.playlist.html_safe %>
+      </div>
+      <%# <div id="embed-iframe" style="mt-3; height:352px; background-color:rgb(24,56,112)"> %>
+    </div>
+  </div>
+</div>
+
+<%# -------------------------- MAIN (DISH) SECTION -------------------------- %>
+<div class="card border-0 shadow-lg bg-white rounded-4 my-3 mx-3 d-none" data-sections-target="mainDishes">
+  <div class="card-body">
+    <div class="card-body-info text-left">
+      <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041ee;">Main Dishes 🌮 🌯</h4>
+      <div>
+        <% if @party.edibles.any? %>
+            <% @party.edibles.where(category: :main).each do |edible| %></h5>
+            <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
+            <p style="color:grey;"><%= edible.description %></p>
+            <h6 style="color:black;">Ingredients</h6>
+            <p style="color:grey;" ><%= edible.ingredients %></p>
+            <h6 style="color:black;" >Recipe</h6>
+            <p style="color:grey;"><%= edible.instructions %></p>
+          <% end %>
+        <% else %>
+          <p>No party mains available yet.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# -------------------------- COCKTAIL SECTION -------------------------- %>
+<div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="cocktails">
+  <div class="card-body">
+    <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Cocktails 🍸</h4>
+    <%# Maria added this code over the weekend, not sure if it works as intended%>
+    <div class="card-body-info text-left">
+      <% if @party.edibles.where(category: :cocktail).any? %>
+        <% @party.edibles.where(category: :cocktail).each do |edible| %>
+          <h6 class="card-subtitle text-left mb-2" style="color:black;"><%= edible.name %></h6>
+          <p style="color:grey;"><%= edible.description %></p>
+          <h6 style="color:black;">Ingredients</h6>
+          <p style="color:grey;"><%= edible.ingredients %></p>
+          <h6 style="color:black;">Recipe</h6>
+          <p style="color:grey;"><%= edible.instructions %></p>
+        <% end %>
+      <% else %>
+        <p>There are no cocktails associated with this party.</p>
+      <% end %>
+    </div>
+  </div>
+  <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;"> %>
+</div>
+
+<%# -------------------------- MOCKTAIL SECTION -------------------------- %>
+<div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="mocktails">
+  <div class="card-body">
+    <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Mocktails 🧃</h4>
+    <%# Maria added this code over the weekend, not sure if it works as intended%>
+    <div class="card-body-info text-left">
+      <% if @party.edibles.where(category: :mocktail).any? %>
+        <% @party.edibles.where(category: :mocktail).each do |edible| %>
+          <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
+          <p style="color:grey;"><%= edible.description %></p>
+          <h6 style="color:black;">Ingredients</h6>
+          <p style="color:grey;"><%= edible.ingredients %></p>
+          <h6 style="color:black;">Recipe</h6>
+          <p style="color:grey;"><%= edible.instructions %></p>
+        <% end %>
+      <% else %>
+        <p>There are no mocktails associated with this party.</p>
+      <% end %>
+      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;"> %>
+    </div>
+  </div>
+</div>
+
+<%# -------------------------- GAMES SECTION -------------------------- %>
+<div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="games">
+  <div class="card-body">
+    <div class="card-body-info text-left">
+      <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;"> Games 🃏 </h4>
+      <%# Maria added this code over the weekend, not sure if it works as intended%>
+      <div class="card-body-info">
+        <% @party.games.each do |game| %>
+          <h6 class="card-subtitle mb-2" style="color:black;"><%= game.name %></h6>
+          <p style="color:grey;"><%= game.description %></p>
+          <h6 style="color:black;">Materials</h6>
+          <p style="color:grey;"><%= game.materials %></p>
+          <h6 style="color:black;">How is it played?</h6>
+          <p style="color:grey;"><%= game.instructions %></p>
+        <% end %>
+      </div>
+      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;"> %>
+    </div>
+  </div>
+</div>
+
+<%# -------------------------- PINTEREST SECTION -------------------------- %>
+<div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="moodBoard">
+  <div class="card-body">
+    <div class="card-body-info text-center">
+      <h4 class="card-title mt-2 mb-4" style="color:#6C60FF;">MoodBoard</h4>
+      <ul style="list-style-type: none; color:#6C757D ">
+        <%= @party.pinterest.html_safe %>
+      </ul>
+    </div>
+    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;"> %>
+  </div>
+</div>
+
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>

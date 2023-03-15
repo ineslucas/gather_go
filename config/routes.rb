@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # SUGGESTED ROUTE IS ACTUALLY: /parties/:id/bookings	POST	bookings	create // might need to be altered.
   # post '/bookings', to: 'bookings#create', as: 'bookings' - CURRENTLY COMMENTED
 
-  resources :bookings, only: [:new, :create, :show] do
+  resources :bookings, only: [:new, :create, :show, :edit, :update] do
     member do
       get :icalendar
     end
