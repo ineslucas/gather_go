@@ -125,7 +125,9 @@
           <div style="margin-bottom: 20px;">
             <h3 style="color: #7041EE;"><%= game.name %></h3>
             <% game.materials.each do |material| %>
+
               <label >
+
                 <input type="checkbox" name="materials[]" value="<%= material.id %>" <%= material.bought ? 'checked' : '' %> onclick="updateMaterial(<%= material.id %>)">
                 <%= material.name %>
               </label>

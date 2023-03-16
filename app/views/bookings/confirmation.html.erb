@@ -1,4 +1,11 @@
-<div style="text-align: center;">
-<h2>Hi <%= @booking.user.name%>! 🥳</h2>
-<h4>Let's get your <strong><%= @booking.party.name%></strong> started</h4>
+<%# --------------------IMAGE--------------------------------- %>
+<%= image_tag "confirmation_page_elements.svg", class:"confirmation-background" %>
+
+<div class="d-flex">
+  <div class="button" style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: absolute; bottom: 18%; left: 50%; transform: translate(-50%, -18%); width: 100%;">
+      <h2 style="color:#7041EE; font-size: 42px;">Your custom <br> party is ready!</h2>
+      <br>
+      <%# ------------------BUTTON------------------------------- %>
+      <%= link_to "Ready to see what you got?", booking_path, class: "main-button", style: "position-fixed" %>
+  </div>
 </div>
