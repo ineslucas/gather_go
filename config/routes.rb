@@ -30,5 +30,4 @@ Rails.application.routes.draw do
 
   #----------- CONFIRMATION PAGE -----------
   get 'bookings/:id/confirmation', to: "bookings#confirmation", as: :booking_confirmation
-
 end
