@@ -43,6 +43,8 @@ h2{
 
 .profile_card {
   color: black;
+  max-width: 200px;
+  margin-right: 16px;
 }
 
 // ------------------- CARDS FOR BOOKINGS#SHOW PAGE ---------------------
@@ -158,4 +160,11 @@ h2{
 .booking-card {
   min-width: 200px;
   height: 250px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
 }

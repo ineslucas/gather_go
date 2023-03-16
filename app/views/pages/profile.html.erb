@@ -1,30 +1,34 @@
+<!-- ROW CONTAINS BOTH AVATAR AND HI (NAME) -->
 <div class="main-content mb-5">
  <div class="container">
     <!-- ROW CONTAINS BOTH AVATAR AND HI (NAME) -->
     <div class="row ms-1 mb-3">
       <!-- container for welcome text -->
-      <div class="col-9">
+      <div class="col-8">
         <%# <%= @booking.user.name%>
-        <h2 style="text-align:left; color:#FF8675; margin-top:32px; margin-bottom:8px;">Hi <%= current_user.name %> 👋 </h2>
+        <h2 style="text-align:left; color:#FF8675; margin-top:32px; margin-bottom:8px;">Hi <%= current_user.name %></h2>
         <p style="text-align:left; font-size:16px;">These are your parties made epic with GatherGo.</p>
       </div>
-      <!-- TRYING TO PULL IMAGE OF CURRENT USER FROM CLOUDINARY -->
-      <div class="col-3">
-        <%# ---------------ALLOWS AVATAR TO LINK_TO THE EDIT PAGE------------- %>
+      <div class="col-4">
         <%= link_to edit_user_registration_path do %>
           <%= cl_image_tag(current_user.profile_picture.key, class: "avatar", alt: "avatar", style: "width: 100%;") if current_user.profile_picture.attached? %>
         <% end %>
+        <%# ---------------ALLOWS AVATAR TO LINK_TO THE EDIT PAGE------------- %>
       </div>
+      <!-- TRYING TO PULL IMAGE OF CURRENT USER FROM CLOUDINARY -->
     </div>
-  </div>
+</div>
 
+  <%# --------------- upcoming parties ------------- %>
   <div>
       <h5 class="mb-4 ms-4" style="color:#7041EE;">My upcoming parties 😮‍💨</h5>
       <div class="mx-1 overflow-scroll mb-3" id="leftside">
-        <div class="bookings-cards d-flex">
+        <div class="bookings-cards d-flex mx-4">
+
           <% current_user.bookings.where("starts_at > ?", Time.now).each_with_index do |booking, index| %>
+           <% if booking.present? %>
             <%= link_to booking_path(booking), class: "profile_card" do %>
-              <div class="d-flex flex-column booking-card p-3 rounded-4 bg-white shadow mb-4 <%= 'ms-4' if index == 0 %> me-3 justify-content-between">
+              <div class="d-flex flex-column booking-card p-3 rounded-4 bg-white shadow mb-4 me-3 justify-content-between">
                 <div class="d-flex justify-content-between">
                   <div class="d-flex flex-column">
                     <h3 style="color:#000000;"><%= booking.starts_at.strftime('%b') %></h3>
@@ -39,41 +43,75 @@
                 </div>
               </div>
             <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div>
-      <h5 class="mb-4 ms-4" style="color:#7041EE;">My past parties 😮‍💨</h5>
-      <div class="mx-1 overflow-scroll mb-3" id="leftside">
-        <div class="bookings-cards d-flex opacity-50">
-          <% current_user.bookings.where("starts_at < ?", Time.now).each_with_index do |booking, index| %>
-            <%= link_to booking_path(booking), class: "profile_card" do %>
-              <div class="d-flex flex-column booking-card p-3 rounded-4 bg-white shadow mb-5 <%= 'ms-4' if index == 0 %> me-3 justify-content-between">
+            <% else %>
+            <div class="d-flex booking-card p-3 rounded-4 bg-white shadow mb-4 me-3 justify-content-between">
                 <div class="d-flex justify-content-between">
-                  <div class="d-flex flex-column">
-                    <h2 style="color:#000000;"><%= booking.starts_at.strftime('%b') %></h2>
-                    <h2 style="color:#FF8675;"><%= booking.starts_at.strftime('%d') %></h2>
+                  <div class="d-flex">
+                    <h3 style="color:#000000;"></h3>
+                    <h3 style="color:#FF8675;"></h3>
                   </div>
                   <div>
-                    <h1 style="font-size: 40px" style="color:#333333"><%= booking.party.emoji %></h1>
+                    <img src="/assets/more_info.svg" style="width: 48px; height: 48px;" class="display: flex; justify-content: center; margin-top: 10px;" alt="graphics"/>
                   </div>
                 </div>
                 <div>
-                  <h1 style="color:#7041ee;"><%= booking.party.name%></h1>
+                  <h1 style="color:#7041ee;"></h1>
                 </div>
               </div>
             <% end %>
           <% end %>
+              <%= link_to new_booking_path do %>
+                <div class="d-flex booking-card p-3 rounded-4 bg-white shadow mb-4 me-3 justify-content-between">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                      <h3 style="color:#000000;"></h3>
+                      <h3 style="color:#FF8675;"></h3>
+                    </div>
+                    <div>
+                      <img src="/assets/more_info.svg" style="width: 48px; height: 48px;" class="display: flex; justify-content: center; margin-top: 10px;" alt="graphics"/>
+                    </div>
+                  </div>
+                  <div>
+                    <h1 style="color:#7041ee;"></h1>
+                  </div>
+                </div>
+              <% end %>
+
         </div>
       </div>
     </div>
   </div>
 
+
+              <%# --------------- past parties ------------- %>
+  <% unless current_user.bookings.where("starts_at < ?", Time.now).empty? %>
+    <div>
+        <h5 class="mb-4 ms-4 opacity-50" style="color:#7041EE;">My past parties 😮‍💨</h5>
+        <div class="mx-1 overflow-scroll mb-3" id="leftside">
+          <div class="bookings-cards d-flex mx-4 opacity-50">
+            <% current_user.bookings.where("starts_at < ?", Time.now).each_with_index do |booking, index| %>
+              <%= link_to booking_path(booking), class: "profile_card" do %>
+                <div class="d-flex flex-column booking-card p-3 rounded-4 bg-white shadow mb-5 me-3 justify-content-between">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                      <h3 style="color:#000000;"><%= booking.starts_at.strftime('%b') %></h3>
+                      <h3 style="color:#FF8675;"><%= booking.starts_at.strftime('%d') %></h3>
+                    </div>
+                    <div>
+                      <h1 style="font-size: 40px" style="color:#333333"><%= booking.party.emoji %></h1>
+                    </div>
+                  </div>
+                  <div>
+                    <h1 style="color:#7041ee;"><%= booking.party.name%></h1>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
 
 <%# <p><%= booking.ends_at.strftime('%B %d, %Y') % >.</p> %>
@@ -81,3 +119,4 @@
 <%# Possibilities for cloudinary image %>
 <%# <%= cl_image_tag current_user.profile_picture.url, class: "avatar", alt: "avatar" %>
 <%# <%= cl_image_tag @user.profile_picture_path, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+<%# , style:"width: 220px;" %>

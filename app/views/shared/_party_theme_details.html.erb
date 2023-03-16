@@ -9,7 +9,7 @@
 </div>
 
     <%# -------------------------- PLAYLIST SECTION -------------------------- %>
-<div class="card border-0 shadow-lg bg-white rounded-4 my-3 mx-3" data-sections-target="playlist">
+<div class="card border-0 shadow-lg bg-white rounded-4 my-3 mx-3" style="padding-bottom: 40px;" data-sections-target="playlist">
   <div class="card-body">
     <div class="card-body-info text-center">
       <h4 class="card-title mt-2 mb-4 " style="color:#7041ee;">Playlist 🥳</h4>
@@ -29,17 +29,20 @@
       <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041ee;">Main Dishes 🌮 🌯</h4>
       <div>
         <% if @party.edibles.any? %>
-            <% @party.edibles.where(category: :main).each do |edible| %></h5>
+          <% @party.edibles.where(category: :main).each do |edible| %></h5>
             <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
             <p style="color:grey;"><%= edible.description %></p>
             <h6 style="color:black;">Ingredients</h6>
-             <ul>
-            <% edible.ingredients.each do |ingredient| %>
-              <li style="color:grey;"><%= ingredient.name %></li>
-            <% end %>
-          </ul>
+            <ul>
+              <% edible.ingredients.each do |ingredient| %>
+                <li style="color:grey;"><%= ingredient.name %></li>
+              <% end %>
+            </ul>
             <h6 style="color:black;" >Recipe</h6>
             <p style="color:grey;"><%= edible.instructions %></p>
+            <% unless @party.edibles.where(category: :main).count == 1 %>
+              <hr>
+            <% end %>
           <% end %>
         <% else %>
           <p>No party mains available yet.</p>
@@ -52,7 +55,7 @@
 <%# -------------------------- COCKTAIL SECTION -------------------------- %>
 <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="cocktails">
   <div class="card-body">
-    <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Cocktails 🍸</h4>
+    <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;">Cocktails 🍸</h4>
     <%# Maria added this code over the weekend, not sure if it works as intended%>
     <div class="card-body-info text-left">
       <% if @party.edibles.where(category: :cocktail).any? %>
@@ -67,6 +70,9 @@
           </ul>
           <h6 style="color:black;">Recipe</h6>
           <p style="color:grey;"><%= edible.instructions %></p>
+          <% unless @party.edibles.where(category: :main).count == 1 %>
+            <hr>
+          <% end %>
         <% end %>
       <% else %>
         <p>There are no cocktails associated with this party.</p>
@@ -79,7 +85,7 @@
 <%# -------------------------- MOCKTAIL SECTION -------------------------- %>
 <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="mocktails">
   <div class="card-body">
-    <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;">Mocktails 🧃</h4>
+    <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;">Mocktails 🧃</h4>
     <%# Maria added this code over the weekend, not sure if it works as intended%>
     <div class="card-body-info text-left">
       <% if @party.edibles.where(category: :mocktail).any? %>
@@ -87,13 +93,16 @@
           <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
           <p style="color:grey;"><%= edible.description %></p>
           <h6 style="color:black;">Ingredients</h6>
-           <ul>
+          <ul>
             <% edible.ingredients.each do |ingredient| %>
               <li style="color:grey;"><%= ingredient.name %></li>
             <% end %>
           </ul>
           <h6 style="color:black;">Recipe</h6>
           <p style="color:grey;"><%= edible.instructions %></p>
+          <% unless @party.edibles.where(category: :main).count == 1 %>
+            <hr>
+          <% end %>
         <% end %>
       <% else %>
         <p>There are no mocktails associated with this party.</p>
@@ -107,20 +116,23 @@
 <div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="games">
   <div class="card-body">
     <div class="card-body-info text-left">
-      <h4 class="card-title mt-2 mb-4 text-center" style="color:#6C60FF;"> Games 🃏 </h4>
+      <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;"> Games 🃏 </h4>
       <%# Maria added this code over the weekend, not sure if it works as intended%>
       <div class="card-body-info">
         <% @party.games.each do |game| %>
           <h6 class="card-subtitle mb-2" style="color:black;"><%= game.name %></h6>
           <p style="color:grey;"><%= game.description %></p>
           <h6 style="color:black;">Materials</h6>
-          <ul>
+          <ul style="list-style-type:none;">
             <% game.materials.each do |material| %>
-              <li style="color:grey;"><%= material.name %></li>
+              <li style="color: grey; list-style-type: none;"><%= material.name %></li>
             <% end %>
           </ul>
           <h6 style="color:black;">How is it played?</h6>
           <p style="color:grey;"><%= game.instructions %></p>
+          <% unless @party.games.count == 1 %>
+            <hr>
+          <% end %>
         <% end %>
       </div>
       <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top mt-3 rounded-4 shadow" style="height: 353px;"> %>
@@ -129,11 +141,11 @@
 </div>
 
 <%# -------------------------- PINTEREST SECTION -------------------------- %>
-<div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" data-sections-target="moodBoard">
+<div class="card rounded-4 border-0 shadow-lg bg-white my-3 mx-3 d-none" style="padding-bottom: 40px;" data-sections-target="moodBoard">
   <div class="card-body">
-    <div class="card-body-info text-center">
-      <h4 class="card-title mt-2 mb-4" style="color:#6C60FF;">MoodBoard</h4>
-      <ul style="list-style-type: none; color:#6C757D ">
+    <div class="card-body-info text-left">
+      <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041EE;">MoodBoard</h4>
+      <ul style="list-style-type: none; color:#7041EE ">
         <%= @party.pinterest.html_safe %>
       </ul>
     </div>
