@@ -1,12 +1,12 @@
 
 <div class="menu fixed-bottom" style="border-radius: 24px 24px 0px 0px;">
   <%= link_to root_path do %>
-    <%= image_tag("house", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(root_url) }") %>
+    <%= image_tag("house.svg", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(root_url) }") %>
   <% end %>
   <%= link_to parties_path do %>
-    <%= image_tag("cocktail", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(parties_url) || (action_name == "show" && controller_name == "parties") }") %>
+    <%= image_tag("cocktail.svg", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(parties_url) || (action_name == "show" && controller_name == "parties") }") %>
   <% end %>
   <%= link_to profile_path do %>
-    <%= image_tag("person", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(profile_url) || (action_name == "show" && controller_name == "bookings") }") %>
+    <%= image_tag("person.svg", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(profile_url) || (action_name == "show" && controller_name == "bookings") }") %>
   <% end %>
 </div>
