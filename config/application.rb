@@ -7,7 +7,7 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 # related to cloudinary
-Dotenv::Railtie.load
+Dotenv::Railtie.load if Rails.env.development?
 
 module GatherGo
   class Application < Rails::Application
