@@ -1,0 +1,38 @@
+<%# LOGIC for note taking %>
+
+<div id="<%= "edit_outfit_#{dom_id(booking)}" %>">
+  <%= simple_form_for booking, html: { class: "d-none" }, data: { edit_in_place_target: 'form' } do |form| %>
+    <div class="form-group">
+      <%= form.input :outfit_notes, class: "form-control", label: false %>
+    </div>
+
+    <%# -------------------------Buttons -------------------------%>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <%# -----------------------BUTTON FOR CANCEL----------------------------- %>
+      <button class="btn btn-sm" style="padding: 0px;" data-action="click->edit-in-place#toggleEdit">
+        <%= image_tag "x-mark.svg", alt: 'Cancel', width: 24, height: 24 %>
+      </button>
+      <%# -----------------------BUTTON FOR SUBMIT----------------------------- %>
+      <button class="btn btn-sm" type="submit">
+        <%= image_tag "checkmark.svg", alt: 'Save', width: 24, height: 24 %>
+      </button>
+    </div>
+
+  <% end %>
+
+  <%# Trial %>
+  <% if booking.outfit_notes.blank? %>
+    <p data-edit-in-place-target="content">
+      <strong>This is a sacred place for outfit ideas to flow.</strong>
+      Get inspo from the GatherGo moodboard.
+    </p>
+  <% else %>
+    <div data-edit-in-place-target="content">
+      <%= booking.outfit_notes %>
+    </div>
+  <% end %>
+
+  <button class="btn btn-sm" style="padding: 0px; margin-top: 20px;" data-edit-in-place-target="edit" data-action="click->edit-in-place#toggleEdit">
+    <%= image_tag "pencil-square-deco-outfits.svg", alt: 'Edit', width: 24, height: 24 %>
+  </button>
+</div>

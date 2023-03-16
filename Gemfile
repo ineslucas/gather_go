@@ -82,5 +82,3 @@ end
 gem "icalendar"
 
 gem "cloudinary"
-
-

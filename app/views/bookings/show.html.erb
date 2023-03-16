@@ -17,7 +17,7 @@
           </div>
           <div>
             <h4><%= @booking.ends_at.strftime("%b")%></h4>
-            <h1 style="color: #FF8674"><%= @booking.starts_at.day %></h1>
+            <h1 style="color: #FF8674"><%= @booking.ends_at.day %></h1>
           </div>
         </div>
         <%# -----------------BOOKING START AND END TIME + MAP --------------- %>
@@ -125,9 +125,7 @@
           <div style="margin-bottom: 20px;">
             <h3 style="color: #7041EE;"><%= game.name %></h3>
             <% game.materials.each do |material| %>
-
               <label >
-
                 <input type="checkbox" name="materials[]" value="<%= material.id %>" <%= material.bought ? 'checked' : '' %> onclick="updateMaterial(<%= material.id %>)">
                 <%= material.name %>
               </label>
@@ -139,16 +137,16 @@
     </div>
   </div>
   <script>
-  function updateMaterial(id) {
-    var checkbox = document.querySelector('input[value="' + id + '"]');
-    var checked = checkbox.checked;
-    fetch('/materials/' + id, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ bought: checked })
-    });
-  }
-</script>
+    function updateMaterial(id) {
+      var checkbox = document.querySelector('input[value="' + id + '"]');
+      var checked = checkbox.checked;
+      fetch('/materials/' + id, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bought: checked })
+      });
+    }
+  </script>
     <%# -------------------------------- ITEM FOR DECORATIONS ----------------------------------------------- %>
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingFour">
@@ -158,7 +156,13 @@
       </h2>
       <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>Have a look at our mood board above.</strong> Add what you think you may need here in this section of the to-do list.
+          <h3 style="color: #7041EE;">Your brainstorm</h3>
+
+          <%# -------------------------------- START OF INPUT---------------------------------------- %>
+          <div data-controller="edit-in-place">
+            <%= render partial: "bookings/edit_decoration_notes", locals: { booking: @booking } %>
+          </div>
+          <%# -----------------------------END OF INPUT-------------------------------------------- %>
         </div>
       </div>
     </div>
@@ -171,7 +175,13 @@
       </h2>
       <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>Have a look at our mood board above.</strong> Which outfit will you pick? Your friend group can coordinate. Add what you need to make it happen in this section of the to-do list.
+          <h3 style="color: #7041EE;">Your brainstorm</h3>
+
+          <%# -------------------------------- START OF INPUT---------------------------------------- %>
+          <div data-controller="edit-in-place">
+            <%= render partial: "bookings/edit_outfit_notes", locals: { booking: @booking } %>
+          </div>
+          <%# -----------------------------END OF INPUT-------------------------------------------- %>
         </div>
       </div>
     </div>
