@@ -10,8 +10,8 @@
       <div data-create-booking-target="start">
           <h6 style="color:#D8DADA; padding-bottom:10px;">Question 1 of 4</h6>
         <h4 style="color:black"> When will your party start and finish? </h4>
-        <%= f.input :starts_at, as: :datetime, html5: true, input_html: { class: "round-input"  } %>
-        <%= f.input :ends_at, as: :datetime, html5: true, input_html: { class: "round-input" } %>
+        <%= f.input :starts_at, as: :string, input_html: { class: "round-input", data: { controller: "flatpickr" } } %>
+        <%= f.input :ends_at, as: :string, input_html: { class: "round-input", data: { controller: "flatpickr" } } %>
         <%# needs to be done as a calendar later %>
         <%# button for navigation %>
         <button type="button" data-action="click->create-booking#displayMocktail" class="purple-round-button">
@@ -73,8 +73,7 @@
         <h4 style="padding-bottom:8px;">Where will the party be hosted?</h4>
         <%= f.input :address, label: false, wrapper_html: { class: "w-100" },input_html: { class: "round-input w-100", style: "padding: 22px" } %>
         <%= f.button :submit, 'Start Party!', class: "main-button" %>
-
-    </div>
+      </div>
     <% end %>
   </div>
 </div>
