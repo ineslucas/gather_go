@@ -33,7 +33,11 @@
             <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
             <p style="color:grey;"><%= edible.description %></p>
             <h6 style="color:black;">Ingredients</h6>
-            <p style="color:grey;" ><%= edible.ingredients %></p>
+             <ul>
+            <% edible.ingredients.each do |ingredient| %>
+              <li style="color:grey;"><%= ingredient.name %></li>
+            <% end %>
+          </ul>
             <h6 style="color:black;" >Recipe</h6>
             <p style="color:grey;"><%= edible.instructions %></p>
           <% end %>
@@ -56,7 +60,11 @@
           <h6 class="card-subtitle text-left mb-2" style="color:black;"><%= edible.name %></h6>
           <p style="color:grey;"><%= edible.description %></p>
           <h6 style="color:black;">Ingredients</h6>
-          <p style="color:grey;"><%= edible.ingredients %></p>
+           <ul>
+            <% edible.ingredients.each do |ingredient| %>
+              <li style="color:grey;"><%= ingredient.name %></li>
+            <% end %>
+          </ul>
           <h6 style="color:black;">Recipe</h6>
           <p style="color:grey;"><%= edible.instructions %></p>
         <% end %>
@@ -79,7 +87,11 @@
           <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
           <p style="color:grey;"><%= edible.description %></p>
           <h6 style="color:black;">Ingredients</h6>
-          <p style="color:grey;"><%= edible.ingredients %></p>
+           <ul>
+            <% edible.ingredients.each do |ingredient| %>
+              <li style="color:grey;"><%= ingredient.name %></li>
+            <% end %>
+          </ul>
           <h6 style="color:black;">Recipe</h6>
           <p style="color:grey;"><%= edible.instructions %></p>
         <% end %>
@@ -102,7 +114,11 @@
           <h6 class="card-subtitle mb-2" style="color:black;"><%= game.name %></h6>
           <p style="color:grey;"><%= game.description %></p>
           <h6 style="color:black;">Materials</h6>
-          <p style="color:grey;"><%= game.materials %></p>
+          <ul>
+            <% game.materials.each do |material| %>
+              <li style="color:grey;"><%= material.name %></li>
+            <% end %>
+          </ul>
           <h6 style="color:black;">How is it played?</h6>
           <p style="color:grey;"><%= game.instructions %></p>
         <% end %>
