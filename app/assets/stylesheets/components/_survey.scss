@@ -70,10 +70,10 @@
   background-color: #F4F0FF;
 }
 
-.tag-selector:checked + label {
-  background-color: #7041EE;
-  color: white !important;
-}
+// .tag-selector:checked + label {
+//   background-color: #7041EE;
+//   color: white !important;
+// }
 
 .container-body {
   text-align: center;
@@ -95,6 +95,12 @@
 .checkbox-input {
   transform: unset;
   border-style: none;
+}
+
+.checkbox-input-mocktails {
+  transform: unset;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .form-check-input {
@@ -157,16 +163,77 @@
 //   outline: none;
 // }
 
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #7041EE;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+}
 
-//   /* Target the checkboxes within the accordion */
-// #accordionExample input[type="checkbox"] {
-//     /* Set the color to purple */
-//   color: #7041EE !important;
-//     /* Increase the size of the checkbox */
-//   transform: scale(1.5);
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  display: inline-block;
+  color: white;
+  // font-size: 0.8em;
+  // width: 1em;
+  // height: 1em;
+  text-align: center;
+  background-color: #7041EE;
+  border-radius: 50%;
+  // margin-right: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0.75;
+}
+
+// .tag-selector checkbox-input {
+//   appearance: none;
+//   -webkit-appearance: none;
+//   background-color: #7041EE;
+//   border-radius: 50%;
+//   width: 1.2em;
+//   height: 1.2em;
+//   margin-right: 0.5em;
+//   vertical-align: middle;
+//   border: none;
+//   outline: none;
 // }
 
-//   /* Style the checkbox label */
-// #accordionExample label {
-//     display: block;
+// .tag-selector checkbox-input:checked::before{
+//   content: "\2713";
+//   display: inline-block;
+//   color: white;
+//   // font-size: 0.8em;
+//   // width: 1em;
+//   // height: 1em;
+//   text-align: center;
+//   background-color: #7041EE;
+//   border-radius: 50%;
+//   // margin-right: 0.5em;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   line-height: 1;
 // }
+
+.form-check-input[type="checkbox"] {
+  border-radius: 50%;
+}
+
+.form-check-input[type="checkbox"]:checked {
+background-image: none;
+
+}
+
+.form-check-input:checked {
+  background-color: #7041EE;
+  border-color: #7041EE;
+}
+

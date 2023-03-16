@@ -2,7 +2,7 @@
   <%# -----------------------TITLE + DESCRIPTION--------------------------- %>
   <div class="row text-center mx-2">
     <h2 class="Title" style="color:#7041EE; margin-top:20px; margin-bottom:0px;">Your <%= @booking.party.name%></h2>
-    <p style=" margin-bottom: 20px;"><%= @booking.party.description %></p>
+    <p style="margin-bottom: 20px;"><%= @booking.party.description %></p>
   </div>
   <%# ---------------------------LOCATION, DATES, EDIT ---------------------- %>
   <div class="row date_card my-2 mx-2">
@@ -60,7 +60,7 @@
   <br>
   <br>
   <%# ----------------------------THEME DETAILS---------------------------------------- %>
-  <h3 class="subtitle" style="color:#7041EE; margin-top:20px; margin-bottom:20px; text-align: center;">The party deets</h2>
+  <h3 class="subtitle" style="color:#7041EE; margin-top:20px; margin-bottom:20px; text-align: center;">Party Details</h2>
   <%= render "shared/party_theme_details" %>
   <%# <div style="border-bottom: 1px solid #7041EE; padding-bottom: 30px;"></div> %>
   <br>
@@ -125,7 +125,9 @@
           <div style="margin-bottom: 20px;">
             <h3 style="color: #7041EE;"><%= game.name %></h3>
             <% game.materials.each do |material| %>
-              <label style="<%= material.bought ? 'text-decoration: line-through;' : '' %>">>
+
+              <label >
+
                 <input type="checkbox" name="materials[]" value="<%= material.id %>" <%= material.bought ? 'checked' : '' %> onclick="updateMaterial(<%= material.id %>)">
                 <%= material.name %>
               </label>
