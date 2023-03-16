@@ -1,0 +1,6 @@
+<turbo-stream action="replace" target="edit_<%= dom_id(@booking) %>">
+  <template>
+    <%= render partial: "bookings/edit_decoration_notes",
+      locals: { booking: @booking }, formats: [:html] %>
+  </template>
+</turbo-stream>

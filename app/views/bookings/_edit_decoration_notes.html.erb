@@ -1,0 +1,22 @@
+<%= simple_form_for booking, html: { class: "d-none" }, data: { edit_in_place_target: 'form' } do |form| %>
+  <div class="form-group">
+    <%= form.input :decoration_notes, class: "form-control", label: false %>
+  </div>
+  <button data-action="click->edit-in-place#toggleEdit">
+    Cancel
+  </button>
+  <%= form.submit "Save", class: "main-button" %>
+<% end %>
+
+<%# Trial %>
+<% if @booking.decoration_notes.blank? %>
+  <strong>Have a look at our mood board above.</strong> _edit_decoration_notes Add what you think you may need here in this section of the to-do list.
+<% else %>
+  <div data-edit-in-place-target="content"><%= booking.decoration_notes %></div>
+<% end %>
+
+<%# <div data-edit-in-place-target="content"><%= booking.decoration_notes</div> %>
+
+<button data-edit-in-place-target="edit" data-action="click->edit-in-place#toggleEdit">
+  <img src="pencil-square-deco-outfits.svg" alt="Edit" width="24" height="24">
+</button>
