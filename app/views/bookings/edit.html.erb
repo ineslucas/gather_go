@@ -4,7 +4,7 @@
 
   <div style="background-color:#FFFFFF; border-radius:40px; padding:20px; margin:20px;" class="shadow-lg">
     <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
-    <%= simple_form_for @booking, data: { controller: "parties" } do |f| %>
+    <%= simple_form_for @booking, data: { controller: "parties" }, data: { turbo: false } do |f| %>
 
       <%# ------------- QUESTION PARTY TIMINGS --------------  %>
       <div data-create-booking-target="start">
