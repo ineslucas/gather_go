@@ -4,9 +4,9 @@
     <%= image_tag("house", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(root_url) }") %>
   <% end %>
   <%= link_to parties_path do %>
-    <%= image_tag("cocktail", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(parties_url) }") %>
+    <%= image_tag("cocktail", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(parties_url) || (action_name == "show" && controller_name == "parties") }") %>
   <% end %>
   <%= link_to profile_path do %>
-    <%= image_tag("person", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(profile_url) }") %>
+    <%= image_tag("person", height: '40', class: "#{ 'menu-icon-inactive' unless current_page?(profile_url) || (action_name == "show" && controller_name == "bookings") }") %>
   <% end %>
 </div>
