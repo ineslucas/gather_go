@@ -1,6 +1,11 @@
-<turbo-stream action="replace" target="edit_<%= dom_id(@booking) %>">
+<turbo-stream action="replace" target="edit_decoration_<%= dom_id(@booking) %>">
   <template>
-    <%= render partial: "bookings/edit_decoration_notes",
-      locals: { booking: @booking }, formats: [:html] %>
+    <%= render partial: "bookings/edit_decoration_notes", locals: { booking: @booking }, formats: [:html] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="edit_outfit_<%= dom_id(@booking) %>">
+  <template>
+    <%= render partial: "bookings/edit_outfit_notes", locals: { booking: @booking }, formats: [:html] %>
   </template>
 </turbo-stream>

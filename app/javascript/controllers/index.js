@@ -10,14 +10,14 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import CreateBookingController from "./create_booking_controller"
 application.register("create-booking", CreateBookingController)
 
+import EditInPlaceController from "./edit_in_place_controller"
+application.register("edit-in-place", EditInPlaceController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
-import EditInPlaceController from "./edit_in_place"
-application.register("edit-in-place", EditInPlaceController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)

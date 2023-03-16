@@ -158,9 +158,8 @@
         <div class="accordion-body">
           <h3 style="color: #7041EE;">Your brainstorm</h3>
 
-          <%# <strong>Have a look at our mood board above.</strong> Add what you think you may need here in this section of the to-do list. %>
           <%# -------------------------------- START OF INPUT---------------------------------------- %>
-          <div data-controller="edit-in-place" id="edit_#{dom_id(@booking)}">
+          <div data-controller="edit-in-place">
             <%= render partial: "bookings/edit_decoration_notes", locals: { booking: @booking } %>
           </div>
           <%# -----------------------------END OF INPUT-------------------------------------------- %>
@@ -176,7 +175,13 @@
       </h2>
       <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>Have a look at our mood board above.</strong> Which outfit will you pick? Your friend group can coordinate. Add what you need to make it happen in this section of the to-do list.
+          <h3 style="color: #7041EE;">Your brainstorm</h3>
+
+          <%# -------------------------------- START OF INPUT---------------------------------------- %>
+          <div data-controller="edit-in-place">
+            <%= render partial: "bookings/edit_outfit_notes", locals: { booking: @booking } %>
+          </div>
+          <%# -----------------------------END OF INPUT-------------------------------------------- %>
         </div>
       </div>
     </div>

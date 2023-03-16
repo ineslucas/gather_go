@@ -1,9 +1,9 @@
 <%# LOGIC for note taking %>
 
-<div id="<%= "edit_decoration_#{dom_id(booking)}" %>">
+<div id="<%= "edit_outfit_#{dom_id(booking)}" %>">
   <%= simple_form_for booking, html: { class: "d-none" }, data: { edit_in_place_target: 'form' } do |form| %>
     <div class="form-group">
-      <%= form.input :decoration_notes, class: "form-control", label: false %>
+      <%= form.input :outfit_notes, class: "form-control", label: false %>
     </div>
 
     <%# -------------------------Buttons -------------------------%>
@@ -17,17 +17,18 @@
         <%= image_tag "checkmark.svg", alt: 'Save', width: 24, height: 24 %>
       </button>
     </div>
+
   <% end %>
 
   <%# Trial %>
-  <% if booking.decoration_notes.blank? %>
+  <% if booking.outfit_notes.blank? %>
     <p data-edit-in-place-target="content">
-      <strong>This is a sacred place for decoration ideas to flow.</strong>
+      <strong>This is a sacred place for outfit ideas to flow.</strong>
       Get inspo from the GatherGo moodboard.
     </p>
   <% else %>
     <div data-edit-in-place-target="content">
-      <%= booking.decoration_notes %>
+      <%= booking.outfit_notes %>
     </div>
   <% end %>
 
