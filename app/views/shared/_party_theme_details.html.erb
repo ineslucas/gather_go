@@ -29,7 +29,7 @@
       <h4 class="card-title mt-2 mb-4 text-center" style="color:#7041ee;">Main Dishes 🌮 🌯</h4>
       <div>
         <% if @party.edibles.any? %>
-          <% @party.edibles.where(category: :main).each do |edible| %></h5>
+          <% @party.edibles.where(category: :main).each do |edible| %>
             <h6 class="card-subtitle mb-2" style="color:black;"><%= edible.name %></h6>
             <p style="color:grey;"><%= edible.description %></p>
             <h6 style="color:black;">Ingredients</h6>
