@@ -8,7 +8,6 @@
 }
 
 ul {
-  padding: 0;
   list-style-type: none;
 }
 
@@ -16,12 +15,12 @@ ul {
   object-fit: cover;
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
+.card-body-text {
   overflow: hidden;
+  margin:24px;
+  text-align:center;
 }
 
 .card-body-info {
-  flex-grow: 1;
+  text-align:center;
 }

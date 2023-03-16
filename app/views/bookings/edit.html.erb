@@ -1,3 +1,75 @@
-<h1>Booking#Edit</h1>
-<p>just pick up the code from the survey and style it differently! </p>
+<div data-controller="create-booking" class="container-body no-min-height" style="text-align:center;">
+  <h1 class="Title" style="color:#7041EE; margin-top:32px; padding:20px; font-size: 24px;">Edit your Party</h1>
+  <%# <p>Answer a few questions and we'll generate your themed party!</p> %>
 
+  <div style="background-color:#FFFFFF; border-radius:40px; padding:20px; margin:20px;" class="shadow-lg">
+    <%# When you do a form with simple form for, it will fill out each of the bookings variables %>
+    <%= simple_form_for @booking, data: { controller: "parties" } do |f| %>
+
+      <%# ------------- QUESTION PARTY TIMINGS --------------  %>
+      <div data-create-booking-target="start">
+        <h6 style="color:#D8DADA; padding-bottom:10px;">Question 1 of 4</h6>
+        <h4 style="color:black"> When will your party start and finish? </h4>
+        <%= f.input :starts_at, as: :datetime, html5: true, input_html: { class: "round-input"  } %>
+        <%= f.input :ends_at, as: :datetime, html5: true, input_html: { class: "round-input" } %>
+        <%# needs to be done as a calendar later %>
+        <%# button for navigation %>
+        <button type="button" data-action="click->create-booking#displayMocktail" class="purple-round-button">
+          <i class="fa-solid fa-chevron-right purple-round-icon"></i>
+        </button>
+      </div>
+
+      <%# ------------- QUESTION MOCKTAILS --------------  %>
+      <div data-create-booking-target="mocktail" class="d-none">
+        <h6 style="color:#D8DADA; padding-bottom:10px;">Question 2 of 4</h6>
+        <h4 style="">Would you also like to see Mocktail suggestions?</h4>
+        <%= f.input :has_mocktails,
+                    input_html: { class: "tag-selector checkbox-input", style: "text-size:24px"},
+                    label_html: { class: "bg-transparent" } %>
+        <%# button for navigation %>
+        <button type="button" class="back-round-button" data-action="click->create-booking#displayStart" style="margin-bottom:10px">
+          <i class="fa-solid fa-chevron-left back-round-icon"></i>
+        </button>
+
+        <button type="button" class="purple-round-button" data-action="click->create-booking#displayThemes">
+          <i class="fa-solid fa-chevron-right purple-round-icon"></i>
+        </button>
+      </div>
+
+      <%# ------------- QUESTION WHICH THEME IS AN IMMEDIATE NO FOR YOU 🚨 currently choosing a theme.... --------------  %>
+      <div data-create-booking-target="themes" class="d-none">
+        <h6 style="color:#D8DADA; padding-bottom:16px;">Question 3 of 4</h6>
+
+        <h4> Choose your party theme  </h4>
+        <%= f.association :party ,
+                          as: :radio_buttons,
+                          id: "category",
+                          input_html: {
+                            class: "tag-selector category-button",
+                            data: { action: "change->parties#showInfo" }
+                          },
+                          item_wrapper_class: 'tag-item',
+                          legend_tag: false %>
+
+        <%= render "shared/party_infos", party: Party.new %>
+
+        <%# button for navigation %>
+        <button type="button" class="back-round-button" data-action="click->create-booking#displayMocktail" style="margin-bottom:10px">
+          <i class="fa-solid fa-chevron-left back-round-icon"></i>
+        </button>
+
+        <button type="button" class="purple-round-button" data-action="click->create-booking#displayAddress">
+          <i class="fa-solid fa-chevron-right purple-round-icon"></i>
+        </button>
+      </div>
+
+      <%# ---------------- QUESTION ADDRESS -----------------  %>
+      <div data-create-booking-target="address" class="d-none" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h6 style="color:#D8DADA; padding-bottom:10px;">Question 4 of 4</h6>
+        <h4 style="padding-bottom:8px;">Where will the party be hosted?</h4>
+        <%= f.input :address, label: false, wrapper_html: { class: "w-100" },input_html: { class: "round-input w-100", style: "padding: 22px" } %>
+        <%= f.button :submit, 'Confirm', class: "main-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

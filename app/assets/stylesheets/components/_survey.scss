@@ -12,7 +12,7 @@
 }
 
 .purple-round-button {
-  background-color: #7041EE;;
+  background-color: #7041EE;
   border: none;
   border-radius: 50%;
   color: white;
@@ -61,17 +61,18 @@
   font-size: 16px;
   border-radius: 50rem;
   padding: 13px;
-  color: #AE8FFF;
+  color: #7041EE !important;
 }
 
+
 .form-check-label {
-  color: #7041EE;
+  color: #7041EE !important;
   background-color: #F4F0FF;
 }
 
 .tag-selector:checked + label {
-
-  color:#7041EE;
+  background-color: #7041EE;
+  color: white !important;
 }
 
 .container-body {
@@ -97,13 +98,14 @@
 }
 
 .form-check-input {
-  top: 42vh;
-  left: 18.2vh;
+  margin-top: 16px;
+  margin-left: -12px !important;
 }
 
 .no-min-height {
   min-height: unset;
 }
+
 
 // .form-control {
 //   padding: 22px 80px 22px 40px;
@@ -153,4 +155,18 @@
 // select.datetime.optional:focus {
 //   // border-color: #8C84E1;
 //   outline: none;
+// }
+
+
+//   /* Target the checkboxes within the accordion */
+// #accordionExample input[type="checkbox"] {
+//     /* Set the color to purple */
+//   color: #7041EE !important;
+//     /* Increase the size of the checkbox */
+//   transform: scale(1.5);
+// }
+
+//   /* Style the checkbox label */
+// #accordionExample label {
+//     display: block;
 // }

@@ -1,9 +1,8 @@
-
 <div class="container" data-controller="sections">
   <%# -----------------------TITLE + DESCRIPTION--------------------------- %>
   <div class="row text-center mx-2">
     <h2 class="Title" style="color:#7041EE; margin-top:20px; margin-bottom:0px;">Your <%= @booking.party.name%></h2>
-    <p style="margin-bottom: 20px;"><%= @booking.party.description %></p>
+    <p style=" margin-bottom: 20px;"><%= @booking.party.description %></p>
   </div>
   <%# ---------------------------LOCATION, DATES, EDIT ---------------------- %>
   <div class="row date_card my-2 mx-2">
@@ -90,50 +89,64 @@
       </div>
     </div>
     <%# -------------------------------- ITEM FOR FOOD (MAINS, COCKTAILS AND MOCKTAILS) ----------------------------------------------- %>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          🍳 Food
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-
-          <%# loops through all the @edibles and generate a title with the edible's name and a checkbox with the edible's ingredients as the input for each edible. %>
-          <% @edibles.each do |edible| %>
-            <div style="margin-bottom: 20px;">
-              <h3 style="color: #7041EE;"><%= edible.name %></h3>
-              <label>
-                <input type="checkbox" name="<%= edible.name %>" value="<%= edible.id %>">
-                <%= edible.ingredients %>
-              </label>
-            </div>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-    <%# -------------------------------- ITEM FOR GAMES ----------------------------------------------- %>
-    <div class="accordion-item">
+      <div class="accordion-item">
       <h2 class="accordion-header" id="headingThree">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          🎱 Games
+           🍳 Food
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-           <% @games.each do |game| %>
+          <% @edibles.each do |edible| %>
             <div style="margin-bottom: 20px;">
-              <h3 style="color: #7041EE;"><%= game.name %></h3>
-              <label>
-                <input type="checkbox" name="<%= game.name %>" value="<%= game.id %>">
-                <%= game.materials %>
-              </label>
+              <h3 style="color: #7041EE;"><%= edible.name %></h3>
+              <% edible.ingredients.each do |ingredient| %>
+                <label>
+                  <input type="checkbox" name="<%= edible.name %>" value="<%= ingredient.id %>">
+                  <%= ingredient.name %>
+                </label>
+                <br>
+              <% end %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
+    <%# -------------------------------- ITEM FOR GAMES ----------------------------------------------- %>
+   <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        🎱 Games
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <% @games.each do |game| %>
+          <div style="margin-bottom: 20px;">
+            <h3 style="color: #7041EE;"><%= game.name %></h3>
+            <% game.materials.each do |material| %>
+              <label style="<%= material.bought ? 'text-decoration: line-through;' : '' %>">>
+                <input type="checkbox" name="materials[]" value="<%= material.id %>" <%= material.bought ? 'checked' : '' %> onclick="updateMaterial(<%= material.id %>)">
+                <%= material.name %>
+              </label>
+              <br>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <script>
+  function updateMaterial(id) {
+    var checkbox = document.querySelector('input[value="' + id + '"]');
+    var checked = checkbox.checked;
+    fetch('/materials/' + id, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bought: checked })
+    });
+  }
+</script>
     <%# -------------------------------- ITEM FOR DECORATIONS ----------------------------------------------- %>
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingFour">
