@@ -1,3 +1,5 @@
+![image](https://github.com/ineslucas/gather_go/assets/122114360/c331504c-187b-4274-bb92-49d0e55561ab)
+
 GatherGo is a comprehensive party planning app designed to streamline and simplify the process of organizing and hosting themed events.
 
 The app provides users with tools for selecting themes with a dedicated Spotify playlist, discovering creative DIY decoration ideas through a Pinterest mood board, recipes, mocktails, cocktails and games options. 
