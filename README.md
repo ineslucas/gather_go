@@ -1,4 +1,5 @@
-![image](https://github.com/ineslucas/gather_go/assets/122114360/c331504c-187b-4274-bb92-49d0e55561ab)
+![image](https://github.com/ineslucas/gather_go/assets/122114360/f16e0ffd-aaf2-4fbb-a0f4-f17b4e0daedb)
+![image](https://github.com/ineslucas/gather_go/assets/122114360/19fb5b4f-587a-4636-bd32-bdaad7122da6)
 
 GatherGo is a comprehensive party planning app designed to streamline and simplify the process of organizing and hosting themed events.
 
