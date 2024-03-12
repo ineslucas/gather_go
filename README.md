@@ -1,4 +1,8 @@
-# 🎉 GatherGo: The Ultimate Party Planning App
+![image](https://github.com/ineslucas/gather_go/assets/122114360/f16e0ffd-aaf2-4fbb-a0f4-f17b4e0daedb)
+![image](https://github.com/ineslucas/gather_go/assets/122114360/19fb5b4f-587a-4636-bd32-bdaad7122da6)
+
+# 🎉 GatherGo: The Ultimate Party Planning App 
+### [Video pitch available](https://youtu.be/uXlWTxWLvlQ?si=sRMfQEyrAih9NW4a&t=1835)
 
 GatherGo is a comprehensive party planning app designed to streamline and simplify the process of organizing and hosting themed events.
 
@@ -71,8 +75,4 @@ GatherGo embodies the essence of party planning made simple. Through meticulous 
 
 ## 📹 Watch me pitch
 [<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/a427ebd3-dbf9-45ee-8ca2-3bf04e30c1b8/Screenshot_2023-04-08_at_23.23.26/w=1920,quality=80,fit=scale-down" width="50%">](https://www.youtube.com/watch?v=uXlWTxWLvlQ "Watch me pitch Gather Go")
-
-
-![image](https://github.com/ineslucas/gather_go/assets/122114360/f16e0ffd-aaf2-4fbb-a0f4-f17b4e0daedb)
-![image](https://github.com/ineslucas/gather_go/assets/122114360/19fb5b4f-587a-4636-bd32-bdaad7122da6)
 
