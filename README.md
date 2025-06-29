@@ -23,6 +23,7 @@ Developed with a user-friendly interface, GatherGo aims to make party planning a
 * Cloudinary
 * Pinterest and Spotify content
 * iCalendar integration
+* Mapbox
 
 ## 🦄 Main Features
 
