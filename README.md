@@ -20,6 +20,9 @@ Developed with a user-friendly interface, GatherGo aims to make party planning a
 * SQL
 * Git and GitHub
 * Heroku
+* Cloudinary
+* Pinterest and Spotify content
+* iCalendar integration
 
 ## 🦄 Main Features
 
